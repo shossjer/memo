@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./styles/styles.css" />
+        <script async src="./javascript/index.js"></script>
+        <title>&#x30e1&#x30e2</title>
+    </head>
+    <body>
+        <div class="page">
+            <div>
+                <!--
+                <div class="navbar">
+                    <a href="#">Japanska</a>
+                    <a href="#">???</a>
+                </div>
+                -->
+                <div class="gametab">
+                    <button class="tablinks" onclick="openGame(event, 'guess')" id="DefaultTab">Gissa</button>
+                    <button class="tablinks" onclick="openGame(event, 'write')">Skriva</button>
+                </div>
+            </div>
+            <div id="guess" class="tabcontent">
+                <div class="gamearea">
+                    <div class="playarea center">
+                        <p id="GuessCharacter"></p>
+                    </div>
+                    <div class="sidearea">
+                        <div class="center">
+                            <p id="GuessedCharacter"></p>
+                        </div>
+                        <div class="center">
+                            <p id="GuessedName"></p>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="game.next()">SPACE</button>
+                <p>Till vänster visas ett tecken. Gissa vilket tecken det är genom att t.ex. säga det högt för dig själv och tryck sedan på SPACE (eller knappen ovan med samma namn). Tecknet du precis gissat på kommer flyttas till höger och dess faktiska namn kommer avslöjas. Till vänster kommer ett nytt tecken visas. Kan du alla tecken?</p>
+            </div>
+            <div id="write" class="tabcontent">
+                <div class="gamearea">
+                    <div class="playarea center">
+                        <p id="WriteCharacter"></p>
+                    </div>
+                    <div class="sidearea">
+                        <div class="center">
+                            <p id="WrittenCharacter"></p>
+                        </div>
+                        <div class="center">
+                            <p id="WrittenName"></p>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="game.next()">SPACE</button>
+                <p>Till vänster visas namnet på ett tecken. Skriv tecknet på t.ex. ett papper och tryck sedan på SPACE (eller knappen ovan med samma namn). Namnet på tecknet du precis skrivit kommer flyttas till höger och dess faktiska karaktär kommer avslöjas. Till vänster kommer namnet på ett nytt tecken visas. Kan du alla tecken?</p>
+            </div>
+        </div>
+    </body>
+</html>

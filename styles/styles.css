@@ -1,0 +1,77 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.page {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.gametab {
+    overflow: hidden;
+    border: 1px solid lightgray;
+    background-color: #f1f1f1;
+}
+
+.gametab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+}
+
+.gametab button:hover {
+    background-color: #ddd;
+}
+
+.gametab button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.gamearea {
+    flex: 1;
+    display: flex;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.playarea {
+    flex: 70%;
+    background-color: white;
+
+    font-size: 160px;
+}
+
+.sidearea {
+    flex: 30%;
+    background-color: lightgray;
+
+    font-size: 80px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.sidearea > div {
+    flex: 1;
+}
