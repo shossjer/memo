@@ -62,19 +62,19 @@ body {
     flex: 70%;
     background-color: white;
 
-    font-size: 160px;
+    font-size: 30vh;
 }
 
 .sidearea {
     flex: 30%;
     background-color: lightgray;
 
-    font-size: 80px;
+    font-size: 15vh;
 
     display: flex;
     flex-direction: column;
 }
 
-.sidearea > div {
+.sidearea > span {
     flex: 1;
 }
