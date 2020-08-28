@@ -113,13 +113,18 @@ function getElemFromName(dictionary, name) {
 
 var dictionary = undefined;
 
+function resetDictionary() {
+    dictionary = [{name: '?', char:'?'}];
+}
+
 const games = {
     guess: {
         first: () => {
             dictionary = [];
             Object.keys(dictionaries).forEach(key => { if (document.getElementById('guess-' + key).checked) { dictionary = dictionary.concat(dictionaries[key]); } });
             if (dictionary.length == 0) {
-                dictionary = [{name: '?', char:'?'}];
+                // the dictionary is empty, panic
+                resetDictionary();
             }
 
             document.getElementById('GuessedCharacter').innerHTML = '?';
@@ -132,7 +137,13 @@ const games = {
             document.getElementById('GuessedCharacter').innerHTML = char;
             document.getElementById('GuessedName').innerHTML = getElemFromChar(dictionary, char).name;
 
-            document.getElementById('GuessCharacter').innerHTML = getRandomElem(dictionary.filter((elem) => { return elem.char != char; })).char;
+            var filteredDictionary = dictionary.filter((elem) => { return elem.char != char; });
+            if (filteredDictionary.length == 0) {
+                // there is no possible next element, panic
+                resetDictionary();
+                filteredDictionary = dictionary;
+            }
+            document.getElementById('GuessCharacter').innerHTML = getRandomElem(filteredDictionary).char;
         }
     },
     write: {
