@@ -1,3 +1,5 @@
+const nextButton = 'ArrowRight';
+
 const hiragana = [
     {name: 'a', char: '\u3042'},
     {name: 'i', char: '\u3044'},
@@ -72,7 +74,7 @@ const games = {
             document.getElementById('GuessedCharacter').innerHTML = char;
             document.getElementById('GuessedName').innerHTML = getElemFromChar(hiragana, char).name;
 
-            document.getElementById('GuessCharacter').innerHTML = getRandomElem(hiragana.filter((elem) => { return elem.char != char;})).char;
+            document.getElementById('GuessCharacter').innerHTML = getRandomElem(hiragana.filter((elem) => { return elem.char != char; })).char;
         }
     },
     write: {
@@ -87,17 +89,21 @@ const games = {
             document.getElementById('WrittenCharacter').innerHTML = getElemFromName(hiragana, name).char;
             document.getElementById('WrittenName').innerHTML = name;
 
-            document.getElementById('WriteCharacter').innerHTML = getRandomElem(hiragana.filter((elem) => { return elem.name != name;})).name;
+            document.getElementById('WriteCharacter').innerHTML = getRandomElem(hiragana.filter((elem) => { return elem.name != name; })).name;
         }
     }
 };
 
 var game = undefined;
 
-document.onkeypress = function(event) {
+const nexts = document.getElementsByClassName('next');
+for (var i = 0; i < nexts.length; i++) {
+    nexts[i].innerHTML = nextButton;
+}
+
+document.onkeydown = function(event) {
     event = event || window.event;
-    if (event.code == 'Space') {
-        event.preventDefault();
+    if (event.code === nextButton) {
         game.next();
     }
 };
