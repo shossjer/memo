@@ -46,6 +46,36 @@ body {
     background-color: lightgreen;
 }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .content {
+    visibility: hidden;
+    background-color: black;
+    color: white;
+
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+}
+
+.tooltip:hover .content {
+    visibility: visible;
+}
+
+.gridcontainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;
+    padding: 5px;
+}
+
+.griditem {
+    padding: 5px;
+}
+
 .gamearea {
     flex: 1;
     display: flex;
