@@ -1,3 +1,8 @@
+:root {
+    --grid-rows: 1;
+    --grid-cols: 1;
+}
+
 html {
     height: 100%;
 }
@@ -68,7 +73,8 @@ body {
 
 .gridcontainer {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
     padding: 5px;
 }
 
