@@ -67,10 +67,28 @@
                 <p>Till vänster visas ett tecken. Gissa vilket tecken det är genom att t.ex. säga det högt för dig själv och tryck sedan på knappen ovan (eller tangentbordsknappen med samma namn). Tecknet du precis gissat på kommer flyttas till höger och dess faktiska namn kommer avslöjas. Till vänster kommer ett nytt tecken visas. Kan du alla tecken?</p>
             </div>
             <div id="write" class="tabcontent">
+                <div class="options">
+                    <div>
+                        <label>Tillägg: </label>
+                        <label>
+                            <input type="checkbox" class="dataset basics" onclick="game.first()" checked>Basic Syllables
+                            <span class="tooltip basics">&#x1F6C8</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="dataset diacritics" onclick="game.first()">Diacritical Marks
+                            <span class="tooltip diacritics">&#x1F6C8</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="dataset contractions" onclick="game.first()">Contracted Sounds
+                            <span class="tooltip contractions">&#x1F6C8</span>
+                        </label>
+                    </div>
+                </div>
                 <div class="gamearea">
                     <span class="playarea center" id="WriteCharacter"></span>
                     <div class="sidearea">
-                        <span class="center" id="WrittenCharacter"></span>
+                        <span class="center" id="WrittenHiragana"></span>
+                        <span class="center" id="WrittenKatakana"></span>
                         <span class="center" id="WrittenName"></span>
                     </div>
                 </div>

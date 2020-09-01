@@ -243,16 +243,31 @@ const games = {
     },
     write: {
         first: () => {
-            resetDictionary();
+            const datasetoptions = getOptions('dataset');
 
-            document.getElementById('WrittenCharacter').innerHTML = '?';
+            dictionary = [];
+            Object.keys(datasets).forEach(datasetkey => {
+                if (datasetoptions[datasetkey]) {
+                    datasets[datasetkey].forEach(elem => {
+                        dictionary.push({name: elem.name, hiragana: elem.hiragana, katakana: elem.katakana});
+                    });
+                }
+            });
+            if (dictionary.length == 0) {
+                // the dictionary is empty, panic
+                resetDictionary();
+            }
+
+            document.getElementById('WrittenHiragana').innerHTML = '?';
+            document.getElementById('WrittenKatakana').innerHTML = '?';
             document.getElementById('WrittenName').innerHTML = '?';
 
             document.getElementById('WriteCharacter').innerHTML = getRandomElem(dictionary).name;
         },
         next: () => {
             const name = document.getElementById('WriteCharacter').innerHTML;
-            document.getElementById('WrittenCharacter').innerHTML = getElemFromName(dictionary, name).char;
+            document.getElementById('WrittenHiragana').innerHTML = getElemFromName(dictionary, name).hiragana;
+            document.getElementById('WrittenKatakana').innerHTML = getElemFromName(dictionary, name).katakana;
             document.getElementById('WrittenName').innerHTML = name;
 
             var filteredDictionary = dictionary.filter(elem => { return elem.name != name; });
