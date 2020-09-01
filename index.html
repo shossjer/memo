@@ -21,14 +21,40 @@
             </div>
             <div id="guess" class="tabcontent">
                 <div class="options">
-                    <label>
-                        <input type="checkbox" id="guess-hiragana" onclick="game.first()">Hiragana
-                        <span class="tooltip hiragana">&#x1F6C8</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" id="guess-katakana" onclick="game.first()">Katakana
-                        <span class="tooltip katakana">&#x1F6C8</span>
-                    </label>
+                    <div>
+                        <label>Skriftsystem: </label>
+                        <label>
+                            <input type="checkbox" class="field hiragana" onclick="game.first()" checked>&#x3072&#x3089&#x304c&#x306a
+                            <span class="tooltip">&#x1F6C8
+                                <span class="content">
+                                    <label>Hiragana</label>
+                                </span>
+                            </span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="field katakana" onclick="game.first()">&#x30ab&#x30bf&#x30ab&#x30ca
+                            <span class="tooltip">&#x1F6C8
+                                <span class="content">
+                                    <label>Katakana</label>
+                                </span>
+                            </span>
+                        </label>
+                    </div>
+                    <div>
+                        <label>Tillägg: </label>
+                        <label>
+                            <input type="checkbox" class="dataset basics" onclick="game.first()" checked>Basic Syllables
+                            <span class="tooltip basics">&#x1F6C8</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="dataset diacritics" onclick="game.first()">Diacritical Marks
+                            <span class="tooltip diacritics">&#x1F6C8</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="dataset contractions" onclick="game.first()">Contracted Sounds
+                            <span class="tooltip contractions">&#x1F6C8</span>
+                        </label>
+                    </div>
                 </div>
                 <div class="gamearea">
                     <span class="playarea center" id="GuessCharacter"></span>

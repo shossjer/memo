@@ -58,8 +58,10 @@ body {
 
 .tooltip .content {
     visibility: hidden;
+
     background-color: black;
     color: white;
+    padding: 5px;
 
     position: absolute;
     z-index: 1;
@@ -69,17 +71,18 @@ body {
 
 .tooltip:hover .content {
     visibility: visible;
+    text-align: center;
 }
 
 .gridcontainer {
     display: grid;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
-    padding: 5px;
 }
 
 .griditem {
     padding: 5px;
+    white-space: nowrap;
 }
 
 .gamearea {
