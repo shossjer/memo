@@ -8,6 +8,22 @@
     <body>
         <div class="page">
             <div>
+                <label>Teckenfont: </label>
+                <label>
+                    <input type="radio" name="font" onclick="setCharacterFont('defaultfont')">Default
+                </label>
+                <label class="sansseriffont">
+                    <input type="radio" name="font" onclick="setCharacterFont('sansseriffont')">Sans-serif
+                </label>
+                <label class="seriffont">
+                    <input type="radio" name="font" onclick="setCharacterFont('seriffont')">Serif
+                </label>
+                <label class="kgothicfont">
+                    <input type="radio" name="font" onclick="setCharacterFont('kgothicfont')" id="DefaultFont">
+                    <a href="https://booth.pm/ja/items/1025180">K Gothic</a>
+                </label>
+            </div>
+            <div>
                 <!--
                 <div class="navbar">
                     <a href="#">Japanska</a>
@@ -57,9 +73,9 @@
                     </div>
                 </div>
                 <div class="gamearea">
-                    <span class="playarea center" id="GuessCharacter"></span>
+                    <span class="playarea center characterfont" id="GuessCharacter"></span>
                     <div class="sidearea">
-                        <span class="center" id="GuessedCharacter"></span>
+                        <span class="center characterfont" id="GuessedCharacter"></span>
                         <span class="center" id="GuessedName"></span>
                     </div>
                 </div>
@@ -85,10 +101,10 @@
                     </div>
                 </div>
                 <div class="gamearea">
-                    <span class="playarea center" id="WriteCharacter"></span>
+                    <span class="playarea center characterfont" id="WriteCharacter"></span>
                     <div class="sidearea">
-                        <span class="center" id="WrittenHiragana"></span>
-                        <span class="center" id="WrittenKatakana"></span>
+                        <span class="center characterfont" id="WrittenHiragana"></span>
+                        <span class="center characterfont" id="WrittenKatakana"></span>
                         <span class="center" id="WrittenName"></span>
                     </div>
                 </div>

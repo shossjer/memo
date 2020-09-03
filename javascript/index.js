@@ -138,7 +138,7 @@ function generateDatasetGrid(dataset, field) {
     const gridsize = getGridSize(dataset);
     // https://stackoverflow.com/a/57550587
     const grid = document.createElement('div');
-    grid.className = 'gridcontainer';
+    grid.className = 'gridcontainer characterfont';
     grid.style.setProperty('--grid-rows', gridsize.y);
     grid.style.setProperty('--grid-cols', gridsize.x);
     var gridcells = [];
@@ -281,6 +281,7 @@ const games = {
     }
 };
 
+var characterFont = undefined;
 var game = undefined;
 
 const nexts = document.getElementsByClassName('next');
@@ -297,7 +298,17 @@ document.onkeydown = function(event) {
     }
 };
 
+document.getElementById('DefaultFont').click();
 document.getElementById('DefaultTab').click();
+
+function setCharacterFont(fontClass) {
+    const characterfonts = document.getElementsByClassName('characterfont');
+    for (var i = 0; i < characterfonts.length; i++) {
+        characterfonts[i].classList.remove(characterFont);
+        characterfonts[i].classList.add(fontClass);
+    }
+    characterFont = fontClass;
+}
 
 function openGame(event, gameName) {
     tabcontent = document.getElementById(gameName);
