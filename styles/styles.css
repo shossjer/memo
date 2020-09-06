@@ -106,35 +106,66 @@ body {
     white-space: nowrap;
 }
 
-.gamearea {
-    flex: 1;
+.roworder {
     display: flex;
+    flex-direction: row;
 }
 
-.center {
+.columnorder {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    flex-direction: column;
+}
+
+.gamearea {
+    flex: 1;
 }
 
 .playarea {
     flex: 70%;
     background-color: white;
+}
 
-    font-size: 30vh;
+.playcharacter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-size: 30vmin;
+}
+
+.playtext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-size: 8vmin;
 }
 
 .sidearea {
     flex: 30%;
     background-color: lightgray;
-
-    font-size: 15vh;
-
-    display: flex;
-    flex-direction: column;
 }
 
-.sidearea > span {
+.sidecharacter {
     flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-size: 15vmin;
+}
+
+.sidetext {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-size: 4vmin;
 }

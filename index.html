@@ -33,6 +33,7 @@
                 <div class="gametab">
                     <button class="tablinks" onclick="openGame(event, 'guess')" id="DefaultTab">Gissa</button>
                     <button class="tablinks" onclick="openGame(event, 'write')">Skriva</button>
+                    <button class="tablinks" onclick="openGame(event, 'comprehension')">Ordförståelse</button>
                 </div>
             </div>
             <div id="guess" class="tabcontent">
@@ -40,7 +41,7 @@
                     <div>
                         <label>Skriftsystem: </label>
                         <label>
-                            <input type="checkbox" class="field hiragana" onclick="game.first()" checked>&#x3072&#x3089&#x304c&#x306a
+                            <input type="checkbox" class="field" value="hiragana" onclick="game.first()" checked>&#x3072&#x3089&#x304c&#x306a
                             <span class="tooltip">&#x1F6C8
                                 <span class="content">
                                     <label>Hiragana</label>
@@ -48,7 +49,7 @@
                             </span>
                         </label>
                         <label>
-                            <input type="checkbox" class="field katakana" onclick="game.first()">&#x30ab&#x30bf&#x30ab&#x30ca
+                            <input type="checkbox" class="field" value="katakana" onclick="game.first()">&#x30ab&#x30bf&#x30ab&#x30ca
                             <span class="tooltip">&#x1F6C8
                                 <span class="content">
                                     <label>Katakana</label>
@@ -59,24 +60,24 @@
                     <div>
                         <label>Tillägg: </label>
                         <label>
-                            <input type="checkbox" class="dataset basics" onclick="game.first()" checked>Basic Syllables
+                            <input type="checkbox" class="dataset" value="basics" onclick="game.first()" checked>Basic Syllables
                             <span class="tooltip basics">&#x1F6C8</span>
                         </label>
                         <label>
-                            <input type="checkbox" class="dataset diacritics" onclick="game.first()">Diacritical Marks
+                            <input type="checkbox" class="dataset" value="diacritics" onclick="game.first()">Diacritical Marks
                             <span class="tooltip diacritics">&#x1F6C8</span>
                         </label>
                         <label>
-                            <input type="checkbox" class="dataset contractions" onclick="game.first()">Contracted Sounds
+                            <input type="checkbox" class="dataset" value="contractions" onclick="game.first()">Contracted Sounds
                             <span class="tooltip contractions">&#x1F6C8</span>
                         </label>
                     </div>
                 </div>
-                <div class="gamearea">
-                    <span class="playarea center characterfont" id="GuessCharacter"></span>
-                    <div class="sidearea">
-                        <span class="center characterfont" id="GuessedCharacter"></span>
-                        <span class="center" id="GuessedName"></span>
+                <div class="gamearea roworder">
+                    <span class="playarea playcharacter characterfont" id="GuessCharacter"></span>
+                    <div class="sidearea columnorder">
+                        <span class="sidecharacter characterfont" id="GuessedCharacter"></span>
+                        <span class="sidecharacter" id="GuessedName"></span>
                     </div>
                 </div>
                 <button class="next" onclick="game.next()"></button>
@@ -87,30 +88,60 @@
                     <div>
                         <label>Tillägg: </label>
                         <label>
-                            <input type="checkbox" class="dataset basics" onclick="game.first()" checked>Basic Syllables
+                            <input type="checkbox" class="dataset" value="basics" onclick="game.first()" checked>Basic Syllables
                             <span class="tooltip basics">&#x1F6C8</span>
                         </label>
                         <label>
-                            <input type="checkbox" class="dataset diacritics" onclick="game.first()">Diacritical Marks
+                            <input type="checkbox" class="dataset" value="diacritics" onclick="game.first()">Diacritical Marks
                             <span class="tooltip diacritics">&#x1F6C8</span>
                         </label>
                         <label>
-                            <input type="checkbox" class="dataset contractions" onclick="game.first()">Contracted Sounds
+                            <input type="checkbox" class="dataset" value="contractions" onclick="game.first()">Contracted Sounds
                             <span class="tooltip contractions">&#x1F6C8</span>
                         </label>
                     </div>
                 </div>
-                <div class="gamearea">
-                    <span class="playarea center characterfont" id="WriteCharacter"></span>
-                    <div class="sidearea">
-                        <span class="center characterfont" id="WrittenHiragana"></span>
-                        <span class="center characterfont" id="WrittenKatakana"></span>
-                        <span class="center" id="WrittenName"></span>
+                <div class="gamearea roworder">
+                    <span class="playarea playcharacter characterfont" id="WriteCharacter"></span>
+                    <div class="sidearea columnorder">
+                        <span class="sidecharacter characterfont" id="WrittenHiragana"></span>
+                        <span class="sidecharacter characterfont" id="WrittenKatakana"></span>
+                        <span class="sidecharacter" id="WrittenName"></span>
                     </div>
                 </div>
                 <button class="next" onclick="game.next()"></button>
                 <p>Till vänster visas namnet på ett tecken. Skriv tecknet på t.ex. ett papper och tryck sedan på knappen ovan (eller tangentbordsknappen med samma namn). Namnet på tecknet du precis skrivit kommer flyttas till höger och dess faktiska karaktär kommer avslöjas. Till vänster kommer namnet på ett nytt tecken visas. Kan du alla tecken?</p>
             </div>
+            <div id="comprehension" class="tabcontent">
+                <div class="options">
+                    <div>
+                        <label>Riktning: </label>
+                        <label>
+                            <input type="radio" class="direction" value="japanese2english" name="comprehension-direction" onclick="game.first()" checked>Japanska -> Engelska
+                        </label>
+                        <label>
+                            <input type="radio" class="direction" value="english2japanese" name="comprehension-direction" onclick="game.first()">Engelska -> Japanska
+                        </label>
+                    </div>
+                    <div>
+                        <label>Chapter: </label>
+                        <label>
+                            <input type="checkbox" class="chapter" value="0" onclick="game.first()">0
+                        </label>
+                        <label>
+                            <input type="checkbox" class="chapter" value="1" onclick="game.first()">1
+                        </label>
+                    </div>
+                </div>
+                <div class="gamearea columnorder">
+                    <span class="playarea playtext center"></span>
+                    <div class="sidearea roworder">
+                        <span class="sidetext"></span>
+                        <span class="sidetext"></span>
+                    </div>
+                </div>
+                <button class="next" onclick="game.next()"></button>
+                <p>Högst upp visas ett ord eller uttryck. Översätt uttrycket och tryck sedan på knappen ovan (eller tangentbordsknappen med samma namn). Uttrycket kommer flyttas ned till vänster och dess korrekta översättning (eller en av dom) kommer avslöjas nere till höger. Högst upp kommer ett nytt ord eller uttryck att visas. Kan du alla ord/uttryck?</p>
         </div>
     </body>
 </html>

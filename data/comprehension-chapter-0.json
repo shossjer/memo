@@ -1,0 +1,21 @@
+[
+    {"japanese": "ありがとう［ございます］", "english": "thank you [polite]", "tags": ["greeting"]},
+    {"japanese": "いええ/いえいえ", "english": "no/not at all", "tags": ["greeting"]},
+    {"japanese": "いただきます", "english": "thank you for the meal (before eating)", "tags": ["greeting"]},
+    {"japanese": "いってきます", "english": "I will go and come back", "tags": ["greeting"]},
+    {"japanese": "いってらっしゃい", "english": "please go and come back", "tags": ["greeting"]},
+    {"japanese": "おかえり（なさい）", "english": "welcome home", "tags": ["greeting"]},
+    {"japanese": "おはよう［ございます］", "english": "good morning [polite]", "tags": ["greeting"]},
+    {"japanese": "おやすみ（なさい）", "english": "good night", "tags": ["greeting"]},
+    {"japanese": "ごちそうさま（でした）", "english": "thank you for the meal (after eating)", "tags": ["greeting"]},
+    {"japanese": "こんいちは", "english": "good afternoon", "tags": ["greeting"]},
+    {"japanese": "こんばんは", "english": "good evening", "tags": ["greeting"]},
+    {"japanese": "さようなら", "english": "good-bye", "tags": ["greeting"]},
+    {"japanese": "すうじ", "english": "numbers", "tags": ["misc"]},
+    {"japanese": "すみません", "english": "excuse me/I am sorry", "tags": ["greeting"]},
+    {"japanese": "ただいま", "english": "I am home", "tags": ["greeting"]},
+    {"japanese": "たんご", "english": "vocabulary", "tags": ["misc"]},
+    {"japanese": "～です", "english": "... it is", "tags": ["misc", "suffix"]},
+    {"japanese": "はじめまして", "english": "how do you do?", "tags": ["greeting"]},
+    {"japanese": "よろしくおねがいします", "english": "nice to meet you", "tags": ["greeting"]}
+]

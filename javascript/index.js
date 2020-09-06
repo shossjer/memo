@@ -1,5 +1,27 @@
 const nextButton = 'ArrowRight';
 
+var characterFont = undefined;
+
+function setCharacterFont(fontClass) {
+    const characterfonts = document.getElementsByClassName('characterfont');
+    for (var i = 0; i < characterfonts.length; i++) {
+        characterfonts[i].classList.remove(characterFont);
+        characterfonts[i].classList.add(fontClass);
+    }
+    characterFont = fontClass;
+}
+
+function removeCharacterClass(domelem) {
+    domelem.classList.remove(characterFont);
+    domelem.classList.remove('characterfont');
+}
+
+function addCharacterClass(domelem) {
+    removeCharacterClass(domelem);
+    domelem.classList.add('characterfont');
+    domelem.classList.add(characterFont);
+}
+
 const datasets = {
     basics: [
         {name: 'a', hiragana: '\u3042', katakana: '\u30a2', x: 10, y: 0},
@@ -113,14 +135,25 @@ const datasets = {
     ]
 };
 
-function getRandomElem(array) {
-    return array[Math.floor(Math.random() * array.length)];
+function getRandom(count) {
+    return Math.floor(Math.random() * count);
 }
 
+function getRandomIndex(array) {
+    return getRandom(array.length);
+}
+
+// @deprecated
+function getRandomElem(array) {
+    return array[getRandomIndex(array)];
+}
+
+// @deprecated
 function getElemFromChar(dictionary, char) {
     return dictionary.find((elem) => { return elem.char == char; });
 }
 
+// @deprecated
 function getElemFromName(dictionary, name) {
     return dictionary.find((elem) => { return elem.name == name; });
 }
@@ -178,6 +211,9 @@ function generateDatasetTooltips() {
 }
 
 var dictionary = undefined;
+var comprehensionDictionary = undefined;
+var comprehensionIndex = undefined;
+var comprehensionAlternative = undefined;
 
 function resetDictionary() {
     dictionary = [{name: '?', char:'?'}];
@@ -185,16 +221,22 @@ function resetDictionary() {
 
 var tabcontent = undefined;
 
+function getOption(className) {
+    const elements = tabcontent.getElementsByClassName(className);
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i].checked) {
+            return elements[i].value;
+        }
+    }
+    return undefined;
+}
+
 function getOptions(className) {
     var options = {};
 
     const elements = tabcontent.getElementsByClassName(className);
     for (var i = 0; i < elements.length; i++) {
-        for (var j = 0; j < elements[i].classList.length; j++) {
-            if (elements[i].classList.item(j) != className) {
-                options[elements[i].classList.item(j)] = elements[i].checked;
-            }
-        }
+        options[elements[i].value] = elements[i].checked;
     }
     return options;
 }
@@ -278,10 +320,87 @@ const games = {
             }
             document.getElementById('WriteCharacter').innerHTML = getRandomElem(filteredDictionary).name;
         }
+    },
+    comprehension: {
+        first: () => {
+            const playarea = tabcontent.getElementsByClassName('playarea')[0];
+            const previousarea = tabcontent.getElementsByClassName('sidetext')[0];
+            const answerarea = tabcontent.getElementsByClassName('sidetext')[1];
+            playarea.innerHTML = '?';
+            previousarea.innerHTML = '?';
+            answerarea.innerHTML = '?';
+
+            const directionoption = getOption('direction');
+            const chapteroptions = getOptions('chapter');
+
+            const direction = directionoption.split('2');
+
+            if (direction[0] == 'japanese') {
+                addCharacterClass(playarea);
+                addCharacterClass(previousarea);
+                removeCharacterClass(answerarea);
+            }
+            if (direction[1] == 'japanese') {
+                removeCharacterClass(playarea);
+                removeCharacterClass(previousarea);
+                addCharacterClass(answerarea);
+            }
+
+            comprehensionDictionary = [[{from: '?', to: '?'}], [{from: '?', to: '?'}]];
+            comprehensionIndex = 0;
+            comprehensionAlternative = 0;
+            playarea.innerHTML = comprehensionDictionary[comprehensionIndex][comprehensionAlternative].from;
+
+            Object.keys(chapteroptions).forEach(chapterkey => {
+                if (chapteroptions[chapterkey]) {
+                    fetch('data/comprehension-chapter-' + chapterkey + '.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        comprehensionDictionary = [];
+                        data.forEach(elem => {
+                            var alternatives = [{from: elem[direction[0]], to: elem[direction[1]]}];
+                            if ('alternatives' in elem) {
+                                elem.alternatives.forEach(alternative => {
+                                    alternatives.push({from: alternative[direction[0]], to: alternative[direction[1]]});
+                                });
+                            }
+                            comprehensionDictionary.push(alternatives);
+                        });
+                        if (comprehensionDictionary.length < 2) {
+                            if (comprehensionDictionary.length == 0) {
+                                comprehensionDictionary = [[{from: '?', to: '?'}], [{from: '?', to: '?'}]];
+                            }
+                            else {
+                                comprehensionDictionary.push(comprehensionDictionary[0]);
+                            }
+                        }
+
+                        comprehensionIndex = getRandomIndex(comprehensionDictionary);
+                        comprehensionAlternative = getRandomIndex(comprehensionDictionary[comprehensionIndex]);
+                        playarea.innerHTML = comprehensionDictionary[comprehensionIndex][comprehensionAlternative].from;
+                    });
+                }
+            });
+        },
+        next: () => {
+            const playarea = tabcontent.getElementsByClassName('playarea')[0];
+            const previousarea = tabcontent.getElementsByClassName('sidetext')[0];
+            const answerarea = tabcontent.getElementsByClassName('sidetext')[1];
+
+            const item = comprehensionDictionary[comprehensionIndex];
+            previousarea.innerHTML = item[comprehensionAlternative].from;
+            answerarea.innerHTML = item[comprehensionAlternative].to;
+
+            comprehensionDictionary[comprehensionIndex] = comprehensionDictionary[comprehensionDictionary.length - 1];
+            comprehensionDictionary[comprehensionDictionary.length - 1] = item;
+
+            comprehensionIndex = getRandom(comprehensionDictionary.length - 1);
+            comprehensionAlternative = getRandomIndex(comprehensionDictionary[comprehensionIndex]);
+            playarea.innerHTML = comprehensionDictionary[comprehensionIndex][comprehensionAlternative].from;
+        }
     }
 };
 
-var characterFont = undefined;
 var game = undefined;
 
 const nexts = document.getElementsByClassName('next');
@@ -300,15 +419,6 @@ document.onkeydown = function(event) {
 
 document.getElementById('DefaultFont').click();
 document.getElementById('DefaultTab').click();
-
-function setCharacterFont(fontClass) {
-    const characterfonts = document.getElementsByClassName('characterfont');
-    for (var i = 0; i < characterfonts.length; i++) {
-        characterfonts[i].classList.remove(characterFont);
-        characterfonts[i].classList.add(fontClass);
-    }
-    characterFont = fontClass;
-}
 
 function openGame(event, gameName) {
     tabcontent = document.getElementById(gameName);
