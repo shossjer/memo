@@ -225,6 +225,8 @@ var comprehensionNow = undefined;
 var comprehensionDictionary = undefined;
 var comprehensionIndex = undefined;
 var comprehensionAlternative = undefined;
+var comprehensionIndexPrevious = undefined;
+var comprehensionAlternativePrevious = undefined;
 
 function resetDictionary() {
     dictionary = [{name: '?', char:'?'}];
@@ -333,18 +335,12 @@ const games = {
         }
     },
     comprehension: {
-        first: () => {
+        refresh: function() {
             const playarea = tabcontent.getElementsByClassName('playarea')[0];
             const previousarea = tabcontent.getElementsByClassName('sidetext')[0];
             const answerarea = tabcontent.getElementsByClassName('sidetext')[1];
-            playarea.innerHTML = '?';
-            previousarea.innerHTML = '?';
-            answerarea.innerHTML = '?';
 
             const directionoption = getOption('direction');
-            const chapteroptions = getOptions('chapter');
-            const additionaloptions = getOptions('additional');
-
             const direction = directionoption.split('2');
 
             if (direction[0] == 'japanese') {
@@ -358,11 +354,37 @@ const games = {
                 addCharacterClass(answerarea);
             }
 
+            if (direction[0] in comprehensionDictionary[comprehensionIndex].variants[comprehensionAlternative]) {
+                playarea.innerHTML = comprehensionDictionary[comprehensionIndex].variants[comprehensionAlternative][direction[0]];
+            }
+            else {
+                playarea.innerHTML = '?';
+            }
+            if (0 <= comprehensionIndexPrevious && direction[0] in comprehensionDictionary[comprehensionIndexPrevious].variants[comprehensionAlternativePrevious]) {
+                previousarea.innerHTML = comprehensionDictionary[comprehensionIndexPrevious].variants[comprehensionAlternativePrevious][direction[0]];
+            }
+            else {
+                previousarea.innerHTML = '?';
+            }
+            if (0 <= comprehensionIndexPrevious && direction[1] in comprehensionDictionary[comprehensionIndexPrevious].variants[comprehensionAlternativePrevious]) {
+                answerarea.innerHTML = comprehensionDictionary[comprehensionIndexPrevious].variants[comprehensionAlternativePrevious][direction[1]];
+            }
+            else {
+                answerarea.innerHTML = '?';
+            }
+        },
+        first: function() {
+            const chapteroptions = getOptions('chapter');
+            const additionaloptions = getOptions('additional');
+
             comprehensionNow = 0;
-            comprehensionDictionary = [{last: 0, variants: [{from: '?', to: '?'}]}, {last: 0, variants: [{from: '?', to: '?'}]}];
+            comprehensionDictionary = [{last: 0, variants: [{}], tags: []}, {last: 0, variants: [{}], tags: []}];
+            comprehensionIndexPrevious = -1;
+            comprehensionAlternativePrevious = -1;
             comprehensionIndex = 0;
             comprehensionAlternative = 0;
-            playarea.innerHTML = comprehensionDictionary[comprehensionIndex].variants[comprehensionAlternative].from;
+
+            this.refresh();
 
             var responses = [];
             Object.keys(chapteroptions).forEach(chapterkey => {
@@ -379,18 +401,22 @@ const games = {
                 comprehensionDictionary = [];
                 data.forEach(array => {
                     array.forEach(elem => {
-                        var alternatives = [{from: elem[direction[0]], to: elem[direction[1]]}];
+                        const keys = Object.keys(elem).filter(key => key !== 'tags' && key !== 'alternatives');
+                        var variant = {};
+                        keys.forEach(key => { variant[key] = elem[key]; });
+                        var variants = [variant];
                         if ('alternatives' in elem) {
                             elem.alternatives.forEach(alternative => {
-                                alternatives.push({from: alternative[direction[0]], to: alternative[direction[1]]});
+                                keys.forEach(key => { variant[key] = alternative[key]; });
+                                variants.push(variant);
                             });
                         }
-                        comprehensionDictionary.push({last: 0, variants: alternatives});
+                        comprehensionDictionary.push({last: 0, variants: variants, tags: elem.tags});
                     });
                 });
                 if (comprehensionDictionary.length < 2) {
                     if (comprehensionDictionary.length == 0) {
-                        comprehensionDictionary = [{last: 0, variants: [{from: '?', to: '?'}]}, {last: 0, variants: [{from: '?', to: '?'}]}];
+                        comprehensionDictionary = [{last: 0, variants: [{}], tags: []}, {last: 0, variants: [{}], tags: []}];
                     }
                     else {
                         comprehensionDictionary.push(comprehensionDictionary[0]);
@@ -401,22 +427,20 @@ const games = {
                 comprehensionIndex = getRandomWeighted(elem => comprehensionNow - elem.last, comprehensionDictionary);
                 comprehensionAlternative = getRandomIndex(comprehensionDictionary[comprehensionIndex].variants);
                 comprehensionDictionary[comprehensionIndex].last = comprehensionNow;
-                playarea.innerHTML = comprehensionDictionary[comprehensionIndex].variants[comprehensionAlternative].from;
+
+                this.refresh();
             });
         },
-        next: () => {
-            const playarea = tabcontent.getElementsByClassName('playarea')[0];
-            const previousarea = tabcontent.getElementsByClassName('sidetext')[0];
-            const answerarea = tabcontent.getElementsByClassName('sidetext')[1];
+        next: function() {
+            comprehensionIndexPrevious = comprehensionIndex;
+            comprehensionAlternativePrevious = comprehensionAlternative;
 
-            previousarea.innerHTML = comprehensionDictionary[comprehensionIndex].variants[comprehensionAlternative].from;
-            answerarea.innerHTML = comprehensionDictionary[comprehensionIndex].variants[comprehensionAlternative].to;
-
-            comprehensionNow++;
-            comprehensionIndex = getRandomWeighted((elem, index) => index == comprehensionIndex ? 0 : comprehensionNow - elem.last, comprehensionDictionary);
+            comprehensionIndex = getRandomWeighted(elem => comprehensionNow - elem.last, comprehensionDictionary);
             comprehensionAlternative = getRandomIndex(comprehensionDictionary[comprehensionIndex].variants);
+            comprehensionNow++;
             comprehensionDictionary[comprehensionIndex].last = comprehensionNow;
-            playarea.innerHTML = comprehensionDictionary[comprehensionIndex].variants[comprehensionAlternative].from;
+
+            this.refresh();
         }
     }
 };
