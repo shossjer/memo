@@ -11,10 +11,8 @@
     {"japanese": "こんいちは", "english": "good afternoon", "tags": ["greeting"]},
     {"japanese": "こんばんは", "english": "good evening", "tags": ["greeting"]},
     {"japanese": "さようなら", "english": "good-bye", "tags": ["greeting"]},
-    {"japanese": "すうじ", "english": "numbers", "tags": ["misc"]},
     {"japanese": "すみません", "english": "excuse me/I am sorry", "tags": ["greeting"]},
     {"japanese": "ただいま", "english": "I am home", "tags": ["greeting"]},
-    {"japanese": "たんご", "english": "vocabulary", "tags": ["misc"]},
     {"japanese": "～です", "english": "... it is", "tags": ["misc", "suffix"]},
     {"japanese": "はじめまして", "english": "how do you do?", "tags": ["greeting"]},
     {"japanese": "よろしくおねがいします", "english": "nice to meet you", "tags": ["greeting"]}

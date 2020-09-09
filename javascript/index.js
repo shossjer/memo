@@ -343,6 +343,7 @@ const games = {
 
             const directionoption = getOption('direction');
             const chapteroptions = getOptions('chapter');
+            const additionaloptions = getOptions('additional');
 
             const direction = directionoption.split('2');
 
@@ -367,6 +368,11 @@ const games = {
             Object.keys(chapteroptions).forEach(chapterkey => {
                 if (chapteroptions[chapterkey]) {
                     responses.push(fetch('data/comprehension-chapter-' + chapterkey + '.json').then(response => response.json()));
+                }
+            });
+            Object.keys(additionaloptions).forEach(additionalkey => {
+                if (additionaloptions[additionalkey]) {
+                    responses.push(fetch('data/comprehension-additional-' + additionalkey + '.json').then(response => response.json()));
                 }
             });
             Promise.all(responses).then(data => {
