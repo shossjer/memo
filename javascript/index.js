@@ -363,37 +363,39 @@ const games = {
             comprehensionAlternative = 0;
             playarea.innerHTML = comprehensionDictionary[comprehensionIndex].variants[comprehensionAlternative].from;
 
+            var responses = [];
             Object.keys(chapteroptions).forEach(chapterkey => {
                 if (chapteroptions[chapterkey]) {
-                    fetch('data/comprehension-chapter-' + chapterkey + '.json')
-                    .then(response => response.json())
-                    .then(data => {
-                        comprehensionDictionary = [];
-                        data.forEach(elem => {
-                            var alternatives = [{from: elem[direction[0]], to: elem[direction[1]]}];
-                            if ('alternatives' in elem) {
-                                elem.alternatives.forEach(alternative => {
-                                    alternatives.push({from: alternative[direction[0]], to: alternative[direction[1]]});
-                                });
-                            }
-                            comprehensionDictionary.push({last: 0, variants: alternatives});
-                        });
-                        if (comprehensionDictionary.length < 2) {
-                            if (comprehensionDictionary.length == 0) {
-                                comprehensionDictionary = [{last: 0, variants: [{from: '?', to: '?'}]}, {last: 0, variants: [{from: '?', to: '?'}]}];
-                            }
-                            else {
-                                comprehensionDictionary.push(comprehensionDictionary[0]);
-                            }
-                        }
-
-                        comprehensionNow = 1;
-                        comprehensionIndex = getRandomWeighted(elem => comprehensionNow - elem.last, comprehensionDictionary);
-                        comprehensionAlternative = getRandomIndex(comprehensionDictionary[comprehensionIndex].variants);
-                        comprehensionDictionary[comprehensionIndex].last = comprehensionNow;
-                        playarea.innerHTML = comprehensionDictionary[comprehensionIndex].variants[comprehensionAlternative].from;
-                    });
+                    responses.push(fetch('data/comprehension-chapter-' + chapterkey + '.json').then(response => response.json()));
                 }
+            });
+            Promise.all(responses).then(data => {
+                comprehensionDictionary = [];
+                data.forEach(array => {
+                    array.forEach(elem => {
+                        var alternatives = [{from: elem[direction[0]], to: elem[direction[1]]}];
+                        if ('alternatives' in elem) {
+                            elem.alternatives.forEach(alternative => {
+                                alternatives.push({from: alternative[direction[0]], to: alternative[direction[1]]});
+                            });
+                        }
+                        comprehensionDictionary.push({last: 0, variants: alternatives});
+                    });
+                });
+                if (comprehensionDictionary.length < 2) {
+                    if (comprehensionDictionary.length == 0) {
+                        comprehensionDictionary = [{last: 0, variants: [{from: '?', to: '?'}]}, {last: 0, variants: [{from: '?', to: '?'}]}];
+                    }
+                    else {
+                        comprehensionDictionary.push(comprehensionDictionary[0]);
+                    }
+                }
+
+                comprehensionNow = 1;
+                comprehensionIndex = getRandomWeighted(elem => comprehensionNow - elem.last, comprehensionDictionary);
+                comprehensionAlternative = getRandomIndex(comprehensionDictionary[comprehensionIndex].variants);
+                comprehensionDictionary[comprehensionIndex].last = comprehensionNow;
+                playarea.innerHTML = comprehensionDictionary[comprehensionIndex].variants[comprehensionAlternative].from;
             });
         },
         next: () => {
