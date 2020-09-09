@@ -143,6 +143,16 @@ function getRandomIndex(array) {
     return getRandom(array.length);
 }
 
+function getRandomWeighted(weightfn, array) {
+    const total = array.reduce((acc, elem, index) => { return acc + weightfn(elem, index); }, 0);
+    const value = Math.random() * total;
+    for (var i = 0, acc = 0;; i++) {
+        acc += weightfn(array[i], i);
+        if (value < acc)
+            return i;
+    }
+}
+
 // @deprecated
 function getRandomElem(array) {
     return array[getRandomIndex(array)];
@@ -211,6 +221,7 @@ function generateDatasetTooltips() {
 }
 
 var dictionary = undefined;
+var comprehensionNow = undefined;
 var comprehensionDictionary = undefined;
 var comprehensionIndex = undefined;
 var comprehensionAlternative = undefined;
@@ -346,10 +357,11 @@ const games = {
                 addCharacterClass(answerarea);
             }
 
-            comprehensionDictionary = [[{from: '?', to: '?'}], [{from: '?', to: '?'}]];
+            comprehensionNow = 0;
+            comprehensionDictionary = [{last: 0, variants: [{from: '?', to: '?'}]}, {last: 0, variants: [{from: '?', to: '?'}]}];
             comprehensionIndex = 0;
             comprehensionAlternative = 0;
-            playarea.innerHTML = comprehensionDictionary[comprehensionIndex][comprehensionAlternative].from;
+            playarea.innerHTML = comprehensionDictionary[comprehensionIndex].variants[comprehensionAlternative].from;
 
             Object.keys(chapteroptions).forEach(chapterkey => {
                 if (chapteroptions[chapterkey]) {
@@ -364,20 +376,22 @@ const games = {
                                     alternatives.push({from: alternative[direction[0]], to: alternative[direction[1]]});
                                 });
                             }
-                            comprehensionDictionary.push(alternatives);
+                            comprehensionDictionary.push({last: 0, variants: alternatives});
                         });
                         if (comprehensionDictionary.length < 2) {
                             if (comprehensionDictionary.length == 0) {
-                                comprehensionDictionary = [[{from: '?', to: '?'}], [{from: '?', to: '?'}]];
+                                comprehensionDictionary = [{last: 0, variants: [{from: '?', to: '?'}]}, {last: 0, variants: [{from: '?', to: '?'}]}];
                             }
                             else {
                                 comprehensionDictionary.push(comprehensionDictionary[0]);
                             }
                         }
 
-                        comprehensionIndex = getRandomIndex(comprehensionDictionary);
-                        comprehensionAlternative = getRandomIndex(comprehensionDictionary[comprehensionIndex]);
-                        playarea.innerHTML = comprehensionDictionary[comprehensionIndex][comprehensionAlternative].from;
+                        comprehensionNow = 1;
+                        comprehensionIndex = getRandomWeighted(elem => comprehensionNow - elem.last, comprehensionDictionary);
+                        comprehensionAlternative = getRandomIndex(comprehensionDictionary[comprehensionIndex].variants);
+                        comprehensionDictionary[comprehensionIndex].last = comprehensionNow;
+                        playarea.innerHTML = comprehensionDictionary[comprehensionIndex].variants[comprehensionAlternative].from;
                     });
                 }
             });
@@ -387,16 +401,14 @@ const games = {
             const previousarea = tabcontent.getElementsByClassName('sidetext')[0];
             const answerarea = tabcontent.getElementsByClassName('sidetext')[1];
 
-            const item = comprehensionDictionary[comprehensionIndex];
-            previousarea.innerHTML = item[comprehensionAlternative].from;
-            answerarea.innerHTML = item[comprehensionAlternative].to;
+            previousarea.innerHTML = comprehensionDictionary[comprehensionIndex].variants[comprehensionAlternative].from;
+            answerarea.innerHTML = comprehensionDictionary[comprehensionIndex].variants[comprehensionAlternative].to;
 
-            comprehensionDictionary[comprehensionIndex] = comprehensionDictionary[comprehensionDictionary.length - 1];
-            comprehensionDictionary[comprehensionDictionary.length - 1] = item;
-
-            comprehensionIndex = getRandom(comprehensionDictionary.length - 1);
-            comprehensionAlternative = getRandomIndex(comprehensionDictionary[comprehensionIndex]);
-            playarea.innerHTML = comprehensionDictionary[comprehensionIndex][comprehensionAlternative].from;
+            comprehensionNow++;
+            comprehensionIndex = getRandomWeighted((elem, index) => index == comprehensionIndex ? 0 : comprehensionNow - elem.last, comprehensionDictionary);
+            comprehensionAlternative = getRandomIndex(comprehensionDictionary[comprehensionIndex].variants);
+            comprehensionDictionary[comprehensionIndex].last = comprehensionNow;
+            playarea.innerHTML = comprehensionDictionary[comprehensionIndex].variants[comprehensionAlternative].from;
         }
     }
 };
