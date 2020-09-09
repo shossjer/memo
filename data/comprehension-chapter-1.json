@@ -15,11 +15,7 @@
     {"japanese": "おにいさん", "english": "older brother", "tags": ["family"]},
     {"japanese": "おねえさん", "english": "older sister", "tags": ["family"]},
     {"japanese": "かいしゃいん", "english": "office worker", "tags": ["occupation"]},
-    {"japanese": "がくせい", "english": "student", "tags": ["occupation", "school"], "alternatives": [
-        {"japanese": "だいがくいんせい", "english": "graduate student"},
-        {"japanese": "だいがくせい", "english": "college student"},
-        {"japanese": "りゅうがくせい", "english": "international student"}
-    ]},
+    {"japanese": "がくせい", "english": "student", "tags": ["occupation", "school"]},
     {"japanese": "かぞく", "english": "family", "tags": ["family"]},
     {"japanese": "カナダ", "english": "Canada", "tags": ["country"]},
     {"japanese": "かんこく", "english": "Korea", "tags": ["country"]},
@@ -34,6 +30,7 @@
         {"japanese": "オーストラリアご", "english": "Australian (language)"},
         {"japanese": "カナダご", "english": "Canadian (language)"},
         {"japanese": "かんこくご", "english": "Korean (language)"},
+        {"japanese": "スウェーデンご", "english": "Swedish (language)"},
         {"japanese": "ちゅうごくご", "english": "Chinese (language)"},
         {"japanese": "にほんご", "english": "Japanese (language)"},
         {"japanese": "フィリピンご", "english": "Filipino (language)"}
@@ -46,6 +43,7 @@
     {"japanese": "ごぜん", "english": "A.M.", "tags": ["time"]},
     {"japanese": "コンピューター", "english": "computer", "tags": ["major"]},
     {"japanese": "～さい", "english": "... years old", "tags": ["misc", "suffix"], "alternatives": [
+        {"japanese": "なんさい", "english": "what years old"},
         {"japanese": "いっさい", "english": "one year old"},
         {"japanese": "にさい", "english": "two years old"},
         {"japanese": "さんさい", "english": "three years old"},
@@ -59,6 +57,7 @@
     ]},
     {"japanese": "～さん", "english": "Mr./Mrs.", "tags": ["person", "suffix"]},
     {"japanese": "～じ", "english": "o'clock", "tags": ["time"], "alternatives": [
+        {"japanese": "なんじ", "english": "what o'clock"},
         {"japanese": "いちじ", "english": "one o'clock"},
         {"japanese": "にじ", "english": "two o'clock"},
         {"japanese": "さんじ", "english": "three o'clock"},
@@ -83,10 +82,12 @@
         {"japanese": "オーストラリアじん", "english": "Australian (people)"},
         {"japanese": "カナダじん", "english": "Canadian (people)"},
         {"japanese": "かんこくじん", "english": "Korean (people)"},
+        {"japanese": "スウェーデンじん", "english": "Swedish (people)"},
         {"japanese": "ちゅうごくじん", "english": "Chinese (people)"},
         {"japanese": "にほんじん", "english": "Japanese (people)"},
         {"japanese": "フィリピンじん", "english": "Filipino (people)"}
     ]},
+    {"japanese": "スウェーデン", "english": "Sweden"},
     {"japanese": "せいじ", "english": "politics", "tags": ["major"]},
     {"japanese": "せいぶつがく", "english": "biology", "tags": ["major"]},
     {"japanese": "せんこう", "english": "major", "tags": ["major", "school"]},
@@ -94,6 +95,8 @@
     {"japanese": "そうです", "english": "that's right", "tags": ["expression"]},
     {"japanese": "そうですか", "english": "I see/is that so?", "tags": ["expression"]},
     {"japanese": "だいがく", "english": "college/university", "tags": ["school"]},
+    {"japanese": "だいがくいんせい", "english": "graduate student", "tags": ["occupation", "school"]},
+    {"japanese": "だいがくせい", "english": "college student", "tags": ["occupation", "school"]},
     {"japanese": "ちゅうごく", "english": "China", "tags": ["country"]},
     {"japanese": "～ですね", "english": "... right?", "tags": ["misc", "suffix"]},
     {"japanese": "でんわ", "english": "telephone", "tags": ["thing"]},
@@ -102,6 +105,7 @@
     {"japanese": "なん/なに", "english": "what", "tags": ["misc"]},
     {"japanese": "にほん", "english": "Japan", "tags": ["country"]},
     {"japanese": "～ねんせい", "english": "... year student", "tags": ["school", "suffix"], "alternatives": [
+        {"japanese": "なんねんせい", "english": "what-year student"},
         {"japanese": "いちねんせい", "english": "first-year student"},
         {"japanese": "にねんせい", "english": "second-year student"},
         {"japanese": "さんねんせい", "english": "third-year student"},
@@ -132,19 +136,21 @@
     {"japanese": "ビジネス", "english": "business", "tags": ["major"]},
     {"japanese": "フィリピン", "english": "Philippines", "tags": ["country"]},
     {"japanese": "～ふん", "english": "... minutes", "tags": ["suffix", "time"], "alternatives": [
+        {"japanese": "なんぷん", "english": "what minute"},
         {"japanese": "いっぷん", "english": "one minute"},
         {"japanese": "にふん", "english": "two minutes"},
         {"japanese": "さんぷん", "english": "three minutes"},
         {"japanese": "よんぷん", "english": "four minutes"},
-        {"japanese": "ごふん", "english": "fix minutes"},
+        {"japanese": "ごふん", "english": "five minutes"},
         {"japanese": "ろっぷん", "english": "six minutes"},
         {"japanese": "ななふん", "english": "seven minutes"},
         {"japanese": "はっぷん/はちふん", "english": "eight minutes"},
         {"japanese": "きゅうふん", "english": "nine minutes"},
-        {"japanese": "じゅっぷん", "english": "ten minutes"}
+        {"japanese": "じゅっぷん/じっぷん", "english": "ten minutes"}
     ]},
     {"japanese": "ぶんがく", "english": "literature", "tags": ["major"]},
     {"japanese": "べんごし", "english": "lawyer", "tags": ["occupation"]},
+    {"japanese": "りゅうがくせい", "english": "international student", "tags": ["occupation", "school"]},
     {"japanese": "れきし", "english": "history", "tags": ["major"]},
     {"japanese": "わたし", "english": "I", "tags": ["person"]}
 ]
