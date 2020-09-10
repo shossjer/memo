@@ -4,43 +4,26 @@
     {"japanese": "すうじ", "english": "numbers", "tags": ["misc"]},
     {"japanese": "たんご", "english": "vocabulary", "tags": ["misc"]},
     {"japanese": "れんしゅう", "english": "practice", "tags": ["misc"]},
-    {"japanese": "ゼロ/れい", "english": "zero", "tags": ["number"]},
-    {"japanese": "いち", "english": "one", "tags": ["number"], "alternatives": [
-        {"japanese": "じゅういち", "english": "eleven"}
-    ]},
-    {"japanese": "に", "english": "two", "tags": ["number"], "alternatives": [
+    {"japanese": "ゼロ/れい", "english": "zero", "tags": ["number"], "alternatives": [
+        {"japanese": "いち", "english": "one"},
+        {"japanese": "に", "english": "two"},
+        {"japanese": "さん", "english": "three"},
+        {"japanese": "よん/し", "english": "four"},
+        {"japanese": "ご", "english": "five"},
+        {"japanese": "ろく", "english": "six"},
+        {"japanese": "なな/しち", "english": "seven"},
+        {"japanese": "はち", "english": "eight"},
+        {"japanese": "きゅう/く", "english": "nine"},
+        {"japanese": "じゅう", "english": "ten"},
+        {"japanese": "じゅういち", "english": "eleven"},
         {"japanese": "じゅうに", "english": "twelve"},
-        {"japanese": "にじゅう", "english": "twenty"}
-    ]},
-    {"japanese": "さん", "english": "three", "tags": ["number"], "alternatives": [
         {"japanese": "じゅうさん", "english": "thirteen"},
-        {"japanese": "さんじゅう", "english": "thirty"}
-    ]},
-    {"japanese": "よん/し", "english": "four", "tags": ["number"], "alternatives": [
         {"japanese": "じゅうよん/じゅうし", "english": "fourteen"},
-        {"japanese": "よんじゅう", "english": "fourty"}
-    ]},
-    {"japanese": "ご", "english": "five", "tags": ["number"], "alternatives": [
         {"japanese": "じゅうご", "english": "fifteen"},
-        {"japanese": "ごじゅう", "english": "fifty"}
-    ]},
-    {"japanese": "ろく", "english": "six", "tags": ["number"], "alternatives": [
         {"japanese": "じゅうろく", "english": "sixteen"},
-        {"japanese": "ろくじゅう", "english": "sixty"}
-    ]},
-    {"japanese": "なな/しち", "english": "seven", "tags": ["number"], "alternatives": [
         {"japanese": "じゅうなな/じゅうしち", "english": "seventeen"},
-        {"japanese": "ななじゅう", "english": "seventy"}
-    ]},
-    {"japanese": "はち", "english": "eight", "tags": ["number"], "alternatives": [
         {"japanese": "じゅうはち", "english": "eighteen"},
-        {"japanese": "はちじゅう", "english": "eighty"}
-    ]},
-    {"japanese": "きゅう/く", "english": "nine", "tags": ["number"], "alternatives": [
         {"japanese": "じゅうきゅう/じゅうく", "english": "nineteen"},
-        {"japanese": "きゅうじゅう", "english": "ninety"}
-    ]},
-    {"japanese": "じゅう", "english": "ten", "tags": ["number"], "alternatives": [
         {"japanese": "にじゅう", "english": "twenty"},
         {"japanese": "さんじゅう", "english": "thirty"},
         {"japanese": "よんじゅう", "english": "fourty"},
