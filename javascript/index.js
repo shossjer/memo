@@ -400,11 +400,12 @@ const games = {
                 data.forEach(array => {
                     array.forEach(elem => {
                         const keys = Object.keys(elem).filter(key => key !== 'tags' && key !== 'alternatives');
-                        var variant = {};
-                        keys.forEach(key => { variant[key] = elem[key]; });
-                        var variants = [variant];
+                        var original = {};
+                        keys.forEach(key => { original[key] = elem[key]; });
+                        var variants = [original];
                         if ('alternatives' in elem) {
                             elem.alternatives.forEach(alternative => {
+                                var variant = {};
                                 keys.forEach(key => { variant[key] = alternative[key]; });
                                 variants.push(variant);
                             });
