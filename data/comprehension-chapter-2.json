@@ -49,6 +49,6 @@
     {"japanese": "（～を）おねがいします", "english": "... please", "tags": ["expression"]},
     {"japanese": "（～を）ください", "english": "please give me ...", "tags": ["expression"]},
     {"japanese": "じゃあ", "english": "then .../if that is the case ...", "tags": ["expression"]},
-    {"japanese": "どうぞ", "english": "please/here it is", "tags": ["expression"]},
-    {"japanese": "どうも", "english": "thank you", "tags": ["expression"]}
+    {"japanese": "（～を）どうぞ", "english": "please/here it is", "tags": ["expression"]},
+    {"japanese": "どうも", "english": "thank you (for giving me)", "tags": ["expression"]}
 ]
