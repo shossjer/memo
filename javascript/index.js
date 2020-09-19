@@ -186,21 +186,6 @@ function getRandomWeighted(weightfn, array) {
     }
 }
 
-// @deprecated
-function getRandomElem(array) {
-    return array[getRandomIndex(array)];
-}
-
-// @deprecated
-function getElemFromChar(dictionary, char) {
-    return dictionary.find((elem) => { return elem.char == char; });
-}
-
-// @deprecated
-function getElemFromName(dictionary, name) {
-    return dictionary.find((elem) => { return elem.name == name; });
-}
-
 function getGridSize(dataset) {
     return dataset.reduce((acc, elem) => {
         return {
@@ -253,12 +238,6 @@ function generateDatasetTooltips() {
     });
 }
 
-var dictionary = undefined;
-
-function resetDictionary() {
-    dictionary = [{name: '?', char:'?'}];
-}
-
 var tabcontent = undefined;
 
 function getOption(className) {
@@ -283,87 +262,155 @@ function getOptions(className) {
 
 const games = {
     guess: {
-        first: () => {
+        dictionary: undefined,
+        now: undefined,
+        current: {index: undefined},
+        previous: {index: undefined},
+        refresh: function() {
+            const playarea = tabcontent.getElementsByClassName('playarea')[0];
+            const previousarea = tabcontent.getElementsByClassName('sidecharacter')[0];
+            const answerarea = tabcontent.getElementsByClassName('sidecharacter')[1];
+
+            if (this.previous.index !== undefined) {
+                previousarea.innerHTML = this.dictionary[this.previous.index].char;
+                answerarea.innerHTML = this.dictionary[this.previous.index].name;
+            }
+            else {
+                previousarea.innerHTML = '?';
+                answerarea.innerHTML = '?';
+            }
+
+            if (this.current.index !== undefined) {
+                playarea.innerHTML = this.dictionary[this.current.index].char;
+            }
+            else {
+                playarea.innerHTML = '?';
+            }
+        },
+        first: function() {
             const fieldoptions = getOptions('field');
             const datasetoptions = getOptions('dataset');
 
-            dictionary = [];
+            this.dictionary = [];
             Object.keys(datasets).forEach(datasetkey => {
                 if (datasetoptions[datasetkey]) {
                     datasets[datasetkey].forEach(elem => {
                         Object.keys(elem).forEach(field => {
                             if (fieldoptions[field]) {
-                                dictionary.push({name: elem.name, char: elem[field]});
+                                this.dictionary.push({last: 0, name: elem.name, char: elem[field]});
                             }
                         });
                     });
                 }
             });
-            if (dictionary.length == 0) {
-                // the dictionary is empty, panic
-                resetDictionary();
+            if (this.dictionary.length < 2) {
+                if (this.dictionary.length == 0) {
+                    this.dictionary = [{last: 0, name: '?', char: '?'}, {last: 0, name: '?', char: '?'}];
+                }
+                else {
+                    this.dictionary.push(this.dictionary[0]);
+                }
+            }
+            else {
+                this.dictionary.forEach(elem => { elem.last = -(getRandom(this.dictionary.length) + 1); });
             }
 
-            document.getElementById('GuessedCharacter').innerHTML = '?';
-            document.getElementById('GuessedName').innerHTML = '?';
+            this.previous.index = undefined;
 
-            document.getElementById('GuessCharacter').innerHTML = getRandomElem(dictionary).char;
+            this.now = 1;
+            this.current.index = getRandomWeighted(elem => this.now - elem.last, this.dictionary);
+            this.dictionary[this.current.index].last = this.now;
+
+            this.refresh();
         },
-        next: () => {
-            const char = document.getElementById('GuessCharacter').innerHTML;
-            document.getElementById('GuessedCharacter').innerHTML = char;
-            document.getElementById('GuessedName').innerHTML = getElemFromChar(dictionary, char).name;
+        next: function() {
+            this.previous.index = this.current.index;
 
-            var filteredDictionary = dictionary.filter(elem => { return elem.char != char; });
-            if (filteredDictionary.length == 0) {
-                // there is no possible next element, panic
-                resetDictionary();
-                filteredDictionary = dictionary;
-            }
-            document.getElementById('GuessCharacter').innerHTML = getRandomElem(filteredDictionary).char;
+            this.current.index = getRandomWeighted(elem => this.now - elem.last, this.dictionary);
+            this.now++;
+            this.dictionary[this.current.index].last = this.now;
+
+            this.refresh();
         }
     },
     write: {
-        first: () => {
+        dictionary: undefined,
+        now: undefined,
+        current: {index: undefined},
+        previous: {index: undefined},
+        refresh: function() {
+            const playarea = tabcontent.getElementsByClassName('playarea')[0];
+            const hiraganaarea = tabcontent.getElementsByClassName('sidecharacter')[0];
+            const katakanaarea = tabcontent.getElementsByClassName('sidecharacter')[1];
+            const answerarea = tabcontent.getElementsByClassName('sidecharacter')[2];
+
+            if (this.current.index !== undefined) {
+                playarea.innerHTML = this.dictionary[this.current.index].name;
+            }
+            else {
+                playarea.innerHTML = '?';
+            }
+
+            if (this.previous.index !== undefined && this.dictionary[this.previous.index].hiragana !== undefined) {
+                hiraganaarea.innerHTML = this.dictionary[this.previous.index].hiragana;
+            }
+            else {
+                hiraganaarea.innerHTML = '?';
+            }
+
+            if (this.previous.index !== undefined && this.dictionary[this.previous.index].katakana !== undefined) {
+                katakanaarea.innerHTML = this.dictionary[this.previous.index].katakana;
+            }
+            else {
+                katakanaarea.innerHTML = '?';
+            }
+
+            if (this.previous.index !== undefined && this.dictionary[this.previous.index].name !== undefined) {
+                answerarea.innerHTML = this.dictionary[this.previous.index].name;
+            }
+            else {
+                answerarea.innerHTML = '?';
+            }
+        },
+        first: function() {
             const datasetoptions = getOptions('dataset');
 
-            dictionary = [];
+            this.dictionary = [];
             Object.keys(datasets).forEach(datasetkey => {
                 if (datasetoptions[datasetkey]) {
                     datasets[datasetkey].forEach(elem => {
-                        dictionary.push({name: elem.name, hiragana: elem.hiragana, katakana: elem.katakana});
+                        this.dictionary.push({last: 0, name: elem.name, hiragana: elem.hiragana, katakana: elem.katakana});
                     });
                 }
             });
-            if (dictionary.length == 0) {
-                // the dictionary is empty, panic
-                resetDictionary();
-            }
-
-            document.getElementById('WrittenHiragana').innerHTML = '?';
-            document.getElementById('WrittenKatakana').innerHTML = '?';
-            document.getElementById('WrittenName').innerHTML = '?';
-
-            document.getElementById('WriteCharacter').innerHTML = getRandomElem(dictionary).name;
-        },
-        next: () => {
-            const name = document.getElementById('WriteCharacter').innerHTML;
-            if (getElemFromName(dictionary, name).hiragana !== undefined) {
-                document.getElementById('WrittenHiragana').innerHTML = getElemFromName(dictionary, name).hiragana;
+            if (this.dictionary.length < 2) {
+                if (this.dictionary.length == 0) {
+                    this.dictionary = [{last: 0, name: '?', hiragana: undefined, katakana: undefined}, {last: 0, name: '?', hiragana: undefined, katakana: undefined}];
+                }
+                else {
+                    this.dictionary.push(this.dictionary[0]);
+                }
             }
             else {
-                document.getElementById('WrittenHiragana').innerHTML = '';
+                this.dictionary.forEach(elem => { elem.last = -(getRandom(this.dictionary.length) + 1); });
             }
-            document.getElementById('WrittenKatakana').innerHTML = getElemFromName(dictionary, name).katakana;
-            document.getElementById('WrittenName').innerHTML = name;
 
-            var filteredDictionary = dictionary.filter(elem => { return elem.name != name; });
-            if (filteredDictionary.length == 0) {
-                // there is no possible next element, panic
-                resetDictionary();
-                filteredDictionary = dictionary;
-            }
-            document.getElementById('WriteCharacter').innerHTML = getRandomElem(filteredDictionary).name;
+            this.previous.index = undefined;
+
+            this.now = 1;
+            this.current.index = getRandomWeighted(elem => this.now - elem.last, this.dictionary);
+            this.dictionary[this.current.index].last = this.now;
+
+            this.refresh();
+        },
+        next: function() {
+            this.previous.index = this.current.index;
+
+            this.current.index = getRandomWeighted(elem => this.now - elem.last, this.dictionary);
+            this.now++;
+            this.dictionary[this.current.index].last = this.now;
+
+            this.refresh();
         }
     },
     comprehension: {
