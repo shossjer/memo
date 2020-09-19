@@ -459,6 +459,9 @@ const games = {
                         this.dictionary.push(this.dictionary[0]);
                     }
                 }
+                else {
+                    this.dictionary.forEach(elem => { elem.last = -(getRandom(this.dictionary.length) + 1); });
+                }
 
                 this.now = 1;
                 this.current.index = getRandomWeighted(elem => this.now - elem.last, this.dictionary);
