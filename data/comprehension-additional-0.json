@@ -1,6 +1,8 @@
 [
     {"japanese": "あいさつ", "english": "greetings", "tags": ["greeting"]},
     {"japanese": "おじぎ", "english": "bowing", "tags": ["misc"]},
+    {"japanese": "しつれいします。", "english": "good-bye (professor)", "tags": ["greeting"]},
+    {"japanese": "じゃあ、また。", "english": "good-bye (friend)", "tags": ["greeting"]},
     {"japanese": "すうじ", "english": "numbers", "tags": ["misc"]},
     {"japanese": "たんご", "english": "vocabulary", "tags": ["misc"]},
     {"japanese": "れんしゅう", "english": "practice", "tags": ["misc"]},

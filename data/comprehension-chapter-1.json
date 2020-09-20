@@ -90,7 +90,7 @@
     {"japanese": "せいじ", "english": "politics", "tags": ["major"]},
     {"japanese": "せいぶつがく", "english": "biology", "tags": ["major"]},
     {"japanese": "せんこう", "english": "major", "tags": ["major", "school"]},
-    {"japanese": "せんせい", "english": "teacher/professor", "tags": ["occupation", "school"]},
+    {"japanese": "せんせい", "english": "teacher (honorable master)", "tags": ["occupation", "school"]},
     {"japanese": "そうです", "english": "that's right", "tags": ["expression"]},
     {"japanese": "そうですか", "english": "I see/is that so?", "tags": ["expression"]},
     {"japanese": "だいがく", "english": "college/university", "tags": ["school"]},
