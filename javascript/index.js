@@ -168,12 +168,233 @@ const datasets = {
     ]
 };
 
+const units = [
+    {japanese: ['ドル'], english: 'dollars', type: 0},
+    {japanese: ['まい'], english: 'sheets', type: 0},
+    {japanese: ['ど'], english: 'degrees', type: 0},
+    {japanese: ['じゅう', '(じゅっ/じっ)'], english: 'ten', type: 0, value: 10},
+    {japanese: ['まん'], english: 'ten thousand', type: 0, value: 10000},
+    {japanese: ['がつ'], english: 'month', type: 1},
+    {japanese: ['じ'], english: 'o\'clock', type: 2},
+    {japanese: ['じかん'], english: 'hours', type: 2},
+    {japanese: ['ねん'], english: 'year', type: 3},
+    {japanese: ['ねんかん'], english: 'years', type: 3},
+    {japanese: ['にん'], english: 'people', type: 3},
+    {japanese: ['えん'], english: 'yen', type: 3},
+    {japanese: ['ふん', undefined, 'ぷん'], english: 'minute', type: 4},
+    {japanese: ['ふんかん', undefined, 'ぷんかん'], english: 'minutes', type: 4},
+    {japanese: ['ほん', 'ぼん', 'ぽん'], english: 'sticks', type: 5},
+    {japanese: ['はい', 'ばい', 'ぱい'], english: 'cups', type: 5},
+    {japanese: ['ひき', 'びき', 'ぴき'], english: 'animals', type: 5},
+    {japanese: ['ひゃく', 'びゃく', 'ぴゃく'], english: 'hundred', type: 5, value: 100},
+    {japanese: ['ページ'], english: 'page', type: 6},
+    {japanese: ['ポンド'], english: 'pounds', type: 6},
+    {japanese: ['かげつ'], english: 'months', type: 7},
+    {japanese: ['か'], english: 'lesson', type: 7},
+    {japanese: ['かい'], english: 'times', type: 7},
+    {japanese: ['こ'], english: 'small items', type: 7},
+    {japanese: ['かい', 'がい'], english: 'floor', type: 8},
+    {japanese: ['けん', 'げん'], english: 'houses', type: 8},
+    {japanese: ['セント'], english: 'cents', type: 9},
+    {japanese: ['しゅうかん'], english: 'weeks', type: 9},
+    {japanese: ['さつ'], english: 'books', type: 9},
+    {japanese: ['さい'], english: 'years of age', type: 9},
+    {japanese: ['そく', 'ぞく'], english: 'shoes', type: 10},
+    {japanese: ['せん', 'ぜん'], english: 'thousand', type: 10, value: 1000},
+    {japanese: ['つう'], english: 'letters', type: 11},
+    {japanese: ['ちょうの'], english: 'street address', type: 11}
+];
+
+const digits = [
+    undefined,
+    {japanese: ['いち', 'いっ', '(いち/いっ)'], value: 1},
+    {japanese: ['に'], value: 2},
+    {japanese: ['さん'], value: 3},
+    {japanese: ['よん', 'し', 'よ'], value: 4},
+    {japanese: ['ご'], value: 5},
+    {japanese: ['ろく', 'ろっ', '(ろく/ろっ)'], value: 6},
+    {japanese: ['なな', 'しち'], value: 7},
+    {japanese: ['はち', 'はっ', '(はち/はっ)'], value: 8},
+    {japanese: ['きゅう', 'く'], value: 9}
+];
+
+function accumulateNumberSyntaxList(number, unit, list) {
+    if (10000 <= number) {
+        const tenthousands = Math.floor(number / 10000);
+        number = number - tenthousands * 10000;
+        accumulateNumberSyntaxList(tenthousands, units[4], list);
+    }
+    if (1000 <= number) {
+        const thousands = Math.floor(number / 1000);
+        number = number - thousands * 1000;
+        accumulateNumberSyntaxList(thousands, units[31], list);
+    }
+    if (100 <= number) {
+        const hundreds = Math.floor(number / 100);
+        number = number - hundreds * 100;
+        accumulateNumberSyntaxList(hundreds, units[17], list);
+    }
+    if (10 <= number) {
+        const tens = Math.floor(number / 10);
+        number = number - tens * 10;
+        accumulateNumberSyntaxList(tens, units[3], list);
+    }
+    if (0 < number) {
+        list.push(digits[number]);
+    }
+    list.push(unit);
+}
+
+function fromNumberToString(number, unit) {
+    var list = [];
+    accumulateNumberSyntaxList(number, unit, list);
+
+    var string = '';
+    var alternative = 0;
+    var i = 0;
+    for (; i + 1 < list.length; i++) {
+        var suffix = 0;
+        switch (list[i].value) {
+        case 1:
+            if (i + 1 < list.length - 1 && (list[i + 1].value == 10 || list[i + 1].value == 100 || list[i + 1].value == 1000)) {
+                alternative = -1;
+                suffix = 0;
+            }
+            else if (4 <= list[i + 1].type && list[i + 1].type < 6) {
+                alternative = 1;
+                suffix = 2;
+            }
+            else if (list[i + 1].type == 6) {
+                alternative = 2;
+                suffix = 0;
+            }
+            else if (7 <= list[i + 1].type && list[i + 1].type < 12) {
+                alternative = 1;
+                suffix = 0;
+            }
+            else {
+                alternative = 0;
+                suffix = 0;
+            }
+            break;
+        case 2:
+        case 5:
+            alternative = 0;
+            suffix = 0;
+            break;
+        case 3:
+            if (list[i + 1].type == 4) {
+                alternative = 0;
+                suffix = 2;
+            }
+            else if (list[i + 1].type == 5 || list[i + 1].type == 8 || list[i + 1].type == 10) {
+                alternative = 0;
+                suffix = 1;
+            }
+            else {
+                alternative = 0;
+                suffix = 0;
+            }
+            break;
+        case 4:
+            if (list[i + 1].type == 1) {
+                alternative = 1;
+                suffix = 0;
+            }
+            else if (2 <= list[i + 1].type && list[i + 1].type < 4) {
+                alternative = 2;
+                suffix = 0;
+            }
+            else if (list[i + 1].type == 4) {
+                alternative = 0;
+                suffix = 2;
+            }
+            else {
+                alternative = 0;
+                suffix = 0;
+            }
+            break;
+        case 6:
+            if (4 <= list[i + 1].type && list[i + 1].type < 6) {
+                alternative = 1;
+                suffix = 2;
+            }
+            else if (list[i + 1].type == 6) {
+                alternative = 2;
+                suffix = 0;
+            }
+            else if (7 <= list[i + 1].type && list[i + 1].type < 9) {
+                alternative = 1;
+                suffix = 0;
+            }
+            else {
+                alternative = 0;
+                suffix = 0;
+            }
+            break;
+        case 7:
+        case 9:
+            if (1 <= list[i + 1].type && list[i + 1].type < 3) {
+                alternative = 1;
+                suffix = 0;
+            }
+            else {
+                alternative = 0;
+                suffix = 0;
+            }
+            break;
+        case 8:
+            if (list[i + 1].type == 4) {
+                alternative = 2;
+                suffix = 2;
+            }
+            else if (list[i + 1].type == 5) {
+                alternative = 1;
+                suffix = 2;
+            }
+            else if (list[i + 1].type == 6) {
+                alternative = 2;
+                suffix = 0;
+            }
+            else if (7 <= list[i + 1].type && list[i + 1].type < 12) {
+                alternative = 1;
+                suffix = 0;
+            }
+            else {
+                alternative = 0;
+                suffix = 0;
+            }
+            break;
+        case 10:
+            if (4 <= list[i + 1].type && list[i + 1].type < 6) {
+                alternative = 1;
+                suffix = 2;
+            }
+            else if (6 <= list[i + 1].type && list[i + 1].type < 12) {
+                alternative = 1;
+                suffix = 0;
+            }
+            else {
+                alternative = 0;
+                suffix = 0;
+            }
+            break;
+        }
+        if (0 <= alternative) {
+            string += list[i].japanese[alternative];
+        }
+        alternative = suffix;
+    }
+    string += list[i].japanese[alternative];
+    return string;
+}
+
 function getRandom(count) {
     return Math.floor(Math.random() * count);
 }
 
 function getRandomIndex(array) {
-    return getRandom(array.length);
+    return array.length == 0 ? undefined : getRandom(array.length);
 }
 
 function getRandomWeighted(weightfn, array) {
@@ -183,6 +404,29 @@ function getRandomWeighted(weightfn, array) {
         acc += weightfn(array[i], i);
         if (value < acc)
             return i;
+    }
+}
+
+function getRandomNumber(from, to, except) {
+    if (to <= from) {
+        return undefined;
+    }
+    else if (typeof except == 'undefined') {
+        const range = Math.log(to + 1) - Math.log(from + 1);
+        const value = Math.random() * range;
+        return Math.floor(Math.exp(Math.log(from + 1) + value) - 1);
+    }
+    else {
+        const split1 = Math.log(except + 1) - Math.log(from + 1);
+        const split2 = Math.log(to + 1) - Math.log(except + 1 + 1);
+        const range = split1 + split2;
+        const value = Math.random() * range;
+        if (value < split1) {
+            return Math.floor(Math.exp(Math.log(from + 1) + value) - 1);
+        }
+        else {
+            return Math.floor(Math.exp(Math.log(except + 1 + 1) + (value - split1)) - 1);
+        }
     }
 }
 
@@ -258,6 +502,16 @@ function getOptions(className) {
         options[elements[i].value] = elements[i].checked;
     }
     return options;
+}
+
+function getValues(className) {
+    var values = {};
+
+    const elements = tabcontent.getElementsByClassName(className);
+    for (var i = 0; i < elements.length; i++) {
+        values[elements[i].name] = elements[i].value;
+    }
+    return values;
 }
 
 const games = {
@@ -526,6 +780,89 @@ const games = {
             this.current.alternative = getRandomIndex(this.dictionary[this.current.index].variants);
             this.now++;
             this.dictionary[this.current.index].last = this.now;
+
+            this.refresh();
+        }
+    },
+    count: {
+        current: {number: undefined, unit: undefined},
+        previous: {number: undefined, unit: undefined},
+        refresh: function() {
+            const playarea = tabcontent.getElementsByClassName('playarea')[0];
+            const previousarea = tabcontent.getElementsByClassName('sidetext')[0];
+            const answerarea = tabcontent.getElementsByClassName('sidetext')[1];
+
+            const directionoption = getOption('direction');
+            const direction = directionoption.split('2');
+
+            if (direction[0] == 'japanese') {
+                addCharacterClass(playarea);
+                addCharacterClass(previousarea);
+                removeCharacterClass(answerarea);
+            }
+            if (direction[1] == 'japanese') {
+                removeCharacterClass(playarea);
+                removeCharacterClass(previousarea);
+                addCharacterClass(answerarea);
+            }
+
+            if (this.current.number !== undefined && this.current.unit !== undefined) {
+                if (direction[0] == 'japanese') {
+                    playarea.innerHTML = fromNumberToString(this.current.number, this.current.unit);
+                }
+                else {
+                    playarea.innerHTML = this.current.number + ' ' + this.current.unit.english;
+                }
+            }
+            else {
+                playarea.innerHTML = '?';
+            }
+            if (this.previous.number !== undefined && this.previous.unit !== undefined) {
+                if (direction[0] == 'japanese') {
+                    previousarea.innerHTML = fromNumberToString(this.previous.number, this.previous.unit);
+                }
+                else {
+                    previousarea.innerHTML = this.previous.number + ' ' + this.previous.unit.english;
+                }
+            }
+            else {
+                previousarea.innerHTML = '?';
+            }
+            if (this.previous.number !== undefined && this.previous.unit !== undefined) {
+                if (direction[1] == 'japanese') {
+                    answerarea.innerHTML = fromNumberToString(this.previous.number, this.previous.unit);
+                }
+                else {
+                    answerarea.innerHTML = this.previous.number + ' ' + this.previous.unit.english;
+                }
+            }
+            else {
+                answerarea.innerHTML = '?';
+            }
+        },
+        first: function() {
+            const rangevalues = getValues('range');
+            const unitoptions = getOptions('unit');
+
+            const selectedunits = units.filter((unit, index) => unitoptions[index]);
+
+            this.previous.number = undefined;
+            this.previous.unit = undefined;
+            this.current.number = getRandomNumber(parseInt(rangevalues.min), parseInt(rangevalues.max) + 1);
+            this.current.unit = selectedunits[getRandomIndex(selectedunits)];
+
+            this.refresh();
+        },
+        next: function() {
+            const rangevalues = getValues('range');
+            const unitoptions = getOptions('unit');
+
+            const selectedunits = units.filter((unit, index) => unitoptions[index]);
+
+            this.previous.number = this.current.number;
+            this.previous.unit = this.current.unit;
+            this.current.number = getRandomNumber(parseInt(rangevalues.min), parseInt(rangevalues.max) + 1, this.current.number);
+            this.current.unit = selectedunits[getRandomIndex(selectedunits)];
 
             this.refresh();
         }

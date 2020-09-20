@@ -34,6 +34,7 @@
                     <button class="tablinks" onclick="openGame(event, 'guess')" id="DefaultTab">Gissa</button>
                     <button class="tablinks" onclick="openGame(event, 'write')">Skriva</button>
                     <button class="tablinks" onclick="openGame(event, 'comprehension')">Ordförståelse</button>
+                    <button class="tablinks" onclick="openGame(event, 'count')">Räkna</button>
                 </div>
             </div>
             <div id="guess" class="tabcontent">
@@ -157,6 +158,140 @@
                 </div>
                 <button class="next" onclick="game.next()"></button>
                 <p>Högst upp visas ett ord eller uttryck. Översätt uttrycket och tryck sedan på knappen ovan (eller tangentbordsknappen med samma namn). Uttrycket kommer flyttas ned till vänster och dess korrekta översättning (eller en av dom) kommer avslöjas nere till höger. Högst upp kommer ett nytt ord eller uttryck att visas. Kan du alla ord/uttryck?</p>
+            </div>
+            <div id="count" class="tabcontent">
+                <div class="options">
+                    <div>
+                        <label>Riktning: </label>
+                        <label>
+                            <input type="radio" class="direction" value="japanese2numeric" name="count-direction" onclick="game.refresh()" checked>Japanska -> Numeric
+                        </label>
+                        <label>
+                            <input type="radio" class="direction" value="numeric2japanese" name="count-direction" onclick="game.refresh()">Numeric -> Japanska
+                        </label>
+                    </div>
+                    <div>
+                        <label>Omfång: </label>
+                        <input type="number" class="range" name="min" min="1" max="99999999" onchange="game.first()" value="1">
+                        <label>till</label>
+                        <input type="number" class="range" name="max" min="1" max="99999999" onchange="game.first()" value="100">
+                    </div>
+                    <div>
+                        <label>Enhet: </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="0" onclick="game.first()">～ドル
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="1" onclick="game.first()">～まい
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="2" onclick="game.first()">～ど
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="3" onclick="game.first()">～じゅう
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="4" onclick="game.first()">～まん
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="5" onclick="game.first()">～がつ
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="6" onclick="game.first()">～じ
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="7" onclick="game.first()">～じかん
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="8" onclick="game.first()">～ねん
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="9" onclick="game.first()">～ねんかん
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="10" onclick="game.first()">～にん
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="11" onclick="game.first()">～えん
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="12" onclick="game.first()">～ふん
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="13" onclick="game.first()">～ふんかん
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="14" onclick="game.first()">～ほん
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="15" onclick="game.first()">～はい
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="16" onclick="game.first()">～ひき
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="17" onclick="game.first()">～ひゃく
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="18" onclick="game.first()">～ページ
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="19" onclick="game.first()">～ポンド
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="20" onclick="game.first()">～かげつ
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="21" onclick="game.first()">～か
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="22" onclick="game.first()">～かい
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="23" onclick="game.first()">～こ
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="24" onclick="game.first()">～かい
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="25" onclick="game.first()">～けん
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="26" onclick="game.first()">～セント
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="27" onclick="game.first()">～しゅうかん
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="28" onclick="game.first()">～さつ
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="29" onclick="game.first()">～さい
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="30" onclick="game.first()">～そく
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="31" onclick="game.first()">～せん
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="32" onclick="game.first()">～つう
+                        </label>
+                        <label>
+                            <input type="checkbox" class="unit" value="33" onclick="game.first()">～ちょうの
+                        </label>
+                    </div>
+                </div>
+                <div class="gamearea columnorder">
+                    <span class="playarea playtext center"></span>
+                    <div class="sidearea roworder">
+                        <span class="sidetext"></span>
+                        <span class="sidetext"></span>
+                    </div>
+                </div>
+                <button class="next" onclick="game.next()"></button>
+                <p>Högst upp visas (namnet på) ett nummer. Översätt numret och tryck sedan på knappen ovan (eller tangentbordsknappen med samma namn). Numret kommer flyttas ned till vänster och dess korrekta översättning kommer avslöjas nere till höger. Högst upp kommer (namnet på) ett nytt nummer att visas. Kan du alla nummer?</p>
+            </div>
         </div>
     </body>
 </html>
