@@ -544,38 +544,59 @@ const games = {
         first: function() {
             const fieldoptions = getOptions('field');
             const datasetoptions = getOptions('dataset');
+            const kanjioptions = getOptions('kanji');
 
-            this.dictionary = [];
-            Object.keys(datasets).forEach(datasetkey => {
-                if (datasetoptions[datasetkey]) {
-                    datasets[datasetkey].forEach(elem => {
-                        Object.keys(elem).forEach(field => {
-                            if (fieldoptions[field]) {
-                                this.dictionary.push({last: 0, name: elem.name, char: elem[field]});
-                            }
-                        });
-                    });
-                }
-            });
-            if (this.dictionary.length < 2) {
-                if (this.dictionary.length == 0) {
-                    this.dictionary = [{last: 0, name: '?', char: '?'}, {last: 0, name: '?', char: '?'}];
-                }
-                else {
-                    this.dictionary.push(this.dictionary[0]);
-                }
-            }
-            else {
-                this.dictionary.forEach(elem => { elem.last = -(getRandom(this.dictionary.length) + 1); });
-            }
-
+            this.dictionary = [{last: 0, name: '?', char: '?'}, {last: 0, name: '?', char: '?'}];
+            this.now = 0;
             this.previous.index = undefined;
-
-            this.now = 1;
-            this.current.index = getRandomWeighted(elem => this.now - elem.last, this.dictionary);
-            this.dictionary[this.current.index].last = this.now;
+            this.current.index = undefined;
 
             this.refresh();
+
+            var responses = [];
+            if (Object.values(kanjioptions).some(option => option)) {
+                responses.push(fetch('data/kanji.json').then(response => response.json()));
+            }
+            Promise.all(responses).then(data => {
+                this.dictionary = [];
+                data.forEach(array => {
+                    array.forEach(elem => {
+                        if (elem.tags.some(tag => kanjioptions[tag])) {
+                            this.dictionary.push({last: 0, name: elem.meaning, char: elem.kanji});
+                        }
+                    });
+                });
+                Object.keys(datasets).forEach(datasetkey => {
+                    if (datasetoptions[datasetkey]) {
+                        datasets[datasetkey].forEach(elem => {
+                            Object.keys(elem).forEach(field => {
+                                if (fieldoptions[field]) {
+                                    this.dictionary.push({last: 0, name: elem.name, char: elem[field]});
+                                }
+                            });
+                        });
+                    }
+                });
+                if (this.dictionary.length < 2) {
+                    if (this.dictionary.length == 0) {
+                        this.dictionary = [{last: 0, name: '?', char: '?'}, {last: 0, name: '?', char: '?'}];
+                    }
+                    else {
+                        this.dictionary.push(this.dictionary[0]);
+                    }
+                }
+                else {
+                    this.dictionary.forEach(elem => { elem.last = -(getRandom(this.dictionary.length) + 1); });
+                }
+
+                this.previous.index = undefined;
+
+                this.now = 1;
+                this.current.index = getRandomWeighted(elem => this.now - elem.last, this.dictionary);
+                this.dictionary[this.current.index].last = this.now;
+
+                this.refresh();
+            });
         },
         next: function() {
             this.previous.index = this.current.index;

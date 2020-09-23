@@ -1,0 +1,110 @@
+[
+    {
+        "kanji": "一",
+        "reading": ["いち", "いっ", "ひと"],
+        "meaning": "one",
+        "tags": ["genki:chapter:3"]
+    },
+    {
+        "kanji": "二",
+        "reading": ["に", "ふた"],
+        "meaning": "two",
+        "tags": ["genki:chapter:3"]
+    },
+    {
+        "kanji": "三",
+        "reading": ["さん", "みっ"],
+        "meaning": "three",
+        "tags": ["genki:chapter:3"]
+    },
+    {
+        "kanji": "四",
+        "reading": ["し", "よん", "よ", "よっ"],
+        "meaning": "four",
+        "tags": ["genki:chapter:3"]
+    },
+    {
+        "kanji": "五",
+        "reading": ["ご", "いつ"],
+        "meaning": "five",
+        "tags": ["genki:chapter:3"]
+    },
+    {
+        "kanji": "六",
+        "reading": ["ろく", "ろっ", "むっ"],
+        "meaning": "six",
+        "tags": ["genki:chapter:3"]
+    },
+    {
+        "kanji": "七",
+        "reading": ["しち", "なな"],
+        "meaning": "seven",
+        "tags": ["genki:chapter:3"]
+    },
+    {
+        "kanji": "八",
+        "reading": ["はち", "はっ", "やっ"],
+        "meaning": "eight",
+        "tags": ["genki:chapter:3"]
+    },
+    {
+        "kanji": "九",
+        "reading": ["きゅう", "く", "ここの"],
+        "meaning": "nine",
+        "tags": ["genki:chapter:3"]
+    },
+    {
+        "kanji": "十",
+        "reading": ["じゅう", "じゅっ", "じっ", "とお"],
+        "meaning": "ten",
+        "tags": ["genki:chapter:3"]
+    },
+    {
+        "kanji": "百",
+        "reading": ["ひゃく", "びゃく", "ぴゃく"],
+        "meaning": "hundred",
+        "tags": ["genki:chapter:3"]
+    },
+    {
+        "kanji": "千",
+        "reading": ["せん", "ぜん"],
+        "meaning": "thousand",
+        "tags": ["genki:chapter:3"]
+    },
+    {
+        "kanji": "万",
+        "reading": ["まん"],
+        "meaning": "ten thousand",
+        "tags": ["genki:chapter:3"]
+    },
+    {
+        "kanji": "円",
+        "reading": ["えん", "まる"],
+        "meaning": "yen; circle",
+        "tags": ["genki:chapter:3"]
+    },
+    {
+        "kanji": "時",
+        "reading": ["じ", "とき"],
+        "meaning": "time",
+        "tags": ["genki:chapter:3"]
+    },
+    {
+        "kanji": "寺",
+        "reading": ["てら", "ジ"],
+        "meaning": "temple",
+        "tags": ["compendium:chapter:3"]
+    },
+    {
+        "kanji": "目",
+        "reading": ["モク", "め"],
+        "meaning": "eye",
+        "tags": ["compendium:chapter:3"]
+    },
+    {
+        "kanji": "心",
+        "reading": ["こころ", "シン"],
+        "meaning": "heart; mind",
+        "tags": ["compendium:chapter:3"]
+    }
+]

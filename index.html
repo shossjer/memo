@@ -39,24 +39,52 @@
             </div>
             <div id="guess" class="tabcontent">
                 <div class="options">
-                    <div>
-                        <label>Skriftsystem: </label>
-                        <label>
-                            <input type="checkbox" class="field" value="hiragana" onclick="game.first()" checked>&#x3072&#x3089&#x304c&#x306a
-                            <span class="tooltip">&#x1F6C8
-                                <span class="content">
-                                    <label>Hiragana</label>
+                    <div class="roworder">
+                        <div>
+                            <label>Tecken: </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" class="field" value="hiragana" onclick="game.first()" checked>&#x3072&#x3089&#x304c&#x306a
+                                <span class="tooltip">&#x1F6C8
+                                    <span class="content">
+                                        <label>Hiragana</label>
+                                    </span>
                                 </span>
-                            </span>
-                        </label>
-                        <label>
-                            <input type="checkbox" class="field" value="katakana" onclick="game.first()">&#x30ab&#x30bf&#x30ab&#x30ca
-                            <span class="tooltip">&#x1F6C8
-                                <span class="content">
-                                    <label>Katakana</label>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" class="field" value="katakana" onclick="game.first()">&#x30ab&#x30bf&#x30ab&#x30ca
+                                <span class="tooltip">&#x1F6C8
+                                    <span class="content">
+                                        <label>Katakana</label>
+                                    </span>
                                 </span>
-                            </span>
-                        </label>
+                            </label>
+                        </div>
+                        <div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="kanji" value="genki:chapter:3" onclick="game.first()">genki chapter 3
+                                    <span class="tooltip">&#x1F6C8
+                                        <span class="content">
+                                            <label>Genki Chapter 3</label>
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="kanji" value="compendium:chapter:3" onclick="game.first()">extra compendium
+                                    <span class="tooltip">&#x1F6C8
+                                        <span class="content">
+                                            <label>Extra material from (secret) compendium</label>
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <label>Tillägg: </label>
