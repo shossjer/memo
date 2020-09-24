@@ -44,24 +44,50 @@
                             <label>Tecken: </label>
                         </div>
                         <div>
-                            <label>
-                                <input type="checkbox" class="field" value="hiragana" onclick="game.first()" checked>&#x3072&#x3089&#x304c&#x306a
-                                <span class="tooltip">&#x1F6C8
-                                    <span class="content">
-                                        <label>Hiragana</label>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="hiragana" value="basics" onclick="game.first()" checked>ひらがな
+                                    <span class="tooltip hiragana basics">&#x1F6C8
                                     </span>
-                                </span>
-                            </label>
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="hiragana" value="diacritics" onclick="game.first()">だくてん
+                                    <span class="tooltip hiragana diacritics">&#x1F6C8
+                                    </span>
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="hiragana" value="contractions" onclick="game.first()">ようおん
+                                    <span class="tooltip hiragana contractions">&#x1F6C8
+                                    </span>
+                                </label>
+                            </div>
                         </div>
                         <div>
-                            <label>
-                                <input type="checkbox" class="field" value="katakana" onclick="game.first()">&#x30ab&#x30bf&#x30ab&#x30ca
-                                <span class="tooltip">&#x1F6C8
-                                    <span class="content">
-                                        <label>Katakana</label>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="katakana" value="basics" onclick="game.first()">カタカナ
+                                    <span class="tooltip katakana basics">&#x1F6C8
                                     </span>
-                                </span>
-                            </label>
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="katakana" value="diacritics" onclick="game.first()">ダクテン
+                                    <span class="tooltip katakana diacritics">&#x1F6C8
+                                    </span>
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="katakana" value="contractions" onclick="game.first()">ヨウオン
+                                    <span class="tooltip katakana contractions">&#x1F6C8
+                                    </span>
+                                </label>
+                            </div>
                         </div>
                         <div>
                             <div>
@@ -86,21 +112,6 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <label>Tillägg: </label>
-                        <label>
-                            <input type="checkbox" class="dataset" value="basics" onclick="game.first()" checked>Basic Syllables
-                            <span class="tooltip basics">&#x1F6C8</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" class="dataset" value="diacritics" onclick="game.first()">Diacritical Marks
-                            <span class="tooltip diacritics">&#x1F6C8</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" class="dataset" value="contractions" onclick="game.first()">Contracted Sounds
-                            <span class="tooltip contractions">&#x1F6C8</span>
-                        </label>
-                    </div>
                 </div>
                 <div class="gamearea roworder">
                     <span class="playarea playcharacter characterfont"></span>
@@ -114,20 +125,56 @@
             </div>
             <div id="write" class="tabcontent">
                 <div class="options">
-                    <div>
-                        <label>Tillägg: </label>
-                        <label>
-                            <input type="checkbox" class="dataset" value="basics" onclick="game.first()" checked>Basic Syllables
-                            <span class="tooltip basics">&#x1F6C8</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" class="dataset" value="diacritics" onclick="game.first()">Diacritical Marks
-                            <span class="tooltip diacritics">&#x1F6C8</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" class="dataset" value="contractions" onclick="game.first()">Contracted Sounds
-                            <span class="tooltip contractions">&#x1F6C8</span>
-                        </label>
+                    <div class="roworder">
+                        <div>
+                            <label>Tecken: </label>
+                        </div>
+                        <div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="hiragana" value="basics" onclick="game.first()" checked>ひらがな
+                                    <span class="tooltip hiragana basics">&#x1F6C8
+                                    </span>
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="hiragana" value="diacritics" onclick="game.first()">だくてん
+                                    <span class="tooltip hiragana diacritics">&#x1F6C8
+                                    </span>
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="hiragana" value="contractions" onclick="game.first()">ようおん
+                                    <span class="tooltip hiragana contractions">&#x1F6C8
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="katakana" value="basics" onclick="game.first()">カタカナ
+                                    <span class="tooltip katakana basics">&#x1F6C8
+                                    </span>
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="katakana" value="diacritics" onclick="game.first()">ダクテン
+                                    <span class="tooltip katakana diacritics">&#x1F6C8
+                                    </span>
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="katakana" value="contractions" onclick="game.first()">ヨウオン
+                                    <span class="tooltip katakana contractions">&#x1F6C8
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="gamearea roworder">

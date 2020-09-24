@@ -22,149 +22,262 @@ function addCharacterClass(domelem) {
     domelem.classList.add(characterFont);
 }
 
-const datasets = {
+const hiragana = {
     basics: [
-        {name: 'a', hiragana: '\u3042', katakana: '\u30a2', x: 10, y: 0},
-        {name: 'i', hiragana: '\u3044', katakana: '\u30a4', x: 10, y: 1},
-        {name: 'u', hiragana: '\u3046', katakana: '\u30a6', x: 10, y: 2},
-        {name: 'e', hiragana: '\u3048', katakana: '\u30a8', x: 10, y: 3},
-        {name: 'o', hiragana: '\u304a', katakana: '\u30aa', x: 10, y: 4},
-        {name: 'ka', hiragana: '\u304b', katakana: '\u30ab', x: 9, y: 0},
-        {name: 'ki', hiragana: '\u304d', katakana: '\u30ad', x: 9, y: 1},
-        {name: 'ku', hiragana: '\u304f', katakana: '\u30af', x: 9, y: 2},
-        {name: 'ke', hiragana: '\u3051', katakana: '\u30b1', x: 9, y: 3},
-        {name: 'ko', hiragana: '\u3053', katakana: '\u30b3', x: 9, y: 4},
-        {name: 'sa', hiragana: '\u3055', katakana: '\u30b5', x: 8, y: 0},
-        {name: 'shi (si)', hiragana: '\u3057', katakana: '\u30b7', x: 8, y: 1},
-        {name: 'su', hiragana: '\u3059', katakana: '\u30b9', x: 8, y: 2},
-        {name: 'se', hiragana: '\u305b', katakana: '\u30bb', x: 8, y: 3},
-        {name: 'so', hiragana: '\u305d', katakana: '\u30bd', x: 8, y: 4},
-        {name: 'ta', hiragana: '\u305f', katakana: '\u30bf', x: 7, y: 0},
-        {name: 'chi (ti)', hiragana: '\u3061', katakana: '\u30c1', x: 7, y: 1},
-        {name: 'tsu (tu)', hiragana: '\u3064', katakana: '\u30c4', x: 7, y: 2},
-        {name: 'te', hiragana: '\u3066', katakana: '\u30c6', x: 7, y: 3},
-        {name: 'to', hiragana: '\u3068', katakana: '\u30c8', x: 7, y: 4},
-        {name: 'na', hiragana: '\u306a', katakana: '\u30ca', x: 6, y: 0},
-        {name: 'ni', hiragana: '\u306b', katakana: '\u30cb', x: 6, y: 1},
-        {name: 'nu', hiragana: '\u306c', katakana: '\u30cc', x: 6, y: 2},
-        {name: 'ne', hiragana: '\u306d', katakana: '\u30cd', x: 6, y: 3},
-        {name: 'no', hiragana: '\u306e', katakana: '\u30ce', x: 6, y: 4},
-        {name: 'ha', hiragana: '\u306f', katakana: '\u30cf', x: 5, y: 0},
-        {name: 'hi', hiragana: '\u3072', katakana: '\u30d2', x: 5, y: 1},
-        {name: 'fu (hu)', hiragana: '\u3075', katakana: '\u30d5', x: 5, y: 2},
-        {name: 'he', hiragana: '\u3078', katakana: '\u30d8', x: 5, y: 3},
-        {name: 'ho', hiragana: '\u307b', katakana: '\u30db', x: 5, y: 4},
-        {name: 'ma', hiragana: '\u307e', katakana: '\u30de', x: 4, y: 0},
-        {name: 'mi', hiragana: '\u307f', katakana: '\u30df', x: 4, y: 1},
-        {name: 'mu', hiragana: '\u3080', katakana: '\u30e0', x: 4, y: 2},
-        {name: 'me', hiragana: '\u3081', katakana: '\u30e1', x: 4, y: 3},
-        {name: 'mo', hiragana: '\u3082', katakana: '\u30e2', x: 4, y: 4},
-        {name: 'ya', hiragana: '\u3084', katakana: '\u30e4', x: 3, y: 0},
-        {name: 'yu', hiragana: '\u3086', katakana: '\u30e6', x: 3, y: 2},
-        {name: 'yo', hiragana: '\u3088', katakana: '\u30e8', x: 3, y: 4},
-        {name: 'ra', hiragana: '\u3089', katakana: '\u30e9', x: 2, y: 0},
-        {name: 'ri', hiragana: '\u308a', katakana: '\u30ea', x: 2, y: 1},
-        {name: 'ru', hiragana: '\u308b', katakana: '\u30eb', x: 2, y: 2},
-        {name: 're', hiragana: '\u308c', katakana: '\u30ec', x: 2, y: 3},
-        {name: 'ro', hiragana: '\u308d', katakana: '\u30ed', x: 2, y: 4},
-        {name: 'wa', hiragana: '\u308f', katakana: '\u30ef', x: 1, y: 0},
-        {name: 'o (wo)', hiragana: '\u3092', katakana: '\u30f2', x: 1, y: 4},
-        {name: 'n', hiragana: '\u3093', katakana: '\u30f3', x: 0, y: 0}
+        {name: 'a', character: 'あ', x: 10, y: 0},
+        {name: 'i', character: 'い', x: 10, y: 1},
+        {name: 'u', character: 'う', x: 10, y: 2},
+        {name: 'e', character: 'え', x: 10, y: 3},
+        {name: 'o', character: 'お', x: 10, y: 4},
+        {name: 'ka', character: 'か', x: 9, y: 0},
+        {name: 'ki', character: 'き', x: 9, y: 1},
+        {name: 'ku', character: 'く', x: 9, y: 2},
+        {name: 'ke', character: 'け', x: 9, y: 3},
+        {name: 'ko', character: 'こ', x: 9, y: 4},
+        {name: 'sa', character: 'さ', x: 8, y: 0},
+        {name: 'shi (si)', character: 'し', x: 8, y: 1},
+        {name: 'su', character: 'す', x: 8, y: 2},
+        {name: 'se', character: 'せ', x: 8, y: 3},
+        {name: 'so', character: 'そ', x: 8, y: 4},
+        {name: 'ta', character: 'た', x: 7, y: 0},
+        {name: 'chi (ti)', character: 'ち', x: 7, y: 1},
+        {name: 'tsu (tu)', character: 'つ', x: 7, y: 2},
+        {name: 'te', character: 'て', x: 7, y: 3},
+        {name: 'to', character: 'と', x: 7, y: 4},
+        {name: 'na', character: 'な', x: 6, y: 0},
+        {name: 'ni', character: 'に', x: 6, y: 1},
+        {name: 'nu', character: 'ぬ', x: 6, y: 2},
+        {name: 'ne', character: 'ね', x: 6, y: 3},
+        {name: 'no', character: 'の', x: 6, y: 4},
+        {name: 'ha', character: 'は', x: 5, y: 0},
+        {name: 'hi', character: 'ひ', x: 5, y: 1},
+        {name: 'fu (hu)', character: 'ふ', x: 5, y: 2},
+        {name: 'he', character: 'へ', x: 5, y: 3},
+        {name: 'ho', character: 'ほ', x: 5, y: 4},
+        {name: 'ma', character: 'ま', x: 4, y: 0},
+        {name: 'mi', character: 'み', x: 4, y: 1},
+        {name: 'mu', character: 'む', x: 4, y: 2},
+        {name: 'me', character: 'め', x: 4, y: 3},
+        {name: 'mo', character: 'も', x: 4, y: 4},
+        {name: 'ya', character: 'や', x: 3, y: 0},
+        {name: 'yu', character: 'ゆ', x: 3, y: 2},
+        {name: 'yo', character: 'よ', x: 3, y: 4},
+        {name: 'ra', character: 'ら', x: 2, y: 0},
+        {name: 'ri', character: 'り', x: 2, y: 1},
+        {name: 'ru', character: 'る', x: 2, y: 2},
+        {name: 're', character: 'れ', x: 2, y: 3},
+        {name: 'ro', character: 'ろ', x: 2, y: 4},
+        {name: 'wa', character: 'わ', x: 1, y: 0},
+        {name: 'o (wo)', character: 'を', x: 1, y: 4},
+        {name: 'n', character: 'ん', x: 0, y: 0}
     ],
     diacritics: [
-        {name: 'ga', hiragana: '\u304c', katakana: '\u30ac', x: 4, y: 0},
-        {name: 'gi', hiragana: '\u304e', katakana: '\u30ae', x: 4, y: 1},
-        {name: 'gu', hiragana: '\u3050', katakana: '\u30b0', x: 4, y: 2},
-        {name: 'ge', hiragana: '\u3052', katakana: '\u30b2', x: 4, y: 3},
-        {name: 'go', hiragana: '\u3054', katakana: '\u30b4', x: 4, y: 4},
-        {name: 'za', hiragana: '\u3056', katakana: '\u30b6', x: 3, y: 0},
-        {name: 'ji (zi)', hiragana: '\u3058', katakana: '\u30b8', x: 3, y: 1},
-        {name: 'zu', hiragana: '\u305a', katakana: '\u30ba', x: 3, y: 2},
-        {name: 'ze', hiragana: '\u305c', katakana: '\u30bc', x: 3, y: 3},
-        {name: 'zo', hiragana: '\u305e', katakana: '\u30be', x: 3, y: 4},
-        {name: 'da', hiragana: '\u3060', katakana: '\u30c0', x: 2, y: 0},
-        {name: 'ji (di)', hiragana: '\u3062', katakana: '\u30c2', x: 2, y: 1},
-        {name: 'zu (du)', hiragana: '\u3065', katakana: '\u30c5', x: 2, y: 2},
-        {name: 'de', hiragana: '\u3067', katakana: '\u30c7', x: 2, y: 3},
-        {name: 'do', hiragana: '\u3069', katakana: '\u30c9', x: 2, y: 4},
-        {name: 'ba', hiragana: '\u3070', katakana: '\u30d0', x: 1, y: 0},
-        {name: 'bi', hiragana: '\u3073', katakana: '\u30d3', x: 1, y: 1},
-        {name: 'bu', hiragana: '\u3076', katakana: '\u30d6', x: 1, y: 2},
-        {name: 'be', hiragana: '\u3079', katakana: '\u30d9', x: 1, y: 3},
-        {name: 'bo', hiragana: '\u307c', katakana: '\u30dc', x: 1, y: 4},
-        {name: 'pa', hiragana: '\u3071', katakana: '\u30d1', x: 0, y: 0},
-        {name: 'pi', hiragana: '\u3074', katakana: '\u30d4', x: 0, y: 1},
-        {name: 'pu', hiragana: '\u3077', katakana: '\u30d7', x: 0, y: 2},
-        {name: 'pe', hiragana: '\u307a', katakana: '\u30da', x: 0, y: 3},
-        {name: 'po', hiragana: '\u307d', katakana: '\u30dd', x: 0, y: 4}
+        {name: 'ga', character: 'が', x: 4, y: 0},
+        {name: 'gi', character: 'ぎ', x: 4, y: 1},
+        {name: 'gu', character: 'ぐ', x: 4, y: 2},
+        {name: 'ge', character: 'げ', x: 4, y: 3},
+        {name: 'go', character: 'ご', x: 4, y: 4},
+        {name: 'za', character: 'ざ', x: 3, y: 0},
+        {name: 'ji (zi)', character: 'じ', x: 3, y: 1},
+        {name: 'zu', character: 'ず', x: 3, y: 2},
+        {name: 'ze', character: 'ぜ', x: 3, y: 3},
+        {name: 'zo', character: 'ぞ', x: 3, y: 4},
+        {name: 'da', character: 'だ', x: 2, y: 0},
+        {name: 'ji (di)', character: 'ぢ', x: 2, y: 1},
+        {name: 'zu (du)', character: 'づ', x: 2, y: 2},
+        {name: 'de', character: 'で', x: 2, y: 3},
+        {name: 'do', character: 'ど', x: 2, y: 4},
+        {name: 'ba', character: 'ば', x: 1, y: 0},
+        {name: 'bi', character: 'び', x: 1, y: 1},
+        {name: 'bu', character: 'ぶ', x: 1, y: 2},
+        {name: 'be', character: 'べ', x: 1, y: 3},
+        {name: 'bo', character: 'ぼ', x: 1, y: 4},
+        {name: 'pa', character: 'ぱ', x: 0, y: 0},
+        {name: 'pi', character: 'ぴ', x: 0, y: 1},
+        {name: 'pu', character: 'ぷ', x: 0, y: 2},
+        {name: 'pe', character: 'ぺ', x: 0, y: 3},
+        {name: 'po', character: 'ぽ', x: 0, y: 4}
     ],
     contractions: [
-        {name: 'kya', hiragana: 'きゃ', katakana: 'キャ', x: 18, y: 0},
-        {name: 'kyu', hiragana: 'きゅ', katakana: 'キュ', x: 18, y: 2},
-        {name: 'kyo', hiragana: 'きょ', katakana: 'キョ', x: 18, y: 4},
-        {name: 'sha', hiragana: 'しゃ', katakana: 'シャ', x: 17, y: 0},
-        {name: 'shu', hiragana: 'しゅ', katakana: 'シュ', x: 17, y: 2},
-        {name: 'she', katakana: 'シェ', x: 17, y: 3},
-        {name: 'sho', hiragana: 'しょ', katakana: 'ショ', x: 17, y: 4},
-        {name: 'cha', hiragana: 'ちゃ', katakana: 'チャ', x: 16, y: 0},
-        {name: 'chu', hiragana: 'ちゅ', katakana: 'チュ', x: 16, y: 2},
-        {name: 'che', katakana: 'チェ', x: 16, y: 3},
-        {name: 'cho', hiragana: 'ちょ', katakana: 'チョ', x: 16, y: 4},
-        {name: 'nya', hiragana: 'にゃ', katakana: 'ニャ', x: 15, y: 0},
-        {name: 'nyu', hiragana: 'にゅ', katakana: 'ニュ', x: 15, y: 2},
-        {name: 'nyo', hiragana: 'にょ', katakana: 'ニョ', x: 15, y: 4},
-        {name: 'hya', hiragana: 'ひゃ', katakana: 'ヒャ', x: 14, y: 0},
-        {name: 'hyu', hiragana: 'ひゅ', katakana: 'ヒュ', x: 14, y: 2},
-        {name: 'hyo', hiragana: 'ひょ', katakana: 'ヒョ', x: 14, y: 4},
-        {name: 'mya', hiragana: 'みゃ', katakana: 'ミャ', x: 13, y: 0},
-        {name: 'myu', hiragana: 'みゅ', katakana: 'ミュ', x: 13, y: 2},
-        {name: 'myo', hiragana: 'みょ', katakana: 'ミョ', x: 13, y: 4},
-        {name: 'rya', hiragana: 'りゃ', katakana: 'リャ', x: 12, y: 0},
-        {name: 'ryu', hiragana: 'りゅ', katakana: 'リュ', x: 12, y: 2},
-        {name: 'ryo', hiragana: 'りょ', katakana: 'リョ', x: 12, y: 4},
-        {name: 'gya', hiragana: 'ぎゃ', katakana: 'ギャ', x: 11, y: 0},
-        {name: 'gyu', hiragana: 'ぎゅ', katakana: 'ギュ', x: 11, y: 2},
-        {name: 'gyo', hiragana: 'ぎょ', katakana: 'ギョ', x: 11, y: 4},
-        {name: 'ja', hiragana: 'じゃ', katakana: 'ジャ', x: 10, y: 0},
-        {name: 'ju', hiragana: 'じゅ', katakana: 'ジュ', x: 10, y: 2},
-        {name: 'je', katakana: 'ジェ', x: 10, y: 3},
-        {name: 'jo', hiragana: 'じょ', katakana: 'ジョ', x: 10, y: 4},
-        {name: 'bya', hiragana: 'びゃ', katakana: 'ビャ', x: 9, y: 0},
-        {name: 'byu', hiragana: 'びゅ', katakana: 'ビュ', x: 9, y: 2},
-        {name: 'byo', hiragana: 'びょ', katakana: 'ビョ', x: 9, y: 4},
-        {name: 'pya', hiragana: 'ぴゃ', katakana: 'ピャ', x: 8, y: 0},
-        {name: 'pyu', hiragana: 'ぴゅ', katakana: 'ピュ', x: 8, y: 2},
-        {name: 'pyo', hiragana: 'ぴょ', katakana: 'ピョ', x: 8, y: 4},
-        {name: 'wi', katakana: 'ウィ', x: 7, y: 1},
-        {name: 'we', katakana: 'ウェ', x: 7, y: 3},
-        {name: 'wo', katakana: 'ウォ', x: 7, y: 4},
-        {name: 'kwa', katakana: 'クァ', x: 6, y: 0},
-        {name: 'kwi', katakana: 'クィ', x: 6, y: 1},
-        {name: 'kwe', katakana: 'クェ', x: 6, y: 3},
-        {name: 'kwo', katakana: 'クォ', x: 6, y: 4},
-        {name: 'tsa', katakana: 'ツァ', x: 5, y: 0},
-        {name: 'tsi', katakana: 'ツィ', x: 5, y: 1},
-        {name: 'tse', katakana: 'ツェ', x: 5, y: 3},
-        {name: 'tso', katakana: 'ツォ', x: 5, y: 4},
-        {name: 'ti', katakana: 'ティ', x: 4, y: 1},
-        {name: 'tyu', katakana: 'テュ', x: 4, y: 2},
-        {name: 'fa', katakana: 'ファ', x: 3, y: 0},
-        {name: 'fi', katakana: 'フィ', x: 3, y: 1},
-        {name: 'fyu', katakana: 'フュ', x: 3, y: 2},
-        {name: 'fe', katakana: 'フェ', x: 3, y: 3},
-        {name: 'fo', katakana: 'フォ', x: 3, y: 4},
-        {name: 'di', katakana: 'ディ', x: 2, y: 1},
-        {name: 'dyu', katakana: 'デュ', x: 2, y: 2},
-        {name: 'va', katakana: 'ヴァ', x: 1, y: 0},
-        {name: 'vi', katakana: 'ヴィ', x: 1, y: 1},
-        {name: 'vu', katakana: 'ヴ', x: 1, y: 2},
-        {name: 've', katakana: 'ヴェ', x: 1, y: 3},
-        {name: 'vo', katakana: 'ヴォ', x: 1, y: 4},
-        {name: 'ye', katakana: 'イェ', x: 0, y: 0},
-        {name: 'gwa', katakana: 'グァ', x: 0, y: 1},
-        {name: 'tu', katakana: 'トゥ', x: 0, y: 2},
-        {name: 'du', katakana: 'ドゥ', x: 0, y: 3},
-        {name: 'vyu', katakana: 'ヴュ', x: 0, y: 4}
+        {name: 'kya', character: 'きゃ', x: 10, y: 0},
+        {name: 'kyu', character: 'きゅ',  x: 10, y: 2},
+        {name: 'kyo', character: 'きょ', x: 10, y: 4},
+        {name: 'sha', character: 'しゃ', x: 9, y: 0},
+        {name: 'shu', character: 'しゅ', x: 9, y: 2},
+        {name: 'sho', character: 'しょ', x: 9, y: 4},
+        {name: 'cha', character: 'ちゃ', x: 8, y: 0},
+        {name: 'chu', character: 'ちゅ', x: 8, y: 2},
+        {name: 'cho', character: 'ちょ', x: 8, y: 4},
+        {name: 'nya', character: 'にゃ', x: 7, y: 0},
+        {name: 'nyu', character: 'にゅ', x: 7, y: 2},
+        {name: 'nyo', character: 'にょ', x: 7, y: 4},
+        {name: 'hya', character: 'ひゃ', x: 6, y: 0},
+        {name: 'hyu', character: 'ひゅ', x: 6, y: 2},
+        {name: 'hyo', character: 'ひょ', x: 6, y: 4},
+        {name: 'mya', character: 'みゃ', x: 5, y: 0},
+        {name: 'myu', character: 'みゅ', x: 5, y: 2},
+        {name: 'myo', character: 'みょ', x: 5, y: 4},
+        {name: 'rya', character: 'りゃ', x: 4, y: 0},
+        {name: 'ryu', character: 'りゅ', x: 4, y: 2},
+        {name: 'ryo', character: 'りょ', x: 4, y: 4},
+        {name: 'gya', character: 'ぎゃ', x: 3, y: 0},
+        {name: 'gyu', character: 'ぎゅ', x: 3, y: 2},
+        {name: 'gyo', character: 'ぎょ', x: 3, y: 4},
+        {name: 'ja', character: 'じゃ', x: 2, y: 0},
+        {name: 'ju', character: 'じゅ', x: 2, y: 2},
+        {name: 'jo', character: 'じょ', x: 2, y: 4},
+        {name: 'bya', character: 'びゃ', x: 1, y: 0},
+        {name: 'byu', character: 'びゅ', x: 1, y: 2},
+        {name: 'byo', character: 'びょ', x: 1, y: 4},
+        {name: 'pya', character: 'ぴゃ', x: 0, y: 0},
+        {name: 'pyu', character: 'ぴゅ', x: 0, y: 2},
+        {name: 'pyo', character: 'ぴょ', x: 0, y: 4}
+    ]
+};
+
+const katakana = {
+    basics: [
+        {name: 'a', character: '\u30a2', x: 10, y: 0},
+        {name: 'i', character: '\u30a4', x: 10, y: 1},
+        {name: 'u', character: '\u30a6', x: 10, y: 2},
+        {name: 'e', character: '\u30a8', x: 10, y: 3},
+        {name: 'o', character: '\u30aa', x: 10, y: 4},
+        {name: 'ka', character: '\u30ab', x: 9, y: 0},
+        {name: 'ki', character: '\u30ad', x: 9, y: 1},
+        {name: 'ku', character: '\u30af', x: 9, y: 2},
+        {name: 'ke', character: '\u30b1', x: 9, y: 3},
+        {name: 'ko', character: '\u30b3', x: 9, y: 4},
+        {name: 'sa', character: '\u30b5', x: 8, y: 0},
+        {name: 'shi (si)', character: '\u30b7', x: 8, y: 1},
+        {name: 'su', character: '\u30b9', x: 8, y: 2},
+        {name: 'se', character: '\u30bb', x: 8, y: 3},
+        {name: 'so', character: '\u30bd', x: 8, y: 4},
+        {name: 'ta', character: '\u30bf', x: 7, y: 0},
+        {name: 'chi (ti)', character: '\u30c1', x: 7, y: 1},
+        {name: 'tsu (tu)', character: '\u30c4', x: 7, y: 2},
+        {name: 'te', character: '\u30c6', x: 7, y: 3},
+        {name: 'to', character: '\u30c8', x: 7, y: 4},
+        {name: 'na', character: '\u30ca', x: 6, y: 0},
+        {name: 'ni', character: '\u30cb', x: 6, y: 1},
+        {name: 'nu', character: '\u30cc', x: 6, y: 2},
+        {name: 'ne', character: '\u30cd', x: 6, y: 3},
+        {name: 'no', character: '\u30ce', x: 6, y: 4},
+        {name: 'ha', character: '\u30cf', x: 5, y: 0},
+        {name: 'hi', character: '\u30d2', x: 5, y: 1},
+        {name: 'fu (hu)', character: '\u30d5', x: 5, y: 2},
+        {name: 'he', character: '\u30d8', x: 5, y: 3},
+        {name: 'ho', character: '\u30db', x: 5, y: 4},
+        {name: 'ma', character: '\u30de', x: 4, y: 0},
+        {name: 'mi', character: '\u30df', x: 4, y: 1},
+        {name: 'mu', character: '\u30e0', x: 4, y: 2},
+        {name: 'me', character: '\u30e1', x: 4, y: 3},
+        {name: 'mo', character: '\u30e2', x: 4, y: 4},
+        {name: 'ya', character: '\u30e4', x: 3, y: 0},
+        {name: 'yu', character: '\u30e6', x: 3, y: 2},
+        {name: 'yo', character: '\u30e8', x: 3, y: 4},
+        {name: 'ra', character: '\u30e9', x: 2, y: 0},
+        {name: 'ri', character: '\u30ea', x: 2, y: 1},
+        {name: 'ru', character: '\u30eb', x: 2, y: 2},
+        {name: 're', character: '\u30ec', x: 2, y: 3},
+        {name: 'ro', character: '\u30ed', x: 2, y: 4},
+        {name: 'wa', character: '\u30ef', x: 1, y: 0},
+        {name: 'o (wo)', character: '\u30f2', x: 1, y: 4},
+        {name: 'n', character: '\u30f3', x: 0, y: 0}
+    ],
+    diacritics: [
+        {name: 'ga', character: '\u30ac', x: 4, y: 0},
+        {name: 'gi', character: '\u30ae', x: 4, y: 1},
+        {name: 'gu', character: '\u30b0', x: 4, y: 2},
+        {name: 'ge', character: '\u30b2', x: 4, y: 3},
+        {name: 'go', character: '\u30b4', x: 4, y: 4},
+        {name: 'za', character: '\u30b6', x: 3, y: 0},
+        {name: 'ji (zi)', character: '\u30b8', x: 3, y: 1},
+        {name: 'zu', character: '\u30ba', x: 3, y: 2},
+        {name: 'ze', character: '\u30bc', x: 3, y: 3},
+        {name: 'zo', character: '\u30be', x: 3, y: 4},
+        {name: 'da', character: '\u30c0', x: 2, y: 0},
+        {name: 'ji (di)', character: '\u30c2', x: 2, y: 1},
+        {name: 'zu (du)', character: '\u30c5', x: 2, y: 2},
+        {name: 'de', character: '\u30c7', x: 2, y: 3},
+        {name: 'do', character: '\u30c9', x: 2, y: 4},
+        {name: 'ba', character: '\u30d0', x: 1, y: 0},
+        {name: 'bi', character: '\u30d3', x: 1, y: 1},
+        {name: 'bu', character: '\u30d6', x: 1, y: 2},
+        {name: 'be', character: '\u30d9', x: 1, y: 3},
+        {name: 'bo', character: '\u30dc', x: 1, y: 4},
+        {name: 'pa', character: '\u30d1', x: 0, y: 0},
+        {name: 'pi', character: '\u30d4', x: 0, y: 1},
+        {name: 'pu', character: '\u30d7', x: 0, y: 2},
+        {name: 'pe', character: '\u30da', x: 0, y: 3},
+        {name: 'po', character: '\u30dd', x: 0, y: 4}
+    ],
+    contractions: [
+        {name: 'kya', character: 'キャ', x: 18, y: 0},
+        {name: 'kyu', character: 'キュ', x: 18, y: 2},
+        {name: 'kyo', character: 'キョ', x: 18, y: 4},
+        {name: 'sha', character: 'シャ', x: 17, y: 0},
+        {name: 'shu', character: 'シュ', x: 17, y: 2},
+        {name: 'she', character: 'シェ', x: 17, y: 3},
+        {name: 'sho', character: 'ショ', x: 17, y: 4},
+        {name: 'cha', character: 'チャ', x: 16, y: 0},
+        {name: 'chu', character: 'チュ', x: 16, y: 2},
+        {name: 'che', character: 'チェ', x: 16, y: 3},
+        {name: 'cho', character: 'チョ', x: 16, y: 4},
+        {name: 'nya', character: 'ニャ', x: 15, y: 0},
+        {name: 'nyu', character: 'ニュ', x: 15, y: 2},
+        {name: 'nyo', character: 'ニョ', x: 15, y: 4},
+        {name: 'hya', character: 'ヒャ', x: 14, y: 0},
+        {name: 'hyu', character: 'ヒュ', x: 14, y: 2},
+        {name: 'hyo', character: 'ヒョ', x: 14, y: 4},
+        {name: 'mya', character: 'ミャ', x: 13, y: 0},
+        {name: 'myu', character: 'ミュ', x: 13, y: 2},
+        {name: 'myo', character: 'ミョ', x: 13, y: 4},
+        {name: 'rya', character: 'リャ', x: 12, y: 0},
+        {name: 'ryu', character: 'リュ', x: 12, y: 2},
+        {name: 'ryo', character: 'リョ', x: 12, y: 4},
+        {name: 'gya', character: 'ギャ', x: 11, y: 0},
+        {name: 'gyu', character: 'ギュ', x: 11, y: 2},
+        {name: 'gyo', character: 'ギョ', x: 11, y: 4},
+        {name: 'ja', character: 'ジャ', x: 10, y: 0},
+        {name: 'ju', character: 'ジュ', x: 10, y: 2},
+        {name: 'je', character: 'ジェ', x: 10, y: 3},
+        {name: 'jo', character: 'ジョ', x: 10, y: 4},
+        {name: 'bya', character: 'ビャ', x: 9, y: 0},
+        {name: 'byu', character: 'ビュ', x: 9, y: 2},
+        {name: 'byo', character: 'ビョ', x: 9, y: 4},
+        {name: 'pya', character: 'ピャ', x: 8, y: 0},
+        {name: 'pyu', character: 'ピュ', x: 8, y: 2},
+        {name: 'pyo', character: 'ピョ', x: 8, y: 4},
+        {name: 'wi', character: 'ウィ', x: 7, y: 1},
+        {name: 'we', character: 'ウェ', x: 7, y: 3},
+        {name: 'wo', character: 'ウォ', x: 7, y: 4},
+        {name: 'kwa', character: 'クァ', x: 6, y: 0},
+        {name: 'kwi', character: 'クィ', x: 6, y: 1},
+        {name: 'kwe', character: 'クェ', x: 6, y: 3},
+        {name: 'kwo', character: 'クォ', x: 6, y: 4},
+        {name: 'tsa', character: 'ツァ', x: 5, y: 0},
+        {name: 'tsi', character: 'ツィ', x: 5, y: 1},
+        {name: 'tse', character: 'ツェ', x: 5, y: 3},
+        {name: 'tso', character: 'ツォ', x: 5, y: 4},
+        {name: 'ti', character: 'ティ', x: 4, y: 1},
+        {name: 'tyu', character: 'テュ', x: 4, y: 2},
+        {name: 'fa', character: 'ファ', x: 3, y: 0},
+        {name: 'fi', character: 'フィ', x: 3, y: 1},
+        {name: 'fyu', character: 'フュ', x: 3, y: 2},
+        {name: 'fe', character: 'フェ', x: 3, y: 3},
+        {name: 'fo', character: 'フォ', x: 3, y: 4},
+        {name: 'di', character: 'ディ', x: 2, y: 1},
+        {name: 'dyu', character: 'デュ', x: 2, y: 2},
+        {name: 'va', character: 'ヴァ', x: 1, y: 0},
+        {name: 'vi', character: 'ヴィ', x: 1, y: 1},
+        {name: 'vu', character: 'ヴ', x: 1, y: 2},
+        {name: 've', character: 'ヴェ', x: 1, y: 3},
+        {name: 'vo', character: 'ヴォ', x: 1, y: 4},
+        {name: 'ye', character: 'イェ', x: 0, y: 0},
+        {name: 'gwa', character: 'グァ', x: 0, y: 1},
+        {name: 'tu', character: 'トゥ', x: 0, y: 2},
+        {name: 'du', character: 'ドゥ', x: 0, y: 3},
+        {name: 'vyu', character: 'ヴュ', x: 0, y: 4}
     ]
 };
 
@@ -439,7 +552,7 @@ function getGridSize(dataset) {
     }, {x: 0, y: 0});
 }
 
-function generateDatasetGrid(dataset, field) {
+function generateDatasetGrid(dataset) {
     const gridsize = getGridSize(dataset);
     // https://stackoverflow.com/a/57550587
     const grid = document.createElement('div');
@@ -453,7 +566,7 @@ function generateDatasetGrid(dataset, field) {
 
         gridcells.push(cell);
     }
-    dataset.forEach(elem => { gridcells[elem.y * gridsize.x + elem.x].textContent = elem[field]; });
+    dataset.forEach(elem => { gridcells[elem.y * gridsize.x + elem.x].textContent = elem.character; });
 
     return grid;
 }
@@ -462,17 +575,14 @@ function generateDatasetTooltip(dataset) {
     const content = document.createElement('span');
     content.className = 'content';
 
-    content.appendChild(document.createElement('label')).textContent = 'Hiragana';
-    content.appendChild(generateDatasetGrid(dataset, 'hiragana'));
-    content.appendChild(document.createElement('label')).textContent = 'Katakana';
-    content.appendChild(generateDatasetGrid(dataset, 'katakana'));
+    content.appendChild(generateDatasetGrid(dataset));
 
     return content;
 }
 
-function generateDatasetTooltips() {
+function generateDatasetTooltips(datasets, name) {
     Object.keys(datasets).forEach(datasetkey => {
-        const tooltips = document.getElementsByClassName('tooltip ' + datasetkey);
+        const tooltips = document.getElementsByClassName('tooltip ' + name + ' ' + datasetkey);
         if (0 < tooltips.length) {
             const tooltip = tooltips[0].appendChild(generateDatasetTooltip(datasets[datasetkey]));
             for (var i = 1; i < tooltips.length; i++) {
@@ -542,8 +652,8 @@ const games = {
             }
         },
         first: function() {
-            const fieldoptions = getOptions('field');
-            const datasetoptions = getOptions('dataset');
+            const hiraganaoptions = getOptions('hiragana');
+            const katakanaoptions = getOptions('katakana');
             const kanjioptions = getOptions('kanji');
 
             this.dictionary = [{last: 0, name: '?', char: '?'}, {last: 0, name: '?', char: '?'}];
@@ -566,14 +676,17 @@ const games = {
                         }
                     });
                 });
-                Object.keys(datasets).forEach(datasetkey => {
-                    if (datasetoptions[datasetkey]) {
-                        datasets[datasetkey].forEach(elem => {
-                            Object.keys(elem).forEach(field => {
-                                if (fieldoptions[field]) {
-                                    this.dictionary.push({last: 0, name: elem.name, char: elem[field]});
-                                }
-                            });
+                Object.keys(hiragana).forEach(datasetkey => {
+                    if (hiraganaoptions[datasetkey]) {
+                        hiragana[datasetkey].forEach(elem => {
+                            this.dictionary.push({last: 0, name: elem.name, char: elem.character});
+                        });
+                    }
+                });
+                Object.keys(katakana).forEach(datasetkey => {
+                    if (katakanaoptions[datasetkey]) {
+                        katakana[datasetkey].forEach(elem => {
+                            this.dictionary.push({last: 0, name: elem.name, char: elem.character});
                         });
                     }
                 });
@@ -648,13 +761,31 @@ const games = {
             }
         },
         first: function() {
-            const datasetoptions = getOptions('dataset');
+            const hiraganaoptions = getOptions('hiragana');
+            const katakanaoptions = getOptions('katakana');
 
             this.dictionary = [];
-            Object.keys(datasets).forEach(datasetkey => {
-                if (datasetoptions[datasetkey]) {
-                    datasets[datasetkey].forEach(elem => {
-                        this.dictionary.push({last: 0, name: elem.name, hiragana: elem.hiragana, katakana: elem.katakana});
+            Object.keys(hiragana).forEach(datasetkey => {
+                if (hiraganaoptions[datasetkey]) {
+                    hiragana[datasetkey].forEach(elem => {
+                        var item = this.dictionary.find(item => item.name == elem.name);
+                        if (item === undefined) {
+                            item = {last: 0, name: elem.name};
+                            this.dictionary.push(item);
+                        }
+                        item['hiragana'] = elem.character;
+                    });
+                }
+            });
+            Object.keys(katakana).forEach(datasetkey => {
+                if (katakanaoptions[datasetkey]) {
+                    katakana[datasetkey].forEach(elem => {
+                        var item = this.dictionary.find(item => item.name == elem.name);
+                        if (item === undefined) {
+                            item = {last: 0, name: elem.name};
+                            this.dictionary.push(item);
+                        }
+                        item['katakana'] = elem.character;
                     });
                 }
             });
@@ -897,7 +1028,8 @@ for (var i = 0; i < nexts.length; i++) {
     nexts[i].innerHTML = nextButton;
 }
 
-generateDatasetTooltips();
+generateDatasetTooltips(hiragana, 'hiragana');
+generateDatasetTooltips(katakana, 'katakana');
 
 document.onkeydown = function(event) {
     event = event || window.event;
