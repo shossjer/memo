@@ -860,84 +860,154 @@ const games = {
         previous: {index: undefined, alternative: undefined},
         refresh: function() {
             const playarea = tabcontent.getElementsByClassName('playarea')[0];
-            const previousarea = tabcontent.getElementsByClassName('sidetext')[0];
-            const answerarea = tabcontent.getElementsByClassName('sidetext')[1];
+            const sidearea = tabcontent.getElementsByClassName('sidearea')[0];
 
             const directionoption = getOption('direction');
             const direction = directionoption.split('2');
 
+            while (sidearea.firstChild) {
+                sidearea.removeChild(sidearea.lastChild);
+            }
+
             if (direction[0] == 'japanese') {
                 addCharacterClass(playarea);
-                addCharacterClass(previousarea);
-                removeCharacterClass(answerarea);
             }
             if (direction[1] == 'japanese') {
                 removeCharacterClass(playarea);
-                removeCharacterClass(previousarea);
-                addCharacterClass(answerarea);
             }
 
-            if (direction[0] in this.dictionary[this.current.index].variants[this.current.alternative]) {
+            if (this.current.index !== undefined && direction[0] in this.dictionary[this.current.index].variants[this.current.alternative]) {
                 playarea.innerHTML = this.dictionary[this.current.index].variants[this.current.alternative][direction[0]];
             }
             else {
                 playarea.innerHTML = '?';
             }
-            if (0 <= this.previous.index && direction[0] in this.dictionary[this.previous.index].variants[this.previous.alternative]) {
-                previousarea.innerHTML = this.dictionary[this.previous.index].variants[this.previous.alternative][direction[0]];
+
+            if (this.previous.index !== undefined && direction[0] in this.dictionary[this.previous.index].variants[this.previous.alternative]) {
+                const area = sidearea.appendChild(document.createElement('span'));
+                area.className = 'sidetext';
+                if (direction[0] == 'japanese') {
+                    addCharacterClass(area);
+                    if ('furigana' in this.dictionary[this.previous.index].variants[this.previous.alternative]) {
+                        var str = '<ruby xml:lang="ja">';
+                        var i = 0;
+                        for (var c of this.dictionary[this.previous.index].variants[this.previous.alternative][direction[0]]) {
+                            str += c + '<rt>' + (c == this.dictionary[this.previous.index].variants[this.previous.alternative].furigana[i] ? '' : this.dictionary[this.previous.index].variants[this.previous.alternative].furigana[i]) + '</rt>';
+                            i++;
+                        }
+                        str += '</ruby>';
+                        area.innerHTML = str;
+                    }
+                    else {
+                        area.textContent = this.dictionary[this.previous.index].variants[this.previous.alternative][direction[0]];
+                    }
+                }
+                else {
+                    area.textContent = this.dictionary[this.previous.index].variants[this.previous.alternative][direction[0]];
+                }
             }
-            else {
-                previousarea.innerHTML = '?';
-            }
-            if (0 <= this.previous.index && direction[1] in this.dictionary[this.previous.index].variants[this.previous.alternative]) {
-                answerarea.innerHTML = this.dictionary[this.previous.index].variants[this.previous.alternative][direction[1]];
-            }
-            else {
-                answerarea.innerHTML = '?';
+            if (this.previous.index !== undefined && direction[1] in this.dictionary[this.previous.index].variants[this.previous.alternative]) {
+                const area = sidearea.appendChild(document.createElement('span'));
+                area.className = 'sidetext';
+                if (direction[1] == 'japanese') {
+                    addCharacterClass(area);
+                    if ('furigana' in this.dictionary[this.previous.index].variants[this.previous.alternative]) {
+                        var str = '<ruby xml:lang="ja">';
+                        var i = 0;
+                        for (var c of this.dictionary[this.previous.index].variants[this.previous.alternative][direction[1]]) {
+                            str += c + '<rt>' + (c == this.dictionary[this.previous.index].variants[this.previous.alternative].furigana[i] ? '' : this.dictionary[this.previous.index].variants[this.previous.alternative].furigana[i]) + '</rt>';
+                            i++;
+                        }
+                        str += '</ruby>';
+                        area.innerHTML = str;
+                    }
+                    else {
+                        area.textContent = this.dictionary[this.previous.index].variants[this.previous.alternative][direction[1]];
+                    }
+                }
+                else {
+                    area.textContent = this.dictionary[this.previous.index].variants[this.previous.alternative][direction[1]];
+                }
             }
         },
         first: function() {
             const chapteroptions = getOptions('chapter');
             const additionaloptions = getOptions('additional');
+            const exampleoptions = getOptions('example');
 
             this.dictionary = [{last: 0, variants: [{}], tags: []}, {last: 0, variants: [{}], tags: []}];
             this.now = 0;
-            this.previous.index = -1;
-            this.previous.alternative = -1;
-            this.current.index = 0;
-            this.current.alternative = 0;
+            this.previous.index = undefined;
+            this.previous.alternative = undefined;
+            this.current.index = undefined;
+            this.current.alternative = undefined;
 
             this.refresh();
 
             var responses = [];
+            var datatypes = [];
             Object.keys(chapteroptions).forEach(chapterkey => {
                 if (chapteroptions[chapterkey]) {
                     responses.push(fetch('data/comprehension-chapter-' + chapterkey + '.json').then(response => response.json()));
+                    datatypes.push('array');
                 }
             });
             Object.keys(additionaloptions).forEach(additionalkey => {
                 if (additionaloptions[additionalkey]) {
                     responses.push(fetch('data/comprehension-additional-' + additionalkey + '.json').then(response => response.json()));
+                    datatypes.push('array');
                 }
             });
+            if (Object.values(exampleoptions).some(option => option)) {
+                responses.push(fetch('data/examples.json').then(response => response.json()));
+                datatypes.push('examples');
+                responses.push(fetch('data/kanji.json').then(response => response.json()));
+                datatypes.push('kanji');
+            }
             Promise.all(responses).then(data => {
+                var exampleset = undefined;
+                var kanjiset = undefined;
+
                 this.dictionary = [];
-                data.forEach(array => {
-                    array.forEach(elem => {
-                        const keys = Object.keys(elem).filter(key => key !== 'tags' && key !== 'alternatives');
-                        var original = {};
-                        keys.forEach(key => { original[key] = elem[key]; });
-                        var variants = [original];
-                        if ('alternatives' in elem) {
-                            elem.alternatives.forEach(alternative => {
-                                var variant = {};
-                                keys.forEach(key => { variant[key] = alternative[key]; });
-                                variants.push(variant);
-                            });
-                        }
-                        this.dictionary.push({last: 0, variants: variants, tags: elem.tags});
-                    });
+                data.forEach((array, index) => {
+                    if (datatypes[index] == 'array') {
+                        array.forEach(elem => {
+                            const keys = Object.keys(elem).filter(key => key !== 'tags' && key !== 'alternatives');
+                            var original = {};
+                            keys.forEach(key => { original[key] = elem[key]; });
+                            var variants = [original];
+                            if ('alternatives' in elem) {
+                                elem.alternatives.forEach(alternative => {
+                                    var variant = {};
+                                    keys.forEach(key => { variant[key] = alternative[key]; });
+                                    variants.push(variant);
+                                });
+                            }
+                            this.dictionary.push({last: 0, variants: variants, tags: elem.tags});
+                        });
+                    }
+                    else if (datatypes[index] == 'examples') {
+                        exampleset = array;
+                    }
+                    else if (datatypes[index] == 'kanji') {
+                        kanjiset = array;
+                    }
                 });
+                if (exampleset && kanjiset) {
+                    const validtags = [];
+                    Object.keys(exampleoptions).forEach(examplenumber => {
+                        if (exampleoptions[examplenumber]) {
+                            validtags.push('genki:chapter:' + examplenumber);
+                            validtags.push('compendium:chapter:' + examplenumber);
+                        }
+                    });
+                    const kanji = kanjiset.filter(elem => elem.tags.some(tag => validtags.includes(tag)));
+
+                    const examples = exampleset.filter(elem => kanji.some(k => elem.kanji.includes(k.kanji)));
+                    examples.forEach(example => {
+                        this.dictionary.push({last: 0, variants: [{japanese: example.kanji, english: example.english, furigana: example.furigana}]});
+                    });
+                }
                 if (this.dictionary.length < 2) {
                     if (this.dictionary.length == 0) {
                         this.dictionary = [{last: 0, variants: [{}], tags: []}, {last: 0, variants: [{}], tags: []}];
