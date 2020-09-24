@@ -175,15 +175,33 @@
                                 </label>
                             </div>
                         </div>
+                        <div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="kanji" value="genki:chapter:3" onclick="game.first()">genki chapter 3
+                                    <span class="tooltip">&#x1F6C8
+                                        <span class="content">
+                                            <label>Genki Chapter 3</label>
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="kanji" value="compendium:chapter:3" onclick="game.first()">extra compendium
+                                    <span class="tooltip">&#x1F6C8
+                                        <span class="content">
+                                            <label>Extra material from (secret) compendium</label>
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="gamearea roworder">
-                    <span class="playarea playcharacter characterfont"></span>
-                    <div class="sidearea columnorder">
-                        <span class="sidecharacter characterfont" ></span>
-                        <span class="sidecharacter characterfont"></span>
-                        <span class="sidecharacter"></span>
-                    </div>
+                    <span class="playarea playtext characterfont"></span>
+                    <div class="sidearea columnorder"></div>
                 </div>
                 <button class="next" onclick="game.next()"></button>
                 <p>Till vänster visas namnet på ett tecken. Skriv tecknet på t.ex. ett papper och tryck sedan på knappen ovan (eller tangentbordsknappen med samma namn). Namnet på tecknet du precis skrivit kommer flyttas till höger och dess faktiska karaktär kommer avslöjas. Till vänster kommer namnet på ett nytt tecken visas. Kan du alla tecken?</p>

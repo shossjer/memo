@@ -728,9 +728,11 @@ const games = {
         previous: {index: undefined},
         refresh: function() {
             const playarea = tabcontent.getElementsByClassName('playarea')[0];
-            const hiraganaarea = tabcontent.getElementsByClassName('sidecharacter')[0];
-            const katakanaarea = tabcontent.getElementsByClassName('sidecharacter')[1];
-            const answerarea = tabcontent.getElementsByClassName('sidecharacter')[2];
+            const sidearea = tabcontent.getElementsByClassName('sidearea')[0];
+
+            while (sidearea.firstChild) {
+                sidearea.removeChild(sidearea.lastChild);
+            }
 
             if (this.current.index !== undefined) {
                 playarea.innerHTML = this.dictionary[this.current.index].name;
@@ -740,74 +742,106 @@ const games = {
             }
 
             if (this.previous.index !== undefined && this.dictionary[this.previous.index].hiragana !== undefined) {
-                hiraganaarea.innerHTML = this.dictionary[this.previous.index].hiragana;
-            }
-            else {
-                hiraganaarea.innerHTML = '?';
+                const area = sidearea.appendChild(document.createElement('span'));
+                area.className = 'sidecharacter';
+                addCharacterClass(area);
+                area.textContent = this.dictionary[this.previous.index].hiragana;
             }
 
             if (this.previous.index !== undefined && this.dictionary[this.previous.index].katakana !== undefined) {
-                katakanaarea.innerHTML = this.dictionary[this.previous.index].katakana;
+                const area = sidearea.appendChild(document.createElement('span'));
+                area.className = 'sidecharacter';
+                addCharacterClass(area);
+                area.textContent = this.dictionary[this.previous.index].katakana;
             }
-            else {
-                katakanaarea.innerHTML = '?';
+
+            if (this.previous.index !== undefined && this.dictionary[this.previous.index].kanji !== undefined) {
+                const area = sidearea.appendChild(document.createElement('span'));
+                area.className = 'sidecharacter';
+                addCharacterClass(area);
+                area.textContent = this.dictionary[this.previous.index].kanji;
             }
 
             if (this.previous.index !== undefined && this.dictionary[this.previous.index].name !== undefined) {
-                answerarea.innerHTML = this.dictionary[this.previous.index].name;
-            }
-            else {
-                answerarea.innerHTML = '?';
+                const area = sidearea.appendChild(document.createElement('span'));
+                area.className = 'sidetext';
+                area.textContent = this.dictionary[this.previous.index].name;
             }
         },
         first: function() {
             const hiraganaoptions = getOptions('hiragana');
             const katakanaoptions = getOptions('katakana');
+            const kanjioptions = getOptions('kanji');
 
-            this.dictionary = [];
-            Object.keys(hiragana).forEach(datasetkey => {
-                if (hiraganaoptions[datasetkey]) {
-                    hiragana[datasetkey].forEach(elem => {
-                        var item = this.dictionary.find(item => item.name == elem.name);
-                        if (item === undefined) {
-                            item = {last: 0, name: elem.name};
-                            this.dictionary.push(item);
-                        }
-                        item['hiragana'] = elem.character;
-                    });
-                }
-            });
-            Object.keys(katakana).forEach(datasetkey => {
-                if (katakanaoptions[datasetkey]) {
-                    katakana[datasetkey].forEach(elem => {
-                        var item = this.dictionary.find(item => item.name == elem.name);
-                        if (item === undefined) {
-                            item = {last: 0, name: elem.name};
-                            this.dictionary.push(item);
-                        }
-                        item['katakana'] = elem.character;
-                    });
-                }
-            });
-            if (this.dictionary.length < 2) {
-                if (this.dictionary.length == 0) {
-                    this.dictionary = [{last: 0, name: '?', hiragana: undefined, katakana: undefined}, {last: 0, name: '?', hiragana: undefined, katakana: undefined}];
-                }
-                else {
-                    this.dictionary.push(this.dictionary[0]);
-                }
-            }
-            else {
-                this.dictionary.forEach(elem => { elem.last = -(getRandom(this.dictionary.length) + 1); });
-            }
-
+            this.dictionary = [{last: 0, name: '?', hiragana: undefined, katakana: undefined}, {last: 0, name: '?', hiragana: undefined, katakana: undefined}];
+            this.now = 0;
             this.previous.index = undefined;
-
-            this.now = 1;
-            this.current.index = getRandomWeighted(elem => this.now - elem.last, this.dictionary);
-            this.dictionary[this.current.index].last = this.now;
+            this.current.index = undefined;
 
             this.refresh();
+
+            var responses = [];
+            if (Object.values(kanjioptions).some(option => option)) {
+                responses.push(fetch('data/kanji.json').then(response => response.json()));
+            }
+            Promise.all(responses).then(data => {
+                this.dictionary = [];
+                data.forEach(array => {
+                    array.forEach(elem => {
+                        if (elem.tags.some(tag => kanjioptions[tag])) {
+                            var item = this.dictionary.find(item => item.name == elem.meaning);
+                            if (item === undefined) {
+                                item = {last: 0, name: elem.meaning};
+                                this.dictionary.push(item);
+                            }
+                            item['kanji'] = elem.kanji;
+                        }
+                    });
+                });
+                Object.keys(hiragana).forEach(datasetkey => {
+                    if (hiraganaoptions[datasetkey]) {
+                        hiragana[datasetkey].forEach(elem => {
+                            var item = this.dictionary.find(item => item.name == elem.name);
+                            if (item === undefined) {
+                                item = {last: 0, name: elem.name};
+                                this.dictionary.push(item);
+                            }
+                            item['hiragana'] = elem.character;
+                        });
+                    }
+                });
+                Object.keys(katakana).forEach(datasetkey => {
+                    if (katakanaoptions[datasetkey]) {
+                        katakana[datasetkey].forEach(elem => {
+                            var item = this.dictionary.find(item => item.name == elem.name);
+                            if (item === undefined) {
+                                item = {last: 0, name: elem.name};
+                                this.dictionary.push(item);
+                            }
+                            item['katakana'] = elem.character;
+                        });
+                    }
+                });
+                if (this.dictionary.length < 2) {
+                    if (this.dictionary.length == 0) {
+                        this.dictionary = [{last: 0, name: '?', hiragana: undefined, katakana: undefined}, {last: 0, name: '?', hiragana: undefined, katakana: undefined}];
+                    }
+                    else {
+                        this.dictionary.push(this.dictionary[0]);
+                    }
+                }
+                else {
+                    this.dictionary.forEach(elem => { elem.last = -(getRandom(this.dictionary.length) + 1); });
+                }
+
+                this.previous.index = undefined;
+
+                this.now = 1;
+                this.current.index = getRandomWeighted(elem => this.now - elem.last, this.dictionary);
+                this.dictionary[this.current.index].last = this.now;
+
+                this.refresh();
+            });
         },
         next: function() {
             this.previous.index = this.current.index;
