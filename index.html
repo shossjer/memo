@@ -217,32 +217,63 @@
                             <input type="radio" class="direction" value="english2japanese" name="comprehension-direction" onclick="game.refresh()">Engelska -> Japanska
                         </label>
                     </div>
-                    <div>
-                        <label>Chapter: </label>
-                        <label>
-                            <input type="checkbox" class="chapter" value="0" onclick="game.first()">0
-                        </label>
-                        <label>
-                            <input type="checkbox" class="chapter" value="1" onclick="game.first()">1
-                        </label>
-                        <label>
-                            <input type="checkbox" class="chapter" value="2" onclick="game.first()">2
-                        </label>
-                        <label>
-                            <input type="checkbox" class="chapter" value="3" onclick="game.first()">3
-                        </label>
-                    </div>
-                    <div>
-                        <label>Additional: </label>
-                        <label>
-                            <input type="checkbox" class="additional" value="0" onclick="game.first()">0
-                        </label>
-                        <label>
-                            <input type="checkbox" class="additional" value="1" onclick="game.first()">1
-                        </label>
-                        <label>
-                            <input type="checkbox" class="additional" value="2" onclick="game.first()">2
-                        </label>
+                    <div class="roworder">
+                        <div>
+                            <label>Dataset: </label>
+                        </div>
+                        <div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="chapter" value="0" onclick="game.first()" checked>Ordlista 0
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="additional" value="0" onclick="game.first()">Kapitelord 0
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="chapter" value="1" onclick="game.first()" checked>Ordlista 1
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="additional" value="1" onclick="game.first()">Kapitelord 1
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="chapter" value="2" onclick="game.first()" checked>Ordlista 2
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="additional" value="2" onclick="game.first()">Kapitelord 2
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="chapter" value="3" onclick="game.first()" checked>Ordlista 3
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="additional" value="3" onclick="game.first()" disabled>Kapitelord 3
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="example" value="3" onclick="game.first()" disabled>Läsningar 3
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="gamearea columnorder">
