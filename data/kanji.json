@@ -106,5 +106,125 @@
         "reading": ["こころ", "シン"],
         "meaning": "heart; mind",
         "tags": ["compendium:chapter:3"]
+    },
+    {
+        "kanji": "日",
+        "reading": ["ニ", "ニチ", "ニッ", "び", "ひ", "か"],
+        "meaning": "day; sun",
+        "tags": ["genki:chapter:4"]
+    },
+    {
+        "kanji": "本",
+        "reading": ["ホン", "もと"],
+        "meaning": "book; basis",
+        "tags": ["genki:chapter:4"]
+    },
+    {
+        "kanji": "人",
+        "reading": ["ジン", "ニン", "ひと"],
+        "meaning": "person",
+        "tags": ["genki:chapter:4"]
+    },
+    {
+        "kanji": "月",
+        "reading": ["ゲツ", "ガツ", "つき"],
+        "meaning": "moon; month",
+        "tags": ["genki:chapter:4"]
+    },
+    {
+        "kanji": "火",
+        "reading": ["カ", "ひ", "び"],
+        "meaning": "fire",
+        "tags": ["genki:chapter:4"]
+    },
+    {
+        "kanji": "水",
+        "reading": ["スイ", "みず"],
+        "meaning": "water",
+        "tags": ["genki:chapter:4"]
+    },
+    {
+        "kanji": "木",
+        "reading": ["モク", "き"],
+        "meaning": "tree",
+        "tags": ["genki:chapter:4"]
+    },
+    {
+        "kanji": "金",
+        "reading": ["キン", "かね"],
+        "meaning": "gold; money",
+        "tags": ["genki:chapter:4"]
+    },
+    {
+        "kanji": "土",
+        "reading": ["ド", "ト", "つち"],
+        "meaning": "soil",
+        "tags": ["genki:chapter:4"]
+    },
+    {
+        "kanji": "曜",
+        "reading": ["ヨウ"],
+        "meaning": "weekday",
+        "tags": ["genki:chapter:4"]
+    },
+    {
+        "kanji": "上",
+        "reading": ["ジョウ", "うえ", "のぼ"],
+        "meaning": "up",
+        "tags": ["genki:chapter:4"]
+    },
+    {
+        "kanji": "下",
+        "reading": ["カ", "した", "くだ"],
+        "meaning": "down",
+        "tags": ["genki:chapter:4"]
+    },
+    {
+        "kanji": "中",
+        "reading": ["チュウ", "ジュウ", "なか"],
+        "meaning": "middle",
+        "tags": ["genki:chapter:4"]
+    },
+    {
+        "kanji": "半",
+        "reading": ["ハン"],
+        "meaning": "half",
+        "tags": ["genki:chapter:4"]
+    },
+    {
+        "kanji": "林",
+        "reading": ["はやし", "リン"],
+        "meaning": "wood; grove",
+        "tags": ["compendium:chapter:4"]
+    },
+    {
+        "kanji": "森",
+        "reading": ["もり", "シン"],
+        "meaning": "forest; jungle",
+        "tags": ["compendium:chapter:4"]
+    },
+    {
+        "kanji": "公",
+        "reading": ["コウ"],
+        "meaning": "public; official",
+        "tags": ["compendium:chapter:4"]
+    },
+    {
+        "kanji": "園",
+        "reading": ["エン"],
+        "meaning": "garden",
+        "tags": ["compendium:chapter:4"]
+    },
+    {
+        "kanji": "犬",
+        "reading": ["いぬ", "ケン"],
+        "meaning": "dog",
+        "tags": ["compendium:chapter:4"]
+    },
+    {
+        "kanji": "待",
+        "reading": ["ま", "まち", "タイ"],
+        "meaning": "to wait",
+        "tags": ["compendium:chapter:4"]
     }
 ]
