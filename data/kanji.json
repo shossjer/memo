@@ -1,91 +1,91 @@
 [
     {
         "kanji": "一",
-        "reading": ["いち", "いっ", "ひと"],
+        "reading": ["イチ", "イッ", "ひと"],
         "meaning": "one",
         "tags": ["genki:chapter:3"]
     },
     {
         "kanji": "二",
-        "reading": ["に", "ふた"],
+        "reading": ["ニ", "ふた"],
         "meaning": "two",
         "tags": ["genki:chapter:3"]
     },
     {
         "kanji": "三",
-        "reading": ["さん", "みっ"],
+        "reading": ["サン", "みっ"],
         "meaning": "three",
         "tags": ["genki:chapter:3"]
     },
     {
         "kanji": "四",
-        "reading": ["し", "よん", "よ", "よっ"],
+        "reading": ["シ", "よん", "よ", "よっ"],
         "meaning": "four",
         "tags": ["genki:chapter:3"]
     },
     {
         "kanji": "五",
-        "reading": ["ご", "いつ"],
+        "reading": ["ゴ", "いつ"],
         "meaning": "five",
         "tags": ["genki:chapter:3"]
     },
     {
         "kanji": "六",
-        "reading": ["ろく", "ろっ", "むっ"],
+        "reading": ["ロク", "ロッ", "むっ"],
         "meaning": "six",
         "tags": ["genki:chapter:3"]
     },
     {
         "kanji": "七",
-        "reading": ["しち", "なな"],
+        "reading": ["シチ", "なな"],
         "meaning": "seven",
         "tags": ["genki:chapter:3"]
     },
     {
         "kanji": "八",
-        "reading": ["はち", "はっ", "やっ"],
+        "reading": ["ハチ", "ハッ", "やっ"],
         "meaning": "eight",
         "tags": ["genki:chapter:3"]
     },
     {
         "kanji": "九",
-        "reading": ["きゅう", "く", "ここの"],
+        "reading": ["キュウ", "ク", "ここの"],
         "meaning": "nine",
         "tags": ["genki:chapter:3"]
     },
     {
         "kanji": "十",
-        "reading": ["じゅう", "じゅっ", "じっ", "とお"],
+        "reading": ["ジュウ", "ジュッ", "ジッ", "とお"],
         "meaning": "ten",
         "tags": ["genki:chapter:3"]
     },
     {
         "kanji": "百",
-        "reading": ["ひゃく", "びゃく", "ぴゃく"],
+        "reading": ["ヒャク", "ビャク", "ピャク"],
         "meaning": "hundred",
         "tags": ["genki:chapter:3"]
     },
     {
         "kanji": "千",
-        "reading": ["せん", "ぜん"],
+        "reading": ["セン", "ゼン"],
         "meaning": "thousand",
         "tags": ["genki:chapter:3"]
     },
     {
         "kanji": "万",
-        "reading": ["まん"],
+        "reading": ["マン"],
         "meaning": "ten thousand",
         "tags": ["genki:chapter:3"]
     },
     {
         "kanji": "円",
-        "reading": ["えん", "まる"],
+        "reading": ["エン", "まる"],
         "meaning": "yen; circle",
         "tags": ["genki:chapter:3"]
     },
     {
         "kanji": "時",
-        "reading": ["じ", "とき"],
+        "reading": ["ジ", "とき"],
         "meaning": "time",
         "tags": ["genki:chapter:3"]
     },

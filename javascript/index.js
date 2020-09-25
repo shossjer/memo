@@ -624,6 +624,45 @@ function getValues(className) {
     return values;
 }
 
+function setDefaultTextHTML(element, text) {
+    if (typeof text === 'string') {
+        element.textContent = text;
+    }
+    else {
+        var str = '';
+        text.forEach(char => {
+            if (typeof char === 'string') {
+                str += char;
+            }
+            else {
+                const values = Object.values(char);
+                str += values[0];
+            }
+        });
+        element.textContent = str;
+    }
+}
+
+function setDescriptiveTextHTML(element, text) {
+    if (typeof text === 'string') {
+        element.textContent = text;
+    }
+    else {
+        var str = '<ruby xml:lang="ja">';
+        text.forEach(char => {
+            if (typeof char === 'string') {
+                str += char + '<rt></rt>';
+            }
+            else {
+                const values = Object.values(char);
+                str += values[0] + '<rt>' + values[1] + '</rt>';
+            }
+        });
+        str += '</ruby>';
+        element.innerHTML = str;
+    }
+}
+
 const games = {
     guess: {
         dictionary: undefined,
@@ -869,18 +908,18 @@ const games = {
                 sidearea.removeChild(sidearea.lastChild);
             }
 
-            if (direction[0] == 'japanese') {
-                addCharacterClass(playarea);
-            }
             if (direction[1] == 'japanese') {
                 removeCharacterClass(playarea);
             }
+            if (direction[0] == 'japanese') {
+                addCharacterClass(playarea);
+            }
 
             if (this.current.index !== undefined && direction[0] in this.dictionary[this.current.index].variants[this.current.alternative]) {
-                playarea.innerHTML = this.dictionary[this.current.index].variants[this.current.alternative][direction[0]];
+                setDefaultTextHTML(playarea, this.dictionary[this.current.index].variants[this.current.alternative][direction[0]]);
             }
             else {
-                playarea.innerHTML = '?';
+                playarea.textContent = '?';
             }
 
             if (this.previous.index !== undefined && direction[0] in this.dictionary[this.previous.index].variants[this.previous.alternative]) {
@@ -888,46 +927,16 @@ const games = {
                 area.className = 'sidetext';
                 if (direction[0] == 'japanese') {
                     addCharacterClass(area);
-                    if ('furigana' in this.dictionary[this.previous.index].variants[this.previous.alternative]) {
-                        var str = '<ruby xml:lang="ja">';
-                        var i = 0;
-                        for (var c of this.dictionary[this.previous.index].variants[this.previous.alternative][direction[0]]) {
-                            str += c + '<rt>' + (c == this.dictionary[this.previous.index].variants[this.previous.alternative].furigana[i] ? '' : this.dictionary[this.previous.index].variants[this.previous.alternative].furigana[i]) + '</rt>';
-                            i++;
-                        }
-                        str += '</ruby>';
-                        area.innerHTML = str;
-                    }
-                    else {
-                        area.textContent = this.dictionary[this.previous.index].variants[this.previous.alternative][direction[0]];
-                    }
                 }
-                else {
-                    area.textContent = this.dictionary[this.previous.index].variants[this.previous.alternative][direction[0]];
-                }
+                setDescriptiveTextHTML(area, this.dictionary[this.previous.index].variants[this.previous.alternative][direction[0]]);
             }
             if (this.previous.index !== undefined && direction[1] in this.dictionary[this.previous.index].variants[this.previous.alternative]) {
                 const area = sidearea.appendChild(document.createElement('span'));
                 area.className = 'sidetext';
                 if (direction[1] == 'japanese') {
                     addCharacterClass(area);
-                    if ('furigana' in this.dictionary[this.previous.index].variants[this.previous.alternative]) {
-                        var str = '<ruby xml:lang="ja">';
-                        var i = 0;
-                        for (var c of this.dictionary[this.previous.index].variants[this.previous.alternative][direction[1]]) {
-                            str += c + '<rt>' + (c == this.dictionary[this.previous.index].variants[this.previous.alternative].furigana[i] ? '' : this.dictionary[this.previous.index].variants[this.previous.alternative].furigana[i]) + '</rt>';
-                            i++;
-                        }
-                        str += '</ruby>';
-                        area.innerHTML = str;
-                    }
-                    else {
-                        area.textContent = this.dictionary[this.previous.index].variants[this.previous.alternative][direction[1]];
-                    }
                 }
-                else {
-                    area.textContent = this.dictionary[this.previous.index].variants[this.previous.alternative][direction[1]];
-                }
+                setDescriptiveTextHTML(area, this.dictionary[this.previous.index].variants[this.previous.alternative][direction[1]]);
             }
         },
         first: function() {
@@ -1003,9 +1012,19 @@ const games = {
                     });
                     const kanji = kanjiset.filter(elem => elem.tags.some(tag => validtags.includes(tag)));
 
-                    const examples = exampleset.filter(elem => kanji.some(k => elem.kanji.includes(k.kanji)));
+                    const examples = exampleset.filter(elem => elem.japanese.some(char => {
+                        var str = undefined;
+                        if (typeof char === 'string') {
+                            str = char;
+                        }
+                        else {
+                            const values = Object.values(char);
+                            str = values[0];
+                        }
+                        return kanji.some(k => str.includes(k.kanji));
+                    }));
                     examples.forEach(example => {
-                        this.dictionary.push({last: 0, variants: [{japanese: example.kanji, english: example.english, furigana: example.furigana}]});
+                        this.dictionary.push({last: 0, variants: [example]});
                     });
                 }
                 if (this.dictionary.length < 2) {
