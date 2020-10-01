@@ -1,4 +1,5 @@
 [
+    {"english": "all day", "japanese": [{"kanji": "一", "furigana": "いち"}, {"kanji": "日", "furigana": "にち"}, {"kanji": "中", "furigana": "じゅう"}]},
     {"english": "all year around", "japanese": [{"kanji": "一", "furigana": "いち"}, {"kanji": "年", "furigana": "ねん"}, {"kanji": "中", "furigana": "じゅう"}]},
     {"english": "an amusement park", "japanese": [{"kanji": "遊", "furigana": "ゆう"}, {"kanji": "園", "furigana": "えん"}, {"kanji": "地", "furigana": "ち"}]},
     {"english": "April", "japanese": [{"kanji": "四", "furigana": "し"}, {"kanji": "月", "furigana": "がつ"}]},
@@ -62,7 +63,8 @@
     {"english": "Japanese people", "japanese": [{"kanji": "日", "furigana": "に"}, {"kanji": "本", "furigana": "ほん"}, {"kanji": "人", "furigana": "じん"}]},
     {"english": "July", "japanese": [{"kanji": "七", "furigana": "しち"}, {"kanji": "月", "furigana": "がつ"}]},
     {"english": "June", "japanese": [{"kanji": "六", "furigana": "ろく"}, {"kanji": "月", "furigana": "がつ"}]},
-    {"english": "junior high school", "japanese": [{"kanji": "中", "furigana": "ちゅう"}, {"kanji": "学", "furigana": "がく"}]},
+    {"english": "high school", "japanese": [{"kanji": "中", "furigana": "ちゅう"}, {"kanji": "学", "furigana": "がく"}]},
+    {"english": "high school student", "japanese": [{"kanji": "中", "furigana": "ちゅう"}, {"kanji": "学", "furigana": "がく"}, {"kanji": "生", "furigana": "せい"}]},
     {"english": "land", "japanese": [{"kanji": "土", "furigana": "と"}, {"kanji": "地", "furigana": "ち"}]},
     {"english": "lunch", "japanese": [{"kanji": "昼", "furigana": "ひる"}, "ご", {"kanji": "飯", "furigana": "はん"}]},
     {"english": "magazine", "japanese": [{"kanji": "雑", "furigana": "ざっ"}, {"kanji": "誌", "furigana": "し"}]},

@@ -43,7 +43,7 @@
     {"japanese": "くる", "kanji": "来る", "english": "to come", "tags": []},
     {"japanese": "する", "english": "to do", "tags": []},
     {"japanese": "べんきょうする", "kanji": "勉強する", "english": "to study", "tags": []},
-    {"japanese": "いい", "english": "good", "tags": []},
+    {"japanese": "いい", "english": "(sounds) good", "tags": []},
     {"japanese": "はやい", "kanji": "早い", "english": "early", "tags": []},
     {"japanese": "あまり～", "english": "not much", "tags": []},
     {"japanese": "ぜんぜん～", "kanji": "全然", "english": "not at all", "tags": []},
