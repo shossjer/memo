@@ -226,5 +226,119 @@
         "reading": ["ま", "まち", "タイ"],
         "meaning": "to wait",
         "tags": ["compendium:chapter:4"]
+    },
+    {
+        "kanji": "山",
+        "reading": ["サン", "やま"],
+        "meaning": "mountain",
+        "tags": ["genki:chapter:5"]
+    },
+    {
+        "kanji": "川",
+        "reading": ["かわ", "がわ"],
+        "meaning": "river",
+        "tags": ["genki:chapter:5"]
+    },
+    {
+        "kanji": "元",
+        "reading": ["ゲン", "ガン", "もと"],
+        "meaning": "origin",
+        "tags": ["genki:chapter:5"]
+    },
+    {
+        "kanji": "気",
+        "reading": ["キ"],
+        "meaning": "spirit",
+        "tags": ["genki:chapter:5"]
+    },
+    {
+        "kanji": "天",
+        "reading": ["テン"],
+        "meaning": "heaven",
+        "tags": ["genki:chapter:5"]
+    },
+    {
+        "kanji": "私",
+        "reading": ["シ", "わたし"],
+        "meaning": "I; private",
+        "tags": ["genki:chapter:5"]
+    },
+    {
+        "kanji": "今",
+        "reading": ["コン", "いま"],
+        "meaning": "now",
+        "tags": ["genki:chapter:5"]
+    },
+    {
+        "kanji": "田",
+        "reading": ["た", "だ"],
+        "meaning": "rice field",
+        "tags": ["genki:chapter:5"]
+    },
+    {
+        "kanji": "女",
+        "reading": ["ジョ", "おんな"],
+        "meaning": "woman",
+        "tags": ["genki:chapter:5"]
+    },
+    {
+        "kanji": "男",
+        "reading": ["ダン", "おとこ"],
+        "meaning": "man",
+        "tags": ["genki:chapter:5"]
+    },
+    {
+        "kanji": "見",
+        "reading": ["ケン", "み"],
+        "meaning": "to see",
+        "tags": ["genki:chapter:5"]
+    },
+    {
+        "kanji": "行",
+        "reading": ["コウ", "ギョウ", "い"],
+        "meaning": "to go",
+        "tags": ["genki:chapter:5"]
+    },
+    {
+        "kanji": "食",
+        "reading": ["ショク", "た"],
+        "meaning": "to eat",
+        "tags": ["genki:chapter:5"]
+    },
+    {
+        "kanji": "飲",
+        "reading": ["イン", "の"],
+        "meaning": "to drink",
+        "tags": ["genki:chapter:5"]
+    },
+    {
+        "kanji": "銀",
+        "reading": ["ギン"],
+        "meaning": "silver",
+        "tags": ["compendium:chapter:5"]
+    },
+    {
+        "kanji": "竹",
+        "reading": ["たけ", "チク"],
+        "meaning": "bamboo",
+        "tags": ["compendium:chapter:5"]
+    },
+    {
+        "kanji": "安",
+        "reading": ["やす", "アン"],
+        "meaning": "cheap; ease",
+        "tags": ["compendium:chapter:5"]
+    },
+    {
+        "kanji": "夕",
+        "reading": ["ゆう"],
+        "meaning": "evening",
+        "tags": ["compendium:chapter:5"]
+    },
+    {
+        "kanji": "多",
+        "reading": ["おお", "タ"],
+        "meaning": "many; much",
+        "tags": ["compendium:chapter:5"]
     }
 ]
