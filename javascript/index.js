@@ -671,16 +671,10 @@ const games = {
         previous: {index: undefined},
         refresh: function() {
             const playarea = tabcontent.getElementsByClassName('playarea')[0];
-            const previousarea = tabcontent.getElementsByClassName('sidecharacter')[0];
-            const answerarea = tabcontent.getElementsByClassName('sidecharacter')[1];
+            const sidearea = tabcontent.getElementsByClassName('sidearea')[0];
 
-            if (this.previous.index !== undefined) {
-                previousarea.innerHTML = this.dictionary[this.previous.index].char;
-                answerarea.innerHTML = this.dictionary[this.previous.index].name;
-            }
-            else {
-                previousarea.innerHTML = '?';
-                answerarea.innerHTML = '?';
+            while (sidearea.firstChild) {
+                sidearea.removeChild(sidearea.lastChild);
             }
 
             if (this.current.index !== undefined) {
@@ -688,6 +682,26 @@ const games = {
             }
             else {
                 playarea.innerHTML = '?';
+            }
+
+            if (this.previous.index !== undefined && this.dictionary[this.previous.index].char !== undefined) {
+                const area = sidearea.appendChild(document.createElement('span'));
+                area.className = 'sidecharacter';
+                addCharacterClass(area);
+                area.textContent = this.dictionary[this.previous.index].char;
+            }
+
+            if (this.previous.index !== undefined && this.dictionary[this.previous.index].reading !== undefined) {
+                const area = sidearea.appendChild(document.createElement('span'));
+                area.className = 'sidetext';
+                addCharacterClass(area);
+                area.textContent = this.dictionary[this.previous.index].reading.join(' ');
+            }
+
+            if (this.previous.index !== undefined && this.dictionary[this.previous.index].name !== undefined) {
+                const area = sidearea.appendChild(document.createElement('span'));
+                area.className = 'sidetext';
+                area.textContent = this.dictionary[this.previous.index].name;
             }
         },
         first: function() {
@@ -711,7 +725,7 @@ const games = {
                 data.forEach(array => {
                     array.forEach(elem => {
                         if (elem.tags.some(tag => kanjioptions[tag])) {
-                            this.dictionary.push({last: 0, name: elem.meaning, char: elem.kanji});
+                            this.dictionary.push({last: 0, name: elem.meaning, char: elem.kanji, reading: elem.reading});
                         }
                     });
                 });
