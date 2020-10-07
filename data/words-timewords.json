@@ -1,0 +1,22 @@
+[
+    {"english": "the day before yesterday", "japanese": "おととい", "tags": []},
+    {"english": "yesterday", "japanese": [{"kanji": "昨日", "furigana": "きのう"}], "tags": []},
+    {"english": "today", "japanese": [{"kanji": "今日", "furigana": "きょう"}], "tags": []},
+    {"english": "tomorrow", "japanese": [{"kanji": "明", "furigana": "あ"}, {"kanji": "日", "furigana": "した"}], "tags": []},
+    {"english": "the day after tomorrow", "japanese": "あさって", "tags": []},
+    {"english": "two weeks ago", "japanese": [{"kanji": "二", "furigana": "に"}, {"kanji": "週", "furigana": "しゅう"}, {"kanji": "間", "furigana": "かん"}, {"kanji": "前", "furigana": "まえ"}], "tags": []},
+    {"english": "last week", "japanese": [{"kanji": "先", "furigana": "せん"}, {"kanji": "週", "furigana": "しゅう"}], "tags": []},
+    {"english": "this week", "japanese": [{"kanji": "今", "furigana": "こん"}, {"kanji": "週", "furigana": "しゅう"}], "tags": []},
+    {"english": "next week", "japanese": [{"kanji": "来", "furigana": "らい"}, {"kanji": "週", "furigana": "しゅう"}], "tags": []},
+    {"english": "the week after next", "japanese": [{"kanji": "再", "furigana": "さ"}, {"kanji": "来", "furigana": "らい"}, {"kanji": "週", "furigana": "しゅう"}], "tags": []},
+    {"english": "two months ago", "japanese": [{"kanji": "二ヶ月", "furigana": "にかげつ"}, {"kanji": "前", "furigana": "まえ"}], "tags": []},
+    {"english": "last month", "japanese": [{"kanji": "先", "furigana": "せん"}, {"kanji": "月", "furigana": "げつ"}], "tags": []},
+    {"english": "this month", "japanese": [{"kanji": "今", "furigana": "こん"}, {"kanji": "月", "furigana": "げつ"}], "tags": []},
+    {"english": "next month", "japanese": [{"kanji": "来", "furigana": "らい"}, {"kanji": "月", "furigana": "げつ"}], "tags": []},
+    {"english": "the month after next", "japanese": [{"kanji": "再", "furigana": "さ"}, {"kanji": "来", "furigana": "らい"}, {"kanji": "月", "furigana": "げつ"}], "tags": []},
+    {"english": "the year before last", "japanese": "おととし", "tags": []},
+    {"english": "last year", "japanese": [{"kanji": "去", "furigana": "きょ"}, {"kanji": "年", "furigana": "ねん"}], "tags": []},
+    {"english": "this year", "japanese": [{"kanji": "今年", "furigana": "ことし"}], "tags": []},
+    {"english": "next year", "japanese": [{"kanji": "来", "furigana": "らい"}, {"kanji": "年", "furigana": "ねん"}], "tags": []},
+    {"english": "the year after next", "japanese": [{"kanji": "再", "furigana": "さ"}, {"kanji": "来", "furigana": "らい"}, {"kanji": "年", "furigana": "ねん"}], "tags": []}
+]

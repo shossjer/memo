@@ -961,6 +961,7 @@ const games = {
         first: function() {
             const chapteroptions = getOptions('chapter');
             const additionaloptions = getOptions('additional');
+            const wordsoptions = getOptions('words');
             const exampleoptions = getOptions('example');
 
             this.dictionary = [{last: 0, variants: [{}], tags: []}, {last: 0, variants: [{}], tags: []}];
@@ -983,6 +984,12 @@ const games = {
             Object.keys(additionaloptions).forEach(additionalkey => {
                 if (additionaloptions[additionalkey]) {
                     responses.push(fetch('data/comprehension-additional-' + additionalkey + '.json').then(response => response.json()));
+                    datatypes.push('array');
+                }
+            });
+            Object.keys(wordsoptions).forEach(key => {
+                if (wordsoptions[key]) {
+                    responses.push(fetch('data/words-' + key + '.json').then(response => response.json()));
                     datatypes.push('array');
                 }
             });

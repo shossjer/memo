@@ -1,0 +1,14 @@
+[
+    {"english": "January", "japanese": [{"kanji": "一", "furigana": "いち"}, {"kanji": "月", "furigana": "がつ"}], "tags": []},
+    {"english": "February", "japanese": [{"kanji": "二", "furigana": "に"}, {"kanji": "月", "furigana": "がつ"}], "tags": []},
+    {"english": "March", "japanese": [{"kanji": "三", "furigana": "さん"}, {"kanji": "月", "furigana": "がつ"}], "tags": []},
+    {"english": "April", "japanese": [{"kanji": "四", "furigana": "し"}, {"kanji": "月", "furigana": "がつ"}], "tags": []},
+    {"english": "May", "japanese": [{"kanji": "五", "furigana": "ご"}, {"kanji": "月", "furigana": "がつ"}], "tags": []},
+    {"english": "June", "japanese": [{"kanji": "六", "furigana": "ろく"}, {"kanji": "月", "furigana": "がつ"}], "tags": []},
+    {"english": "July", "japanese": [{"kanji": "七", "furigana": "しち"}, {"kanji": "月", "furigana": "がつ"}], "tags": []},
+    {"english": "August", "japanese": [{"kanji": "八", "furigana": "はち"}, {"kanji": "月", "furigana": "がつ"}], "tags": []},
+    {"english": "September", "japanese": [{"kanji": "九", "furigana": "く"}, {"kanji": "月", "furigana": "がつ"}], "tags": []},
+    {"english": "October", "japanese": [{"kanji": "十", "furigana": "じゅう"}, {"kanji": "月", "furigana": "がつ"}], "tags": []},
+    {"english": "November", "japanese": [{"kanji": "十", "furigana": "じゅう"}, {"kanji": "一", "furigana": "いち"}, {"kanji": "月", "furigana": "がつ"}], "tags": []},
+    {"english": "December", "japanese": [{"kanji": "十", "furigana": "じゅう"}, {"kanji": "二", "furigana": "に"}, {"kanji": "月", "furigana": "がつ"}], "tags": []}
+]
