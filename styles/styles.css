@@ -143,6 +143,10 @@ body {
     font-size: 8vmin;
 }
 
+.fill {
+    flex: 1;
+}
+
 .sidearea {
     flex: 30%;
     background-color: lightgray;
@@ -168,4 +172,16 @@ body {
     text-align: center;
 
     font-size: 4vmin;
+}
+
+.allowsettings {
+    position: relative;
+
+    display: flex;
+}
+
+.privatesettings {
+    position: absolute;
+    top: 0;
+    left: 0;
 }

@@ -624,7 +624,7 @@ function getValues(className) {
     return values;
 }
 
-function setDefaultTextHTML(element, text) {
+function setDefaultTextHTML(element, text, field) {
     if (typeof text === 'string') {
         element.textContent = text;
     }
@@ -633,6 +633,9 @@ function setDefaultTextHTML(element, text) {
         text.forEach(char => {
             if (typeof char === 'string') {
                 str += char;
+            }
+            else if (field !== undefined) {
+                str += char[field];
             }
             else {
                 const values = Object.values(char);
@@ -918,22 +921,24 @@ const games = {
             const directionoption = getOption('direction');
             const direction = directionoption.split('2');
 
+            const formattingoption = getOption('formatting');
+
             while (sidearea.firstChild) {
                 sidearea.removeChild(sidearea.lastChild);
             }
 
             if (direction[1] == 'japanese') {
-                removeCharacterClass(playarea);
+                removeCharacterClass(playarea.firstElementChild);
             }
             if (direction[0] == 'japanese') {
-                addCharacterClass(playarea);
+                addCharacterClass(playarea.firstElementChild);
             }
 
             if (this.current.index !== undefined && direction[0] in this.dictionary[this.current.index].variants[this.current.alternative]) {
-                setDefaultTextHTML(playarea, this.dictionary[this.current.index].variants[this.current.alternative][direction[0]]);
+                setDefaultTextHTML(playarea.firstElementChild, this.dictionary[this.current.index].variants[this.current.alternative][direction[0]], formattingoption);
             }
             else {
-                playarea.textContent = '?';
+                playarea.firstElementChild.textContent = '?';
             }
 
             if (this.previous.index !== undefined && direction[0] in this.dictionary[this.previous.index].variants[this.previous.alternative]) {

@@ -396,7 +396,18 @@
                     </div>
                 </div>
                 <div class="gamearea columnorder">
-                    <span class="playarea playtext center"></span>
+                    <div class="playarea allowsettings">
+                        <span class="playtext fill"></span>
+                        <div class="privatesettings">
+                            <label>Formatting: </label>
+                            <label>
+                                <input type="radio" class="formatting" value="kanji" name="comprehension-playarea-formatting" onclick="game.refresh()" checked>kanji
+                            </label>
+                            <label>
+                                <input type="radio" class="formatting" value="furigana" name="comprehension-playarea-formatting" onclick="game.refresh()">furigana
+                            </label>
+                        </div>
+                    </div>
                     <div class="sidearea roworder"></div>
                 </div>
                 <button class="next" onclick="game.next()"></button>
@@ -526,7 +537,7 @@
                     </div>
                 </div>
                 <div class="gamearea columnorder">
-                    <span class="playarea playtext center"></span>
+                    <span class="playarea playtext"></span>
                     <div class="sidearea roworder">
                         <span class="sidetext"></span>
                         <span class="sidetext"></span>
