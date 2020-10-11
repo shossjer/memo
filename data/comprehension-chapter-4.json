@@ -21,7 +21,7 @@
         {"english": "one hour", "japanese": "いちじかん"}
     ]},
     {"english": "I'm sorry", "japanese": "ごめんなさい", "tags": []},
-    {"english": "(a person) is in ...; stays at ...", "japanese": "いる", "tags": []},
+    {"english": "exists (person); there is a person", "japanese": "いる", "tags": []},
     {"english": "last week", "japanese": "せんしゅう", "tags": []},
     {"english": "many; a lot", "japanese": "たくさん", "tags": []},
     {"english": "Monday", "japanese": "げつようび", "tags": []},
@@ -36,7 +36,7 @@
     {"english": "so; therefore", "japanese": "だから", "tags": []},
     {"english": "supermarket", "japanese": "スーパー", "tags": []},
     {"english": "temple", "japanese": "おてら", "tags": []},
-    {"english": "there is ...", "japanese": "ある", "tags": []},
+    {"english": "exists (thing); there is ...", "japanese": "ある", "tags": []},
     {"english": "Thursday", "japanese": "もくようび", "tags": []},
     {"english": "to buy", "japanese": "かう", "tags": []},
     {"english": "to meet; to see (a person)", "japanese": "あう", "tags": []},
@@ -54,28 +54,12 @@
     {"english": "you", "japanese": "あなた", "tags": []},
     {"english": "right", "japanese": "みぎ", "tags": []},
     {"english": "left", "japanese": "ひだり", "tags": []},
-    {"english": "front", "japanese": "まえ", "tags": [], "alternatives": [
-        {"english": "in front of ...", "japanese": "（～の）まえ"}
-    ]},
-    {"english": "back", "japanese": "うしろ", "tags": [], "alternatives": [
-        {"english": "behind ...", "japanese": "（～の）うしろ"}
-    ]},
-    {"english": "inside", "japanese": "なか", "tags": [], "alternatives": [
-        {"english": "inside the ...", "japanese": "（～の）なか"}
-    ]},
-    {"english": "on", "japanese": "うえ", "tags": [], "alternatives": [
-        {"english": "on the ...", "japanese": "（～の）うえ"}
-    ]},
-    {"english": "under", "japanese": "した", "tags": [], "alternatives": [
-        {"english": "under the ...", "japanese": "（～の）した"}
-    ]},
-    {"english": "near; nearby", "japanese": "ちかく", "tags": [], "alternatives": [
-        {"english": "near the ...", "japanese": "（～の）ちかく"}
-    ]},
-    {"english": "next", "japanese": "となり", "tags": [], "alternatives": [
-        {"english": "next to ...", "japanese": "（～の）となり"}
-    ]},
-    {"english": "between", "japanese": "あいだ", "tags": [], "alternatives": [
-        {"english": "in between ... and ...", "japanese": "（～と～の）あいだ"}
-    ]}
+    {"english": "(in) front (of)", "japanese": "まえ", "tags": []},
+    {"english": "back; behind", "japanese": "うしろ", "tags": []},
+    {"english": "inside (of; the)", "japanese": "なか", "tags": []},
+    {"english": "on (the; top of)", "japanese": "うえ", "tags": []},
+    {"english": "under; below", "japanese": "した", "tags": []},
+    {"english": "near; nearby", "japanese": "ちかく", "tags": []},
+    {"english": "next (to)", "japanese": "となり", "tags": []},
+    {"english": "(in) between", "japanese": "あいだ", "tags": []}
 ]
