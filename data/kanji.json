@@ -340,5 +340,125 @@
         "reading": ["おお", "タ"],
         "meaning": "many; much",
         "tags": ["compendium:chapter:5"]
+    },
+    {
+        "kanji": "東",
+        "reading": ["トウ", "ひがし"],
+        "meaning": "east",
+        "tags": ["genki:chapter:6"]
+    },
+    {
+        "kanji": "西",
+        "reading": ["セイ", "サイ", "にし"],
+        "meaning": "west",
+        "tags": ["genki:chapter:6"]
+    },
+    {
+        "kanji": "南",
+        "reading": ["ナン", "みなみ"],
+        "meaning": "south",
+        "tags": ["genki:chapter:6"]
+    },
+    {
+        "kanji": "北",
+        "reading": ["ホク", "ホッ", "きた"],
+        "meaning": "north",
+        "tags": ["genki:chapter:6"]
+    },
+    {
+        "kanji": "口",
+        "reading": ["コウ", "ぐち", "くち"],
+        "meaning": "mouth",
+        "tags": ["genki:chapter:6"]
+    },
+    {
+        "kanji": "出",
+        "reading": ["シュッ", "シュツ", "で", "だ"],
+        "meaning": "to exit",
+        "tags": ["genki:chapter:6"]
+    },
+    {
+        "kanji": "右",
+        "reading": ["ウ", "ユウ", "みぎ"],
+        "meaning": "right",
+        "tags": ["genki:chapter:6"]
+    },
+    {
+        "kanji": "左",
+        "reading": ["サ", "ひだり"],
+        "meaning": "left",
+        "tags": ["genki:chapter:6"]
+    },
+    {
+        "kanji": "分",
+        "reading": ["フン", "プン", "ブン", "わ"],
+        "meaning": "minute; to divide",
+        "tags": ["genki:chapter:6"]
+    },
+    {
+        "kanji": "先",
+        "reading": ["セン", "さき"],
+        "meaning": "ahead",
+        "tags": ["genki:chapter:6"]
+    },
+    {
+        "kanji": "生",
+        "reading": ["セイ", "ショウ", "う"],
+        "meaning": "birth",
+        "tags": ["genki:chapter:6"]
+    },
+    {
+        "kanji": "大",
+        "reading": ["ダイ", "タイ", "おお"],
+        "meaning": "big",
+        "tags": ["genki:chapter:6"]
+    },
+    {
+        "kanji": "学",
+        "reading": ["ガク", "ガッ", "まな"],
+        "meaning": "learning",
+        "tags": ["genki:chapter:6"]
+    },
+    {
+        "kanji": "外",
+        "reading": ["ガイ", "そと"],
+        "meaning": "outside",
+        "tags": ["genki:chapter:6"]
+    },
+    {
+        "kanji": "国",
+        "reading": ["コク", "ゴク", "コッ", "くに"],
+        "meaning": "country",
+        "tags": ["genki:chapter:6"]
+    },
+    {
+        "kanji": "石",
+        "reading": ["いし", "セキ"],
+        "meaning": "stone",
+        "tags": ["compendium:chapter:6"]
+    },
+    {
+        "kanji": "岩",
+        "reading": ["いわ", "ガン"],
+        "meaning": "rock",
+        "tags": ["compendium:chapter:6"]
+    },
+    {
+        "kanji": "米",
+        "reading": ["こめ", "マイ", "ベイ"],
+        "meaning": "rice; America",
+        "tags": ["compendium:chapter:6"]
+    },
+    {
+        "kanji": "品",
+        "reading": ["ヒン", "しな"],
+        "meaning": "goods; refinement",
+        "tags": ["compendium:chapter:6"]
+    },
+    {
+        "kanji": "工",
+        "reading": ["コウ", "ク"],
+        "meaning": "craft; construction",
+        "tags": ["compendium:chapter:6"]
     }
 ]
