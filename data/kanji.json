@@ -460,5 +460,125 @@
         "reading": ["コウ", "ク"],
         "meaning": "craft; construction",
         "tags": ["compendium:chapter:6"]
+    },
+    {
+        "kanji": "京",
+        "reading": ["キョウ"],
+        "meaning": "capital",
+        "tags": ["genki:chapter:7"]
+    },
+    {
+        "kanji": "子",
+        "reading": ["シ", "こ"],
+        "meaning": "child",
+        "tags": ["genki:chapter:7"]
+    },
+    {
+        "kanji": "小",
+        "reading": ["ショウ", "ちい"],
+        "meaning": "small",
+        "tags": ["genki:chapter:7"]
+    },
+    {
+        "kanji": "会",
+        "reading": ["カイ", "あ"],
+        "meaning": "to meet",
+        "tags": ["genki:chapter:7"]
+    },
+    {
+        "kanji": "社",
+        "reading": ["シャ", "ジャ"],
+        "meaning": "company",
+        "tags": ["genki:chapter:7"]
+    },
+    {
+        "kanji": "父",
+        "reading": ["フ", "ちち", "とう"],
+        "meaning": "father",
+        "tags": ["genki:chapter:7"]
+    },
+    {
+        "kanji": "母",
+        "reading": ["ボ", "はは", "かあ"],
+        "meaning": "mother",
+        "tags": ["genki:chapter:7"]
+    },
+    {
+        "kanji": "高",
+        "reading": ["コウ", "たか"],
+        "meaning": "high",
+        "tags": ["genki:chapter:7"]
+    },
+    {
+        "kanji": "校",
+        "reading": ["コウ"],
+        "meaning": "school",
+        "tags": ["genki:chapter:7"]
+    },
+    {
+        "kanji": "毎",
+        "reading": ["マイ"],
+        "meaning": "every",
+        "tags": ["genki:chapter:7"]
+    },
+    {
+        "kanji": "語",
+        "reading": ["ゴ"],
+        "meaning": "word",
+        "tags": ["genki:chapter:7"]
+    },
+    {
+        "kanji": "文",
+        "reading": ["ブン"],
+        "meaning": "sentence",
+        "tags": ["genki:chapter:7"]
+    },
+    {
+        "kanji": "帰",
+        "reading": ["キ", "かえ"],
+        "meaning": "to return",
+        "tags": ["genki:chapter:7"]
+    },
+    {
+        "kanji": "入",
+        "reading": ["ニュウ", "はい", "い", "いり"],
+        "meaning": "to enter",
+        "tags": ["genki:chapter:7"]
+    },
+    {
+        "kanji": "海",
+        "reading": ["うみ", "カイ"],
+        "meaning": "sea",
+        "tags": ["compendium:chapter:7"]
+    },
+    {
+        "kanji": "字",
+        "reading": ["ジ"],
+        "meaning": "character; letter",
+        "tags": ["compendium:chapter:7"]
+    },
+    {
+        "kanji": "英",
+        "reading": ["エイ"],
+        "meaning": "English; excellent",
+        "tags": ["compendium:chapter:7"]
+    },
+    {
+        "kanji": "都",
+        "reading": ["ト"],
+        "meaning": "capital; big city; Tokyo",
+        "tags": ["compendium:chapter:7"]
+    },
+    {
+        "kanji": "府",
+        "reading": ["フ"],
+        "meaning": "administrative; prefecture",
+        "tags": ["compendium:chapter:7"]
+    },
+    {
+        "kanji": "県",
+        "reading": ["ケン"],
+        "meaning": "prefecture",
+        "tags": ["compendium:chapter:7"]
     }
 ]
