@@ -818,6 +818,13 @@ const games = {
                 area.textContent = this.dictionary[this.previous.index].kanji;
             }
 
+            if (this.previous.index !== undefined && this.dictionary[this.previous.index].reading !== undefined) {
+                const area = sidearea.appendChild(document.createElement('span'));
+                area.className = 'sidetext';
+                addCharacterClass(area);
+                area.textContent = this.dictionary[this.previous.index].reading.join(' ');
+            }
+
             if (this.previous.index !== undefined && this.dictionary[this.previous.index].name !== undefined) {
                 const area = sidearea.appendChild(document.createElement('span'));
                 area.className = 'sidetext';
@@ -851,6 +858,7 @@ const games = {
                                 this.dictionary.push(item);
                             }
                             item['kanji'] = elem.kanji;
+                            item['reading'] = elem.reading;
                         }
                     });
                 });
