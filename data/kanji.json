@@ -580,5 +580,131 @@
         "reading": ["ケン"],
         "meaning": "prefecture",
         "tags": ["compendium:chapter:7"]
+    },
+    {
+        "kanji": "員",
+        "reading": ["イン"],
+        "meaning": "member",
+        "tags": ["genki:chapter:8"]
+    },
+    {
+        "kanji": "新",
+        "reading": ["シン", "あたら"],
+        "meaning": "new",
+        "tags": ["genki:chapter:8"]
+    },
+    {
+        "kanji": "聞",
+        "reading": ["ブン", "き"],
+        "meaning": "to listen",
+        "tags": ["genki:chapter:8"]
+    },
+    {
+        "kanji": "作",
+        "reading": ["サク", "つく"],
+        "meaning": "to make",
+        "tags": ["genki:chapter:8"]
+    },
+    {
+        "kanji": "仕",
+        "reading": ["シ", "つか"],
+        "meaning": "to serve",
+        "tags": ["genki:chapter:8"]
+    },
+    {
+        "kanji": "事",
+        "reading": ["ジ", "ごと", "こと"],
+        "meaning": "thing",
+        "tags": ["genki:chapter:8"]
+    },
+    {
+        "kanji": "電",
+        "reading": ["デン"],
+        "meaning": "electricity",
+        "tags": ["genki:chapter:8"]
+    },
+    {
+        "kanji": "車",
+        "reading": ["シャ", "くるま"],
+        "meaning": "car",
+        "tags": ["genki:chapter:8"]
+    },
+    {
+        "kanji": "休",
+        "reading": ["キュウ", "やす"],
+        "meaning": "to rest",
+        "tags": ["genki:chapter:8"]
+    },
+    {
+        "kanji": "言",
+        "reading": ["ゲン", "い", "こと"],
+        "meaning": "to say",
+        "tags": ["genki:chapter:8"]
+    },
+    {
+        "kanji": "読",
+        "reading": ["ドク", "よ"],
+        "meaning": "to read",
+        "tags": ["genki:chapter:8"]
+    },
+    {
+        "kanji": "思",
+        "reading": ["シ", "おも"],
+        "meaning": "to think",
+        "tags": ["genki:chapter:8"]
+    },
+    {
+        "kanji": "次",
+        "reading": ["ジ", "つぎ"],
+        "meaning": "next",
+        "tags": ["genki:chapter:8"]
+    },
+    {
+        "kanji": "何",
+        "reading": ["なに", "なん"],
+        "meaning": "what",
+        "tags": ["genki:chapter:8"]
+    },
+    {
+        "kanji": "親",
+        "reading": ["おや", "した", "シン"],
+        "meaning": "parent; intimacy",
+        "tags": ["compendium:chapter:8"]
+    },
+    {
+        "kanji": "体",
+        "reading": ["からだ", "タイ"],
+        "meaning": "body",
+        "tags": ["compendium:chapter:8"]
+    },
+    {
+        "kanji": "計",
+        "reading": ["ケイ", "はか"],
+        "meaning": "to measure",
+        "tags": ["compendium:chapter:8"]
+    },
+    {
+        "kanji": "開",
+        "reading": ["あ", "ひら", "カイ"],
+        "meaning": "to open",
+        "tags": ["compendium:chapter:8"]
+    },
+    {
+        "kanji": "門",
+        "reading": ["モン"],
+        "meaning": "gate",
+        "tags": ["compendium:chapter:8"]
+    },
+    {
+        "kanji": "耳",
+        "reading": ["みみ", "ジ"],
+        "meaning": "ear",
+        "tags": ["compendium:chapter:8"]
+    },
+    {
+        "kanji": "閉",
+        "reading": ["しーまる", "しーめる", "とーじる", "ヘイ"],
+        "meaning": "close",
+        "tags": ["compendium:chapter:8"]
     }
 ]
