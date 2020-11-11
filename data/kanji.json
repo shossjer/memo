@@ -706,5 +706,137 @@
         "reading": ["しーまる", "しーめる", "とーじる", "ヘイ"],
         "meaning": "close",
         "tags": ["compendium:chapter:8"]
+    },
+    {
+        "kanji": "午",
+        "reading": ["ゴ"],
+        "meaning": "noon",
+        "tags": ["genki:chapter:9"]
+    },
+    {
+        "kanji": "後",
+        "reading": ["ゴ", "あと", "うし"],
+        "meaning": "after; behind",
+        "tags": ["genki:chapter:9"]
+    },
+    {
+        "kanji": "前",
+        "reading": ["ゼン", "まえ"],
+        "meaning": "before; in front of",
+        "tags": ["genki:chapter:9"]
+    },
+    {
+        "kanji": "名",
+        "reading": ["メイ", "ミョウ", "な"],
+        "meaning": "name",
+        "tags": ["genki:chapter:9"]
+    },
+    {
+        "kanji": "白",
+        "reading": ["ハク", "しろ"],
+        "meaning": "white",
+        "tags": ["genki:chapter:9"]
+    },
+    {
+        "kanji": "雨",
+        "reading": ["ウ", "あめ"],
+        "meaning": "rain",
+        "tags": ["genki:chapter:9"]
+    },
+    {
+        "kanji": "書",
+        "reading": ["ショ", "か"],
+        "meaning": "to write",
+        "tags": ["genki:chapter:9"]
+    },
+    {
+        "kanji": "友",
+        "reading": ["ユウ", "とも"],
+        "meaning": "friend",
+        "tags": ["genki:chapter:9"]
+    },
+    {
+        "kanji": "間",
+        "reading": ["カン", "ゲン", "あいだ"],
+        "meaning": "between",
+        "tags": ["genki:chapter:9"]
+    },
+    {
+        "kanji": "家",
+        "reading": ["カ", "いえ"],
+        "meaning": "house",
+        "tags": ["genki:chapter:9"]
+    },
+    {
+        "kanji": "話",
+        "reading": ["ワ", "はな", "はなし"],
+        "meaning": "to speak",
+        "tags": ["genki:chapter:9"]
+    },
+    {
+        "kanji": "少",
+        "reading": ["ショウ", "すこ", "すく"],
+        "meaning": "little",
+        "tags": ["genki:chapter:9"]
+    },
+    {
+        "kanji": "古",
+        "reading": ["コ", "ふる"],
+        "meaning": "old",
+        "tags": ["genki:chapter:9"]
+    },
+    {
+        "kanji": "知",
+        "reading": ["チ", "し"],
+        "meaning": "to know",
+        "tags": ["genki:chapter:9"]
+    },
+    {
+        "kanji": "来",
+        "reading": ["ライ", "く", "き", "こ"],
+        "meaning": "to come",
+        "tags": ["genki:chapter:9"]
+    },
+    {
+        "kanji": "運",
+        "reading": ["ウン", "はこ"],
+        "meaning": "transport; luck",
+        "tags": ["compendium:chapter:9"]
+    },
+    {
+        "kanji": "動",
+        "reading": ["ドウ", "うご"],
+        "meaning": "to move",
+        "tags": ["compendium:chapter:9"]
+    },
+    {
+        "kanji": "供",
+        "reading": ["ども", "とも", "そな", "キョウ"],
+        "meaning": "companion; offer",
+        "tags": ["compendium:chapter:9"]
+    },
+    {
+        "kanji": "力",
+        "reading": ["ちから", "リョク", "リキ"],
+        "meaning": "power",
+        "tags": ["compendium:chapter:9"]
+    },
+    {
+        "kanji": "重",
+        "reading": ["おも", "かさ", "ジュウ", "チョウ"],
+        "meaning": "heavy; to pile up",
+        "tags": ["compendium:chapter:9"]
+    },
+    {
+        "kanji": "雲",
+        "reading": ["くも"],
+        "meaning": "cloud",
+        "tags": ["compendium:chapter:9"]
+    },
+    {
+        "kanji": "記",
+        "reading": ["キ"],
+        "meaning": "to write down",
+        "tags": ["compendium:chapter:9"]
     }
 ]
