@@ -838,5 +838,131 @@
         "reading": ["キ"],
         "meaning": "to write down",
         "tags": ["compendium:chapter:9"]
+    },
+    {
+        "kanji": "住",
+        "reading": ["ジュウ", "す"],
+        "meaning": "to live",
+        "tags": ["genki:chapter:10"]
+    },
+    {
+        "kanji": "正",
+        "reading": ["ショウ", "セイ", "ただ"],
+        "meaning": "correct; justice; righteous",
+        "tags": ["genki:chapter:10"]
+    },
+    {
+        "kanji": "年",
+        "reading": ["ネン", "とし"],
+        "meaning": "year",
+        "tags": ["genki:chapter:10"]
+    },
+    {
+        "kanji": "売",
+        "reading": ["バイ", "う"],
+        "meaning": "to sell",
+        "tags": ["genki:chapter:10"]
+    },
+    {
+        "kanji": "買",
+        "reading": ["バイ", "か"],
+        "meaning": "to buy",
+        "tags": ["genki:chapter:10"]
+    },
+    {
+        "kanji": "町",
+        "reading": ["チョウ", "まち"],
+        "meaning": "town",
+        "tags": ["genki:chapter:10"]
+    },
+    {
+        "kanji": "長",
+        "reading": ["チョウ", "なが"],
+        "meaning": "long",
+        "tags": ["genki:chapter:10"]
+    },
+    {
+        "kanji": "道",
+        "reading": ["ドウ", "みち"],
+        "meaning": "way",
+        "tags": ["genki:chapter:10"]
+    },
+    {
+        "kanji": "雪",
+        "reading": ["セツ", "ゆき"],
+        "meaning": "snow",
+        "tags": ["genki:chapter:10"]
+    },
+    {
+        "kanji": "立",
+        "reading": ["リツ", "た"],
+        "meaning": "to stand",
+        "tags": ["genki:chapter:10"]
+    },
+    {
+        "kanji": "自",
+        "reading": ["ジ"],
+        "meaning": "self",
+        "tags": ["genki:chapter:10"]
+    },
+    {
+        "kanji": "夜",
+        "reading": ["ヤ", "よる", "よ"],
+        "meaning": "night",
+        "tags": ["genki:chapter:10"]
+    },
+    {
+        "kanji": "朝",
+        "reading": ["チョウ", "あさ"],
+        "meaning": "morning",
+        "tags": ["genki:chapter:10"]
+    },
+    {
+        "kanji": "持",
+        "reading": ["ジ", "も"],
+        "meaning": "to hold",
+        "tags": ["genki:chapter:10"]
+    },
+    {
+        "kanji": "鉄",
+        "reading": ["テツ"],
+        "meaning": "iron",
+        "tags": ["compendium:chapter:10"]
+    },
+    {
+        "kanji": "村",
+        "reading": ["むら", "ソン"],
+        "meaning": "village",
+        "tags": ["compendium:chapter:10"]
+    },
+    {
+        "kanji": "区",
+        "reading": ["ク"],
+        "meaning": "division; section; ward",
+        "tags": ["compendium:chapter:10"]
+    },
+    {
+        "kanji": "用",
+        "reading": ["ヨウ"],
+        "meaning": "task; to use",
+        "tags": ["compendium:chapter:10"]
+    },
+    {
+        "kanji": "方",
+        "reading": ["かた", "がた", "ホウ"],
+        "meaning": "direction; person",
+        "tags": ["compendium:chapter:10"]
+    },
+    {
+        "kanji": "信",
+        "reading": ["シン"],
+        "meaning": "to trust; to believe in",
+        "tags": ["compendium:chapter:10"]
+    },
+    {
+        "kanji": "貝",
+        "reading": ["かい"],
+        "meaning": "shellfish",
+        "tags": ["compendium:chapter:10"]
     }
 ]
