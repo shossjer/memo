@@ -1,6 +1,6 @@
 [
     {"japanese": "ありがとう［ございます］", "english": "thank you [polite]", "tags": ["greeting"]},
-    {"japanese": "いいえ/いえいえ", "english": "no/not at all", "tags": ["greeting"]},
+    {"japanese": "いいえ／いえいえ", "english": "no/not at all", "tags": ["greeting"]},
     {"japanese": "いただきます", "english": "thank you for the meal (before eating)", "tags": ["greeting"]},
     {"japanese": "いってきます", "english": "I will go and come back", "tags": ["greeting"]},
     {"japanese": "いってらっしゃい", "english": "please go and come back", "tags": ["greeting"]},
