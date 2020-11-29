@@ -1090,5 +1090,131 @@
         "reading": ["とおーい", "エン"],
         "meaning": "far; remote",
         "tags": ["compendium:chapter:11"]
+    },
+    {
+        "kanji": "昔",
+        "reading": ["むかし"],
+        "meaning": "ancient times",
+        "tags": ["genki:chapter:12"]
+    },
+    {
+        "kanji": "々",
+        "reading": [],
+        "meaning": "(repetition symbol)",
+        "tags": ["genki:chapter:12"]
+    },
+    {
+        "kanji": "神",
+        "reading": ["ジン", "シン", "コウ", "かみ"],
+        "meaning": "god",
+        "tags": ["genki:chapter:12"]
+    },
+    {
+        "kanji": "早",
+        "reading": ["ソウ", "はや"],
+        "meaning": "early",
+        "tags": ["genki:chapter:12"]
+    },
+    {
+        "kanji": "起",
+        "reading": ["キ", "お"],
+        "meaning": "to get up",
+        "tags": ["genki:chapter:12"]
+    },
+    {
+        "kanji": "牛",
+        "reading": ["ギュウ", "うし"],
+        "meaning": "cow",
+        "tags": ["genki:chapter:12"]
+    },
+    {
+        "kanji": "使",
+        "reading": ["シ", "つか"],
+        "meaning": "to use",
+        "tags": ["genki:chapter:12"]
+    },
+    {
+        "kanji": "働",
+        "reading": ["ドウ", "はたら", "ばたら"],
+        "meaning": "to work",
+        "tags": ["genki:chapter:12"]
+    },
+    {
+        "kanji": "連",
+        "reading": ["レン", "つ"],
+        "meaning": "to link",
+        "tags": ["genki:chapter:12"]
+    },
+    {
+        "kanji": "別",
+        "reading": ["ベツ", "わか"],
+        "meaning": "to separate",
+        "tags": ["genki:chapter:12"]
+    },
+    {
+        "kanji": "度",
+        "reading": ["ド"],
+        "meaning": "time; degrees",
+        "tags": ["genki:chapter:12"]
+    },
+    {
+        "kanji": "赤",
+        "reading": ["セキ", "あか"],
+        "meaning": "red",
+        "tags": ["genki:chapter:12"]
+    },
+    {
+        "kanji": "青",
+        "reading": ["セイ", "あお"],
+        "meaning": "blue",
+        "tags": ["genki:chapter:12"]
+    },
+    {
+        "kanji": "色",
+        "reading": ["シキ", "ショク", "いろ"],
+        "meaning": "color",
+        "tags": ["genki:chapter:12"]
+    },
+    {
+        "kanji": "速",
+        "reading": ["はやーい", "ンク"],
+        "meaning": "speedy",
+        "tags": ["compendium:chapter:12"]
+    },
+    {
+        "kanji": "晴",
+        "reading": ["はーれる", "はーれ", "セイ"],
+        "meaning": "fine; clear up",
+        "tags": ["compendium:chapter:12"]
+    },
+    {
+        "kanji": "島",
+        "reading": ["しま", "トウ"],
+        "meaning": "island",
+        "tags": ["compendium:chapter:12"]
+    },
+    {
+        "kanji": "物",
+        "reading": ["もの", "ブツ"],
+        "meaning": "thing",
+        "tags": ["compendium:chapter:12"]
+    },
+    {
+        "kanji": "鳥",
+        "reading": ["とり", "チョウ"],
+        "meaning": "bird",
+        "tags": ["compendium:chapter:12"]
+    },
+    {
+        "kanji": "借",
+        "reading": ["か", "シャク", "シャッ"],
+        "meaning": "to borrow",
+        "tags": ["compendium:chapter:12"]
+    },
+    {
+        "kanji": "走",
+        "reading": ["はし", "ソウ"],
+        "meaning": "to run",
+        "tags": ["compendium:chapter:12"]
     }
 ]
