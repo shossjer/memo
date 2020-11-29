@@ -513,11 +513,12 @@ function getRandomIndex(array) {
 function getRandomWeighted(weightfn, array) {
     const total = array.reduce((acc, elem, index) => { return acc + weightfn(elem, index); }, 0);
     const value = Math.random() * total;
-    for (var i = 0, acc = 0;; i++) {
+    for (var i = 0, acc = 0; i < array.length; i++) {
         acc += weightfn(array[i], i);
         if (value < acc)
             return i;
     }
+    return 0; // in case total is zero, return the first
 }
 
 function getRandomNumber(from, to, except) {
@@ -919,10 +920,30 @@ const games = {
     },
     comprehension: {
         dictionary: undefined,
+        tagstates: {},
+        currenttags: [],
         now: undefined,
         current: {index: undefined, alternative: undefined},
         previous: {index: undefined, alternative: undefined},
         refresh: function() {
+            const tagselem= tabcontent.getElementsByClassName('tags')[0];
+
+            while (1 < tagselem.childElementCount) {
+                tagselem.removeChild(tagselem.lastChild);
+            }
+
+            for (var i = 0; i < this.currenttags.length; i++) {
+                const div = tagselem.appendChild(document.createElement('div'));
+                const label = div.appendChild(document.createElement('label'));
+                const input = label.appendChild(document.createElement('input'));
+                input.type = 'checkbox';
+                input.className = 'tag';
+                input.value = i;
+                input.onclick = function() { game.first(); };
+                input.checked = this.tagstates[this.currenttags[i]];
+                label.appendChild(document.createTextNode(this.currenttags[i]));
+            }
+
             const playarea = tabcontent.getElementsByClassName('playarea')[0];
             const sidearea = tabcontent.getElementsByClassName('sidearea')[0];
 
@@ -971,8 +992,14 @@ const games = {
             const additionaloptions = getOptions('additional');
             const wordsoptions = getOptions('words');
             const exampleoptions = getOptions('example');
+            const tagoptions = getOptions('tag');
+
+            Object.keys(tagoptions).forEach(tagvalue => {
+                this.tagstates[this.currenttags[tagvalue]] = tagoptions[tagvalue];
+            });
 
             this.dictionary = [{last: 0, variants: [{}], tags: []}, {last: 0, variants: [{}], tags: []}];
+            this.currenttags = [];
             this.now = 0;
             this.previous.index = undefined;
             this.previous.alternative = undefined;
@@ -1012,9 +1039,19 @@ const games = {
                 var kanjiset = undefined;
 
                 this.dictionary = [];
+                this.currenttags = [];
                 data.forEach((array, index) => {
                     if (datatypes[index] == 'array') {
                         array.forEach(elem => {
+                            if ("tags" in elem) {
+                                elem.tags.forEach(tag => { if (!(tag in this.tagstates)) { this.tagstates[tag] = true; } });
+                                this.currenttags = this.currenttags.concat(elem.tags.filter(tag => !this.currenttags.includes(tag)));
+
+                                if (!elem.tags.some(tag => this.tagstates[tag])) {
+                                    return;
+                                }
+                            }
+
                             const keys = Object.keys(elem).filter(key => key !== 'tags' && key !== 'alternatives');
                             var original = {};
                             keys.forEach(key => { original[key] = elem[key]; });

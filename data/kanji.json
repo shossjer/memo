@@ -964,5 +964,131 @@
         "reading": ["かい"],
         "meaning": "shellfish",
         "tags": ["compendium:chapter:10"]
+    },
+    {
+        "kanji": "手",
+        "reading": ["シュ", "て"],
+        "meaning": "hand",
+        "tags": ["genki:chapter:11"]
+    },
+    {
+        "kanji": "紙",
+        "reading": ["シ", "がみ", "かみ"],
+        "meaning": "paper",
+        "tags": ["genki:chapter:11"]
+    },
+    {
+        "kanji": "好",
+        "reading": ["コウ", "す", "この"],
+        "meaning": "favorite; to like",
+        "tags": ["genki:chapter:11"]
+    },
+    {
+        "kanji": "近",
+        "reading": ["キン", "ちか"],
+        "meaning": "near",
+        "tags": ["genki:chapter:11"]
+    },
+    {
+        "kanji": "明",
+        "reading": ["メイ", "あか"],
+        "meaning": "bright",
+        "tags": ["genki:chapter:11"]
+    },
+    {
+        "kanji": "病",
+        "reading": ["ビョウ"],
+        "meaning": "ill; sick",
+        "tags": ["genki:chapter:11"]
+    },
+    {
+        "kanji": "院",
+        "reading": ["イン"],
+        "meaning": "institution",
+        "tags": ["genki:chapter:11"]
+    },
+    {
+        "kanji": "映",
+        "reading": ["エイ", "うつ"],
+        "meaning": "to reflect",
+        "tags": ["genki:chapter:11"]
+    },
+    {
+        "kanji": "画",
+        "reading": ["ガ", "カク"],
+        "meaning": "picture",
+        "tags": ["genki:chapter:11"]
+    },
+    {
+        "kanji": "歌",
+        "reading": ["カ", "うた"],
+        "meaning": "to sing",
+        "tags": ["genki:chapter:11"]
+    },
+    {
+        "kanji": "市",
+        "reading": ["シ", "いち"],
+        "meaning": "city",
+        "tags": ["genki:chapter:11"]
+    },
+    {
+        "kanji": "所",
+        "reading": ["ジョ", "ショ", "ところ", "どころ"],
+        "meaning": "place",
+        "tags": ["genki:chapter:11"]
+    },
+    {
+        "kanji": "勉",
+        "reading": ["ベン", "つと"],
+        "meaning": "to make efforts",
+        "tags": ["genki:chapter:11"]
+    },
+    {
+        "kanji": "強",
+        "reading": ["キョウ", "ゴウ", "つよ"],
+        "meaning": "strong",
+        "tags": ["genki:chapter:11"]
+    },
+    {
+        "kanji": "有",
+        "reading": ["ユウ", "あ"],
+        "meaning": "to exist",
+        "tags": ["genki:chapter:11"]
+    },
+    {
+        "kanji": "旅",
+        "reading": ["リョ", "たび"],
+        "meaning": "travel",
+        "tags": ["genki:chapter:11"]
+    },
+    {
+        "kanji": "糸",
+        "reading": ["いと", "シ"],
+        "meaning": "thread; string",
+        "tags": ["compendium:chapter:11"]
+    },
+    {
+        "kanji": "暗",
+        "reading": ["くらーい", "アン"],
+        "meaning": "dark",
+        "tags": ["compendium:chapter:11"]
+    },
+    {
+        "kanji": "音",
+        "reading": ["オン", "おと", "ね"],
+        "meaning": "sound",
+        "tags": ["compendium:chapter:11"]
+    },
+    {
+        "kanji": "晩",
+        "reading": ["バン"],
+        "meaning": "night",
+        "tags": ["compendium:chapter:11"]
+    },
+    {
+        "kanji": "遠",
+        "reading": ["とおーい", "エン"],
+        "meaning": "far; remote",
+        "tags": ["compendium:chapter:11"]
     }
 ]
