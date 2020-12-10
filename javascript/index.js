@@ -1043,11 +1043,21 @@ const games = {
                 data.forEach((array, index) => {
                     if (datatypes[index] == 'array') {
                         array.forEach(elem => {
-                            if ("tags" in elem) {
+                            if ('tags' in elem) {
                                 elem.tags.forEach(tag => { if (!(tag in this.tagstates)) { this.tagstates[tag] = true; } });
                                 this.currenttags = this.currenttags.concat(elem.tags.filter(tag => !this.currenttags.includes(tag)));
 
                                 if (!elem.tags.some(tag => this.tagstates[tag])) {
+                                    return;
+                                }
+                            }
+                            else {
+                                if (!('untagged' in this.tagstates)) { this.tagstates['untagged'] = true; }
+                                if (!this.currenttags.includes('untagged')) {
+                                    this.currenttags.push('untagged');
+                                }
+
+                                if (!this.tagstates['untagged']) {
                                     return;
                                 }
                             }
