@@ -38,8 +38,8 @@
     {"japanese": "としょかん", "english": "library", "tags": ["noun", "place"]},
     {"japanese": "ゆうびんきょく", "english": "post office", "tags": ["noun", "place"]},
     {"japanese": "えいご", "english": "English (language)", "tags": ["noun", "country"]},
-    {"japanese": "いくら", "english": "how much", "tags": ["misc"]},
-    {"japanese": "～えん", "english": "... yen", "tags": ["misc"], "alternatives": [
+    {"japanese": "いくら", "english": "how much", "tags": []},
+    {"japanese": "～えん", "english": "... yen", "tags": [], "alternatives": [
         {"japanese": "なんえん", "english": "how many yen"},
         {"japanese": "いちえん", "english": "one yen"},
         {"japanese": "にえん", "english": "two yen"},

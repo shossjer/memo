@@ -13,7 +13,7 @@
     {"japanese": "さようなら", "english": "good-bye (farewell)", "tags": ["expression"]},
     {"japanese": "すみません", "english": "excuse me/I am sorry", "tags": ["expression"]},
     {"japanese": "ただいま", "english": "I am home", "tags": ["expression"]},
-    {"japanese": "～です", "english": "... it is", "tags": ["misc"]},
+    {"japanese": "～です", "english": "... it is", "tags": []},
     {"japanese": "はじめまして", "english": "(first time introduction)", "tags": ["expression"]},
     {"japanese": "よろしくおねがいします", "english": "nice to meet you", "tags": ["expression"]}
 ]
