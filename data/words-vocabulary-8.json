@@ -55,6 +55,18 @@
     {"english": "That's too bad", "japanese": [{"kanji": "残", "furigana": "ざん"}, {"kanji": "念", "furigana": "ねん"}, "（ですね）"]},
     {"english": "not ... yet", "japanese": "まだ＋negative"},
     {"english": "about ...; concerning ...", "japanese": "～について"},
-    {"english": "... degrees (temperature)", "japanese": ["～", {"kanji": "度", "furigana": "ど"}]},
+    {"english": "... degrees (temperature)", "japanese": ["～", {"kanji": "度", "furigana": "ど"}], "alternatives": [
+        {"english": "one degree (temperature)", "japanese": [{"kanji": "一", "furigana": "いち"}, {"kanji": "度", "furigana": "ど"}]},
+        {"english": "two degrees (temperature)", "japanese": [{"kanji": "二", "furigana": "に"}, {"kanji": "度", "furigana": "ど"}]},
+        {"english": "three degrees (temperature)", "japanese": [{"kanji": "三", "furigana": "さん"}, {"kanji": "度", "furigana": "ど"}]},
+        {"english": "four degrees (temperature)", "japanese": [{"kanji": "四", "furigana": "よん"}, {"kanji": "度", "furigana": "ど"}]},
+        {"english": "five degrees (temperature)", "japanese": [{"kanji": "五", "furigana": "ご"}, {"kanji": "度", "furigana": "ど"}]},
+        {"english": "six degrees (temperature)", "japanese": [{"kanji": "六", "furigana": "ろく"}, {"kanji": "度", "furigana": "ど"}]},
+        {"english": "seven degrees (temperature)", "japanese": [{"kanji": "七", "furigana": "なな"}, {"kanji": "度", "furigana": "ど"}]},
+        {"english": "eight degrees (temperature)", "japanese": [{"kanji": "八", "furigana": "はち"}, {"kanji": "度", "furigana": "ど"}]},
+        {"english": "nine degrees (temperature)", "japanese": [{"kanji": "九", "furigana": "きゅう"}, {"kanji": "度", "furigana": "ど"}]},
+        {"english": "ten degrees (temperature)", "japanese": [{"kanji": "十", "furigana": "じゅう"}, {"kanji": "度", "furigana": "ど"}]},
+        {"english": "how many degrees (temperature)", "japanese": [{"kanji": "何", "furigana": "なん"}, {"kanji": "度", "furigana": "ど"}]}
+    ]},
     {"english": "how", "japanese": "どう"}
 ]
