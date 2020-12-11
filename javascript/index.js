@@ -702,6 +702,13 @@ const games = {
                 area.textContent = this.dictionary[this.previous.index].reading.join(' ');
             }
 
+            if (this.previous.index !== undefined && this.dictionary[this.previous.index].radical !== undefined) {
+                const area = sidearea.appendChild(document.createElement('span'));
+                area.className = 'sidetext';
+                addCharacterClass(area);
+                area.textContent = this.dictionary[this.previous.index].radical;
+            }
+
             if (this.previous.index !== undefined && this.dictionary[this.previous.index].name !== undefined) {
                 const area = sidearea.appendChild(document.createElement('span'));
                 area.className = 'sidetext';
@@ -729,7 +736,7 @@ const games = {
                 data.forEach(array => {
                     array.forEach(elem => {
                         if (elem.tags.some(tag => kanjioptions[tag])) {
-                            this.dictionary.push({last: 0, name: elem.meaning, char: elem.kanji, reading: elem.reading});
+                            this.dictionary.push({last: 0, name: elem.meaning, char: elem.kanji, reading: elem.reading, radical: elem.radical});
                         }
                     });
                 });
@@ -826,6 +833,13 @@ const games = {
                 area.textContent = this.dictionary[this.previous.index].reading.join(' ');
             }
 
+            if (this.previous.index !== undefined && this.dictionary[this.previous.index].radical !== undefined) {
+                const area = sidearea.appendChild(document.createElement('span'));
+                area.className = 'sidetext';
+                addCharacterClass(area);
+                area.textContent = this.dictionary[this.previous.index].radical;
+            }
+
             if (this.previous.index !== undefined && this.dictionary[this.previous.index].name !== undefined) {
                 const area = sidearea.appendChild(document.createElement('span'));
                 area.className = 'sidetext';
@@ -860,6 +874,7 @@ const games = {
                             }
                             item['kanji'] = elem.kanji;
                             item['reading'] = elem.reading;
+                            item['radical'] = elem.radical;
                         }
                     });
                 });

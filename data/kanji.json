@@ -87,6 +87,7 @@
         "kanji": "時",
         "reading": ["ジ", "とき"],
         "meaning": "time",
+        "radical": "ひへん",
         "tags": ["genki:chapter:3"]
     },
     {
@@ -165,6 +166,7 @@
         "kanji": "曜",
         "reading": ["ヨウ"],
         "meaning": "weekday",
+        "radical": "ひへん",
         "tags": ["genki:chapter:4"]
     },
     {
@@ -195,6 +197,7 @@
         "kanji": "林",
         "reading": ["はやし", "リン"],
         "meaning": "wood; grove",
+        "radical": "きへん",
         "tags": ["compendium:chapter:4"]
     },
     {
@@ -213,6 +216,7 @@
         "kanji": "園",
         "reading": ["エン"],
         "meaning": "garden",
+        "radical": "くにがまえ",
         "tags": ["compendium:chapter:4"]
     },
     {
@@ -225,6 +229,7 @@
         "kanji": "待",
         "reading": ["ま", "まち", "タイ"],
         "meaning": "to wait",
+        "radical": "ぎょうにんべん",
         "tags": ["compendium:chapter:4"]
     },
     {
@@ -261,6 +266,7 @@
         "kanji": "私",
         "reading": ["シ", "わたし"],
         "meaning": "I; private",
+        "radical": "のぎへん",
         "tags": ["genki:chapter:5"]
     },
     {
@@ -297,6 +303,7 @@
         "kanji": "行",
         "reading": ["コウ", "ギョウ", "い"],
         "meaning": "to go",
+        "radical": "ぎょうにんべん",
         "tags": ["genki:chapter:5"]
     },
     {
@@ -315,6 +322,7 @@
         "kanji": "銀",
         "reading": ["ギン"],
         "meaning": "silver",
+        "radical": "かねへん",
         "tags": ["compendium:chapter:5"]
     },
     {
@@ -327,6 +335,7 @@
         "kanji": "安",
         "reading": ["やす", "アン"],
         "meaning": "cheap; ease",
+        "radical": "うかんむり",
         "tags": ["compendium:chapter:5"]
     },
     {
@@ -429,6 +438,7 @@
         "kanji": "国",
         "reading": ["コク", "ゴク", "コッ", "くに"],
         "meaning": "country",
+        "radical": "くにがまえ",
         "tags": ["genki:chapter:6"]
     },
     {
@@ -489,6 +499,7 @@
         "kanji": "社",
         "reading": ["シャ", "ジャ"],
         "meaning": "company",
+        "radical": "しめすへん",
         "tags": ["genki:chapter:7"]
     },
     {
@@ -513,6 +524,7 @@
         "kanji": "校",
         "reading": ["コウ"],
         "meaning": "school",
+        "radical": "きへん",
         "tags": ["genki:chapter:7"]
     },
     {
@@ -525,6 +537,7 @@
         "kanji": "語",
         "reading": ["ゴ"],
         "meaning": "word",
+        "radical": "ごんべん",
         "tags": ["genki:chapter:7"]
     },
     {
@@ -549,6 +562,7 @@
         "kanji": "海",
         "reading": ["うみ", "カイ"],
         "meaning": "sea",
+        "radical": "さんずい",
         "tags": ["compendium:chapter:7"]
     },
     {
@@ -561,6 +575,7 @@
         "kanji": "英",
         "reading": ["エイ"],
         "meaning": "English; excellent",
+        "radical": "くさかんむり",
         "tags": ["compendium:chapter:7"]
     },
     {
@@ -573,6 +588,7 @@
         "kanji": "府",
         "reading": ["フ"],
         "meaning": "administrative; prefecture",
+        "radical": "まだれ",
         "tags": ["compendium:chapter:7"]
     },
     {
@@ -603,12 +619,14 @@
         "kanji": "作",
         "reading": ["サク", "つく"],
         "meaning": "to make",
+        "radical": "にんべん",
         "tags": ["genki:chapter:8"]
     },
     {
         "kanji": "仕",
         "reading": ["シ", "つか"],
         "meaning": "to serve",
+        "radical": "にんべん",
         "tags": ["genki:chapter:8"]
     },
     {
@@ -621,6 +639,7 @@
         "kanji": "電",
         "reading": ["デン"],
         "meaning": "electricity",
+        "radical": "あめかんむり",
         "tags": ["genki:chapter:8"]
     },
     {
@@ -633,6 +652,7 @@
         "kanji": "休",
         "reading": ["キュウ", "やす"],
         "meaning": "to rest",
+        "radical": "にんべん",
         "tags": ["genki:chapter:8"]
     },
     {
@@ -645,12 +665,14 @@
         "kanji": "読",
         "reading": ["ドク", "よ"],
         "meaning": "to read",
+        "radical": "ごんべん",
         "tags": ["genki:chapter:8"]
     },
     {
         "kanji": "思",
         "reading": ["シ", "おも"],
         "meaning": "to think",
+        "radical": "したごころ",
         "tags": ["genki:chapter:8"]
     },
     {
@@ -663,6 +685,7 @@
         "kanji": "何",
         "reading": ["なに", "なん"],
         "meaning": "what",
+        "radical": "にんべん",
         "tags": ["genki:chapter:8"]
     },
     {
@@ -675,24 +698,28 @@
         "kanji": "体",
         "reading": ["からだ", "タイ"],
         "meaning": "body",
+        "radical": "にんべん",
         "tags": ["compendium:chapter:8"]
     },
     {
         "kanji": "計",
         "reading": ["ケイ", "はか"],
         "meaning": "to measure",
+        "radical": "ごんべん",
         "tags": ["compendium:chapter:8"]
     },
     {
         "kanji": "開",
         "reading": ["あ", "ひら", "カイ"],
         "meaning": "to open",
+        "radical": "もんがまえ",
         "tags": ["compendium:chapter:8"]
     },
     {
         "kanji": "門",
         "reading": ["モン"],
         "meaning": "gate",
+        "radical": "もんがまえ",
         "tags": ["compendium:chapter:8"]
     },
     {
@@ -705,6 +732,7 @@
         "kanji": "閉",
         "reading": ["しーまる", "しーめる", "とーじる", "ヘイ"],
         "meaning": "close",
+        "radical": "もんがまえ",
         "tags": ["compendium:chapter:8"]
     },
     {
@@ -717,6 +745,7 @@
         "kanji": "後",
         "reading": ["ゴ", "あと", "うし"],
         "meaning": "after; behind",
+        "radical": "ぎょうにんべん",
         "tags": ["genki:chapter:9"]
     },
     {
@@ -759,18 +788,21 @@
         "kanji": "間",
         "reading": ["カン", "ゲン", "あいだ"],
         "meaning": "between",
+        "radical": "もんがまえ",
         "tags": ["genki:chapter:9"]
     },
     {
         "kanji": "家",
         "reading": ["カ", "いえ"],
         "meaning": "house",
+        "radical": "うかんむり",
         "tags": ["genki:chapter:9"]
     },
     {
         "kanji": "話",
         "reading": ["ワ", "はな", "はなし"],
         "meaning": "to speak",
+        "radical": "ごんべん",
         "tags": ["genki:chapter:9"]
     },
     {
@@ -801,6 +833,7 @@
         "kanji": "運",
         "reading": ["ウン", "はこ"],
         "meaning": "transport; luck",
+        "radical": "しんにょう",
         "tags": ["compendium:chapter:9"]
     },
     {
@@ -813,6 +846,7 @@
         "kanji": "供",
         "reading": ["ども", "とも", "そな", "キョウ"],
         "meaning": "companion; offer",
+        "radical": "にんべん",
         "tags": ["compendium:chapter:9"]
     },
     {
@@ -831,18 +865,21 @@
         "kanji": "雲",
         "reading": ["くも"],
         "meaning": "cloud",
+        "radical": "あめかんむり",
         "tags": ["compendium:chapter:9"]
     },
     {
         "kanji": "記",
         "reading": ["キ"],
         "meaning": "to write down",
+        "radical": "ごんべん",
         "tags": ["compendium:chapter:9"]
     },
     {
         "kanji": "住",
         "reading": ["ジュウ", "す"],
         "meaning": "to live",
+        "radical": "にんべん",
         "tags": ["genki:chapter:10"]
     },
     {
@@ -885,12 +922,14 @@
         "kanji": "道",
         "reading": ["ドウ", "みち"],
         "meaning": "way",
+        "radical": "しんにょう",
         "tags": ["genki:chapter:10"]
     },
     {
         "kanji": "雪",
         "reading": ["セツ", "ゆき"],
         "meaning": "snow",
+        "radical": "あめかんむり",
         "tags": ["genki:chapter:10"]
     },
     {
@@ -921,18 +960,21 @@
         "kanji": "持",
         "reading": ["ジ", "も"],
         "meaning": "to hold",
+        "radical": "てへん",
         "tags": ["genki:chapter:10"]
     },
     {
         "kanji": "鉄",
         "reading": ["テツ"],
         "meaning": "iron",
+        "radical": "かねへん",
         "tags": ["compendium:chapter:10"]
     },
     {
         "kanji": "村",
         "reading": ["むら", "ソン"],
         "meaning": "village",
+        "radical": "きへん",
         "tags": ["compendium:chapter:10"]
     },
     {
@@ -957,6 +999,7 @@
         "kanji": "信",
         "reading": ["シン"],
         "meaning": "to trust; to believe in",
+        "radical": "にんべん",
         "tags": ["compendium:chapter:10"]
     },
     {
@@ -975,6 +1018,7 @@
         "kanji": "紙",
         "reading": ["シ", "がみ", "かみ"],
         "meaning": "paper",
+        "radical": "いとへん",
         "tags": ["genki:chapter:11"]
     },
     {
@@ -987,12 +1031,14 @@
         "kanji": "近",
         "reading": ["キン", "ちか"],
         "meaning": "near",
+        "radical": "しんにょう",
         "tags": ["genki:chapter:11"]
     },
     {
         "kanji": "明",
         "reading": ["メイ", "あか"],
         "meaning": "bright",
+        "radical": "ひへん",
         "tags": ["genki:chapter:11"]
     },
     {
@@ -1011,6 +1057,7 @@
         "kanji": "映",
         "reading": ["エイ", "うつ"],
         "meaning": "to reflect",
+        "radical": "ひへん",
         "tags": ["genki:chapter:11"]
     },
     {
@@ -1071,6 +1118,7 @@
         "kanji": "暗",
         "reading": ["くらーい", "アン"],
         "meaning": "dark",
+        "radical": "ひへん",
         "tags": ["compendium:chapter:11"]
     },
     {
@@ -1083,12 +1131,14 @@
         "kanji": "晩",
         "reading": ["バン"],
         "meaning": "night",
+        "radical": "ひへん",
         "tags": ["compendium:chapter:11"]
     },
     {
         "kanji": "遠",
         "reading": ["とおーい", "エン"],
         "meaning": "far; remote",
+        "radical": "しんにょう",
         "tags": ["compendium:chapter:11"]
     },
     {
@@ -1107,6 +1157,7 @@
         "kanji": "神",
         "reading": ["ジン", "シン", "コウ", "かみ"],
         "meaning": "God",
+        "radical": "しめすへん",
         "tags": ["genki:chapter:12"]
     },
     {
@@ -1131,18 +1182,21 @@
         "kanji": "使",
         "reading": ["シ", "つか"],
         "meaning": "to use",
+        "radical": "にんべん",
         "tags": ["genki:chapter:12"]
     },
     {
         "kanji": "働",
         "reading": ["ドウ", "はたら", "ばたら"],
         "meaning": "to work",
+        "radical": "にんべん",
         "tags": ["genki:chapter:12"]
     },
     {
         "kanji": "連",
         "reading": ["レン", "つ"],
         "meaning": "to link",
+        "radical": "しんにょう",
         "tags": ["genki:chapter:12"]
     },
     {
@@ -1179,12 +1233,14 @@
         "kanji": "速",
         "reading": ["はやーい", "ンク"],
         "meaning": "speedy",
+        "radical": "しんにょう",
         "tags": ["compendium:chapter:12"]
     },
     {
         "kanji": "晴",
         "reading": ["はーれる", "はーれ", "セイ"],
         "meaning": "fine; clear up",
+        "radical": "ひへん",
         "tags": ["compendium:chapter:12"]
     },
     {
@@ -1209,6 +1265,7 @@
         "kanji": "借",
         "reading": ["か", "シャク", "シャッ"],
         "meaning": "to borrow",
+        "radical": "にんべん",
         "tags": ["compendium:chapter:12"]
     },
     {
