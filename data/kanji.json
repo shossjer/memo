@@ -184,7 +184,7 @@
     {
         "kanji": "中",
         "reading": ["チュウ", "ジュウ", "なか"],
-        "meaning": "middle",
+        "meaning": "middle; inside",
         "tags": ["genki:chapter:4"]
     },
     {
@@ -632,7 +632,7 @@
     {
         "kanji": "事",
         "reading": ["ジ", "ごと", "こと"],
-        "meaning": "thing",
+        "meaning": "thing; affair",
         "tags": ["genki:chapter:8"]
     },
     {
@@ -1130,7 +1130,7 @@
     {
         "kanji": "晩",
         "reading": ["バン"],
-        "meaning": "night",
+        "meaning": "evening; night",
         "radical": "ひへん",
         "tags": ["compendium:chapter:11"]
     },
@@ -1252,7 +1252,7 @@
     {
         "kanji": "物",
         "reading": ["もの", "ブツ"],
-        "meaning": "thing",
+        "meaning": "thing; object",
         "tags": ["compendium:chapter:12"]
     },
     {
