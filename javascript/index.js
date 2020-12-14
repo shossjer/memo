@@ -1120,7 +1120,13 @@ const games = {
                         return kanji.some(k => str.includes(k.kanji));
                     }));
                     examples.forEach(example => {
-                        this.dictionary.push({last: 0, variants: [example]});
+                        var variants = [example];
+                        if ('alternatives' in example) {
+                            example.alternatives.forEach(alternative => {
+                                variants.push(alternative);
+                            });
+                        }
+                        this.dictionary.push({last: 0, variants: variants});
                     });
                 }
                 if (this.dictionary.length < 2) {
