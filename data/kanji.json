@@ -1273,5 +1273,119 @@
         "reading": ["はし", "ソウ"],
         "meaning": "to run",
         "tags": ["compendium:chapter:12"]
+    },
+    {
+        "kanji": "料",
+        "reading": ["リョウ"],
+        "meaning": "ingredients; fare",
+        "tags": ["genki:chapter:13"]
+    },
+    {
+        "kanji": "理",
+        "reading": ["リ"],
+        "meaning": "reason",
+        "tags": ["genki:chapter:13"]
+    },
+    {
+        "kanji": "特",
+        "reading": ["トク", "とっ"],
+        "meaning": "special",
+        "tags": ["genki:chapter:13"]
+    },
+    {
+        "kanji": "飯",
+        "reading": ["ハン"],
+        "meaning": "food; cooked rice",
+        "tags": ["genki:chapter:13"]
+    },
+    {
+        "kanji": "肉",
+        "reading": ["ニク"],
+        "meaning": "meat",
+        "tags": ["genki:chapter:13"]
+    },
+    {
+        "kanji": "悪",
+        "reading": ["アク", "わる"],
+        "meaning": "bad; wrong",
+        "tags": ["genki:chapter:13"]
+    },
+    {
+        "kanji": "同",
+        "reading": ["ドウ", "おな"],
+        "meaning": "same",
+        "tags": ["genki:chapter:13"]
+    },
+    {
+        "kanji": "着",
+        "reading": ["チャク", "つ", "き", "ぎ"],
+        "meaning": "to reach; to wear",
+        "tags": ["genki:chapter:13"]
+    },
+    {
+        "kanji": "空",
+        "reading": ["クウ", "そら", "あ", "から"],
+        "meaning": "sky; empty",
+        "tags": ["genki:chapter:13"]
+    },
+    {
+        "kanji": "港",
+        "reading": ["コウ", "みなと"],
+        "meaning": "port; harbor",
+        "tags": ["genki:chapter:13"]
+    },
+    {
+        "kanji": "昼",
+        "reading": ["チュウ", "ひる"],
+        "meaning": "noon; daytime",
+        "tags": ["genki:chapter:13"]
+    },
+    {
+        "kanji": "畑",
+        "reading": ["はたけ", "はた"],
+        "meaning": "cultivated field",
+        "tags": ["compendium:chapter:13"]
+    },
+    {
+        "kanji": "馬",
+        "reading": ["うま", "バ"],
+        "meaning": "horse",
+        "tags": ["compendium:chapter:13"]
+    },
+    {
+        "kanji": "短",
+        "reading": ["みじか", "タン"],
+        "meaning": "short",
+        "tags": ["compendium:chapter:13"]
+    },
+    {
+        "kanji": "低",
+        "reading": ["ひく", "テイ"],
+        "meaning": "low",
+        "tags": ["compendium:chapter:13"]
+    },
+    {
+        "kanji": "泳",
+        "reading": ["およ", "エイ"],
+        "meaning": "swim",
+        "tags": ["compendium:chapter:13"]
+    },
+    {
+        "kanji": "油",
+        "reading": ["あぶら", "ユ"],
+        "meaning": "oil",
+        "tags": ["compendium:chapter:13"]
+    },
+    {
+        "kanji": "酒",
+        "reading": ["さけ", "シュ"],
+        "meaning": "liquor; rice wine",
+        "tags": ["compendium:chapter:13"]
+    },
+    {
+        "kanji": "忙",
+        "reading": ["いそが", "ボウ"],
+        "meaning": "busy",
+        "tags": ["compendium:chapter:13"]
     }
 ]
