@@ -35,6 +35,7 @@
                     <button class="tablinks" onclick="openGame(event, 'write')">Skriva</button>
                     <button class="tablinks" onclick="openGame(event, 'comprehension')">Ordförståelse</button>
                     <button class="tablinks" onclick="openGame(event, 'count')">Räkna</button>
+                    <button class="tablinks" onclick="openGame(event, 'inflection')">Böja</button>
                 </div>
             </div>
             <div id="guess" class="tabcontent">
@@ -479,6 +480,36 @@
                 </div>
                 <button class="next" onclick="game.next()"></button>
                 <p>Högst upp visas (namnet på) ett nummer. Översätt numret och tryck sedan på knappen ovan (eller tangentbordsknappen med samma namn). Numret kommer flyttas ned till vänster och dess korrekta översättning kommer avslöjas nere till höger. Högst upp kommer (namnet på) ett nytt nummer att visas. Kan du alla nummer?</p>
+            </div>
+            <div id="inflection" class="tabcontent">
+                <div class="options">
+                    <div>
+                        <label>Riktning: </label>
+                        <label>
+                            <input type="radio" class="direction" value="japanese2english" name="inflection-direction" onclick="game.refresh()" checked>Japanska -> Engelska
+                        </label>
+                        <label>
+                            <input type="radio" class="direction" value="english2japanese" name="inflection-direction" onclick="game.refresh()">Engelska -> Japanska
+                        </label>
+                    </div>
+                </div>
+                <div class="gamearea columnorder">
+                    <div class="playarea allowsettings">
+                        <span class="playtext fill"></span>
+                        <div class="privatesettings">
+                            <label>Formatting: </label>
+                            <label>
+                                <input type="radio" class="formatting" value="kanji" name="inflection-playarea-formatting" onclick="game.refresh()" checked>kanji
+                            </label>
+                            <label>
+                                <input type="radio" class="formatting" value="furigana" name="inflection-playarea-formatting" onclick="game.refresh()">furigana
+                            </label>
+                        </div>
+                    </div>
+                    <div class="sidearea roworder"></div>
+                </div>
+                <button class="next" onclick="game.next()"></button>
+                <p>Högst upp visas en verbböjning. Översätt uttrycket och tryck sedan på knappen ovan (eller tangentbordsknappen med samma namn). Uttrycket kommer flyttas ned till vänster och dess korrekta översättning kommer avslöjas nere till höger. Högst upp kommer en ny verbböjning att visas. Kan du dina verb?</p>
             </div>
         </div>
     </body>

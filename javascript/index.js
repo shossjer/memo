@@ -1186,6 +1186,165 @@ const games = {
 
             this.refresh();
         }
+    },
+    inflection: {
+        dictionary: undefined,
+        now: undefined,
+        current: {index: undefined, inflection: undefined},
+        previous: {index: undefined, inflection: undefined},
+        refresh: function() {
+            const playarea = tabcontent.getElementsByClassName('playarea')[0];
+            const sidearea = tabcontent.getElementsByClassName('sidearea')[0];
+
+            const directionoption = getOption('direction');
+            const direction = directionoption.split('2');
+
+            const formattingoption = getOption('formatting');
+
+            while (sidearea.firstChild) {
+                sidearea.removeChild(sidearea.lastChild);
+            }
+
+            if (direction[1] == 'japanese') {
+                removeCharacterClass(playarea.firstElementChild);
+            }
+            if (direction[0] == 'japanese') {
+                addCharacterClass(playarea.firstElementChild);
+            }
+
+            if (this.current.index !== undefined && direction[0] in this.dictionary[this.current.index].inflections[this.current.inflection]) {
+                setDefaultTextHTML(playarea.firstElementChild, this.dictionary[this.current.index].inflections[this.current.inflection][direction[0]], formattingoption);
+            }
+            else {
+                playarea.firstElementChild.textContent = '?';
+            }
+
+            if (this.previous.index !== undefined && direction[0] in this.dictionary[this.previous.index].inflections[this.previous.inflection]) {
+                const area = sidearea.appendChild(document.createElement('span'));
+                area.className = 'sidetext';
+                if (direction[0] == 'japanese') {
+                    addCharacterClass(area);
+                }
+                setDescriptiveTextHTML(area, this.dictionary[this.previous.index].inflections[this.previous.inflection][direction[0]]);
+            }
+            if (this.previous.index !== undefined && direction[1] in this.dictionary[this.previous.index].inflections[this.previous.inflection]) {
+                const area = sidearea.appendChild(document.createElement('span'));
+                area.className = 'sidetext';
+                if (direction[1] == 'japanese') {
+                    addCharacterClass(area);
+                }
+                setDescriptiveTextHTML(area, this.dictionary[this.previous.index].inflections[this.previous.inflection][direction[1]]);
+            }
+        },
+        first: function() {
+            this.dictionary = [{last: 0, inflections: [{}], tags: [], bias: 1}, {last: 0, inflections: [{}], tags: [], bias: 1}];
+            this.currenttags = [];
+            this.now = 0;
+            this.previous.index = undefined;
+            this.previous.inflection = undefined;
+            this.current.index = undefined;
+            this.current.inflection = undefined;
+
+            this.refresh();
+
+            var responses = [];
+            responses.push(fetch('data/verbs.json').then(response => response.json()));
+            Promise.all(responses).then(data => {
+                this.dictionary = [];
+                data.forEach((collection, index) => {
+                    collection.verbs.forEach(verb => {
+                        var inflections = [];
+                        if ('format' in verb) {
+                            const verb_format = collection.formats.find(x => x.name == verb.format[0]);
+                            verb_format.inflections.forEach(data => {
+                                var inflection = inflections.find(x => x.tag == data.tag);
+                                if (!inflection)
+                                {
+                                    inflection = {};
+                                    inflections.push(inflection);
+                                }
+                                Object.keys(data).forEach(x => inflection[x] = data[x]);
+                            });
+
+                            inflections.forEach(inflection => {
+                                for (var i = 1; i < verb.format.length; i++) {
+                                    inflection.english = inflection.english.replaceAll('{' + (i - 1) + '}', verb.format[i]);
+                                }
+                            });
+                        }
+                        if ('class' in verb) {
+                            const verb_class = collection.classes.find(x => x.name == verb.class);
+                            verb_class.inflections.forEach(data => {
+                                var inflection = inflections.find(x => x.tag == data.tag);
+                                if (!inflection)
+                                {
+                                    inflection = {};
+                                    inflections.push(inflection);
+                                }
+                                Object.keys(data).forEach(x => inflection[x] = data[x]);
+                            });
+
+                            inflections.forEach(inflection => {
+                                if (typeof verb.japanese === 'string' && typeof inflection.japanese === 'string') {
+                                    inflection.japanese = verb.japanese + inflection.japanese;
+                                }
+                                else if (typeof verb.japanese === 'string') {
+                                    inflection.japanese.unshift(verb.japanese);
+                                }
+                                else if (typeof inflection.japanese === 'string') {
+                                    var arr = [inflection.japanese];
+                                    inflection.japanese = verb.japanese.concat(arr);
+                                }
+                                else {
+                                    inflection.japanese = verb.japanese.concat(inflection.japanese);
+                                }
+                            });
+                        }
+                        if ('inflections' in verb) {
+                            verb.inflections.forEach(data => {
+                                var inflection = inflections.find(x => x.tag == data.tag);
+                                if (!inflection)
+                                {
+                                    inflection = {};
+                                    inflections.push(inflection);
+                                }
+                                Object.keys(data).forEach(x => inflection[x] = data[x]);
+                            });
+                        }
+                        this.dictionary.push({last: 0, english: verb.english, japanese: verb.japanese, inflections: inflections, bias: 1});
+                    });
+                });
+                if (this.dictionary.length < 2) {
+                    if (this.dictionary.length == 0) {
+                        this.dictionary = [{last: 0, inflections: [{}], tags: []}, {last: 0, inflections: [{}], tags: []}];
+                    }
+                    else {
+                        this.dictionary.push(this.dictionary[0]);
+                    }
+                }
+                else {
+                    this.dictionary.forEach(elem => { elem.last = -(getRandom(this.dictionary.length) + 1); });
+                }
+
+                this.now = 1;
+                this.current.index = getRandomWeighted(elem => (this.now - elem.last) * elem.bias, this.dictionary);
+                this.current.inflection = getRandomIndex(this.dictionary[this.current.index].inflections);
+                this.dictionary[this.current.index].last = this.now;
+
+                this.refresh();
+            });
+        },
+        next: function() {
+            this.previous.index = this.current.index;
+            this.previous.inflection = this.current.inflection;
+
+            this.current.index = getRandomWeighted(elem => (this.now - elem.last) * elem.bias, this.dictionary);
+            this.current.inflection = getRandomIndex(this.dictionary[this.current.index].inflections);
+            this.now++;
+            this.dictionary[this.current.index].last = this.now;
+
+            this.refresh();
+        }
     }
 };
 
