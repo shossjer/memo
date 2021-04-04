@@ -492,12 +492,108 @@
                             <input type="radio" class="direction" value="english2japanese" name="inflection-direction" onclick="game.refresh()">Engelska -> Japanska
                         </label>
                     </div>
+                    <div>
+                        <label>Chapter: </label>
+                        <label>
+                            <input type="number" class="chapter-from" value="3" min="3" max="23" onclick="game.first()"> ->
+                            <input type="number" class="chapter-to" value="23" min="3" max="23" onclick="game.first()">
+                        </label>
+                    </div>
+                    <div class="roworder">
+                        <label>Inflections: </label>
+                        <div>
+                            <div><label class="tooltip">
+                                <input type="checkbox" class="inflections" value="non-past casual affirmative" onclick="game.first()" checked>&gt;C+
+                                <span class="content">
+                                    <label>non-past casual affirmative</label>
+                                </span>
+                            </label></div>
+                            <div><label class="tooltip">
+                                <input type="checkbox" class="inflections" value="non-past casual negative" onclick="game.first()" checked>&gt;C-
+                                <span class="content">
+                                    <label>non-past casual negative</label>
+                                </span>
+                            </label></div>
+                        </div>
+                        <div>
+                            <div><label class="tooltip">
+                                <input type="checkbox" class="inflections" value="non-past polite affirmative" onclick="game.first()" checked>&gt;P+
+                                <span class="content">
+                                    <label>non-past polite affirmative</label>
+                                </span>
+                            </label></div>
+                            <div><label class="tooltip">
+                                <input type="checkbox" class="inflections" value="non-past polite negative" onclick="game.first()" checked>&gt;P-
+                                <span class="content">
+                                    <label>non-past polite negative</label>
+                                </span>
+                            </label></div>
+                        </div>
+                        <div>
+                            <div><label class="tooltip">
+                                <input type="checkbox" class="inflections" value="past casual affirmative" onclick="game.first()" checked>&lt;C+
+                                <span class="content">
+                                    <label>past casual affirmative</label>
+                                </span>
+                            </label></div>
+                            <div><label class="tooltip">
+                                <input type="checkbox" class="inflections" value="past casual negative" onclick="game.first()" checked>&lt;C-
+                                <span class="content">
+                                    <label>past casual negative</label>
+                                </span>
+                            </label></div>
+                        </div>
+                        <div>
+                            <div><label class="tooltip">
+                                <input type="checkbox" class="inflections" value="past polite affirmative" onclick="game.first()" checked>&lt;P+
+                                <span class="content">
+                                    <label>past polite affirmative</label>
+                                </span>
+                            </label></div>
+                            <div><label class="tooltip">
+                                <input type="checkbox" class="inflections" value="past polite negative" onclick="game.first()" checked>&lt;P-
+                                <span class="content">
+                                    <label>past polite negative</label>
+                                </span>
+                            </label></div>
+                        </div>
+                        <div>
+                            <div><label class="tooltip">
+                                <input type="checkbox" class="inflections" value="te-form affirmative" onclick="game.first()" checked>T+
+                                <span class="content">
+                                    <label>te-form affirmative</label>
+                                </span>
+                            </label></div>
+                        </div>
+                        <div>
+                            <div><label class="tooltip">
+                                <input type="checkbox" class="inflections" value="potential affirmative" onclick="game.first()" checked>?+
+                                <span class="content">
+                                    <label>potential affirmative</label>
+                                </span>
+                            </label></div>
+                            <div><label class="tooltip">
+                                <input type="checkbox" class="inflections" value="potential negative" onclick="game.first()" checked>?-
+                                <span class="content">
+                                    <label>potential negative</label>
+                                </span>
+                            </label></div>
+                        </div>
+                        <div>
+                            <div><label class="tooltip">
+                                <input type="checkbox" class="inflections" value="volitional affirmative" onclick="game.first()" checked>!+
+                                <span class="content">
+                                    <label>volitional affirmative</label>
+                                </span>
+                            </label></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="gamearea columnorder">
                     <div class="playarea allowsettings">
                         <span class="playtext fill"></span>
                         <div class="privatesettings">
-                            <label>Formatting: </label>
+                            <label>Format: </label>
                             <label>
                                 <input type="radio" class="formatting" value="kanji" name="inflection-playarea-formatting" onclick="game.refresh()" checked>kanji
                             </label>
@@ -506,7 +602,33 @@
                             </label>
                         </div>
                     </div>
-                    <div class="sidearea roworder"></div>
+                    <div class="sidearea allowsettings">
+                        <div class="fill columnorder">
+                            <div class="translationarea fill roworder"></div>
+                            <div class="displayarea fill roworder"></div>
+                        </div>
+                        <div class="privatesettings">
+                            <label>Display: </label>
+                            <label>
+                                <input type="checkbox" class="displaying" value="chapter" onclick="game.refresh()">chapter
+                            </label>
+                            <label>
+                                <input type="checkbox" class="displaying" value="class" onclick="game.refresh()">class
+                            </label>
+                            <label>
+                                <input type="checkbox" class="displaying" value="politeness pair" onclick="game.refresh()">politeness pair
+                            </label>
+                            <label>
+                                <input type="checkbox" class="displaying" value="positivity pair" onclick="game.refresh()">positivity pair
+                            </label>
+                            <label>
+                                <input type="checkbox" class="displaying" value="tense pair" onclick="game.refresh()">tense pair
+                            </label>
+                            <label>
+                                <input type="checkbox" class="displaying" value="transitivity pair" onclick="game.refresh()">transitivity pair
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <button class="next" onclick="game.next()"></button>
                 <p>Högst upp visas en verbböjning. Översätt uttrycket och tryck sedan på knappen ovan (eller tangentbordsknappen med samma namn). Uttrycket kommer flyttas ned till vänster och dess korrekta översättning kommer avslöjas nere till höger. Högst upp kommer en ny verbböjning att visas. Kan du dina verb?</p>

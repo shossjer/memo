@@ -1194,15 +1194,21 @@ const games = {
         previous: {index: undefined, inflection: undefined},
         refresh: function() {
             const playarea = tabcontent.getElementsByClassName('playarea')[0];
-            const sidearea = tabcontent.getElementsByClassName('sidearea')[0];
+            const translationarea = tabcontent.getElementsByClassName('translationarea')[0];
+            const displayarea = tabcontent.getElementsByClassName('displayarea')[0];
 
             const directionoption = getOption('direction');
             const direction = directionoption.split('2');
 
             const formattingoption = getOption('formatting');
+            const displayingoptions = getOptions('displaying');
 
-            while (sidearea.firstChild) {
-                sidearea.removeChild(sidearea.lastChild);
+            while (translationarea.firstChild) {
+                translationarea.removeChild(translationarea.lastChild);
+            }
+
+            while (displayarea.firstChild) {
+                displayarea.removeChild(displayarea.lastChild);
             }
 
             if (direction[1] == 'japanese') {
@@ -1220,7 +1226,7 @@ const games = {
             }
 
             if (this.previous.index !== undefined && direction[0] in this.dictionary[this.previous.index].inflections[this.previous.inflection]) {
-                const area = sidearea.appendChild(document.createElement('span'));
+                const area = translationarea.appendChild(document.createElement('span'));
                 area.className = 'sidetext';
                 if (direction[0] == 'japanese') {
                     addCharacterClass(area);
@@ -1228,17 +1234,87 @@ const games = {
                 setDescriptiveTextHTML(area, this.dictionary[this.previous.index].inflections[this.previous.inflection][direction[0]]);
             }
             if (this.previous.index !== undefined && direction[1] in this.dictionary[this.previous.index].inflections[this.previous.inflection]) {
-                const area = sidearea.appendChild(document.createElement('span'));
+                const area = translationarea.appendChild(document.createElement('span'));
                 area.className = 'sidetext';
                 if (direction[1] == 'japanese') {
                     addCharacterClass(area);
                 }
                 setDescriptiveTextHTML(area, this.dictionary[this.previous.index].inflections[this.previous.inflection][direction[1]]);
             }
+
+            if (displayingoptions['chapter']) {
+                const area = displayarea.appendChild(document.createElement('span'));
+                area.className = 'sidetext';
+                if (this.previous.index !== undefined) {
+                    area.textContent = this.dictionary[this.previous.index].inflections[this.previous.inflection]['chapter'];
+                }
+            }
+            if (displayingoptions['class']) {
+                const area = displayarea.appendChild(document.createElement('span'));
+                area.className = 'sidetext';
+                if (this.previous.index !== undefined) {
+                    area.textContent = this.dictionary[this.previous.index].inflections[this.previous.inflection]['class'];
+                }
+            }
+            if (displayingoptions['politeness pair']) {
+                const area = displayarea.appendChild(document.createElement('span'));
+                area.className = 'sidetext';
+                if (this.previous.index !== undefined) {
+                    const inflection = this.dictionary[this.previous.index].inflections[this.previous.inflection];
+                    const pair_tag = inflection.tag.includes('polite') ? inflection.tag.replace('polite', 'casual') : inflection.tag.includes('casual') ? inflection.tag.replace('casual', 'polite') : '';
+                    const pair = this.dictionary[this.previous.index].inflections.find(x => x.tag == pair_tag);
+                    if (pair !== undefined) {
+                        addCharacterClass(area);
+                        setDescriptiveTextHTML(area, pair['japanese']);
+                    }
+                }
+            }
+            if (displayingoptions['positivity pair']) {
+                const area = displayarea.appendChild(document.createElement('span'));
+                area.className = 'sidetext';
+                if (this.previous.index !== undefined) {
+                    const inflection = this.dictionary[this.previous.index].inflections[this.previous.inflection];
+                    const pair_tag = inflection.tag.includes('affirmative') ? inflection.tag.replace('affirmative', 'negative') : inflection.tag.includes('negative') ? inflection.tag.replace('negative', 'affirmative') : '';
+                    const pair = this.dictionary[this.previous.index].inflections.find(x => x.tag == pair_tag);
+                    if (pair !== undefined) {
+                        addCharacterClass(area);
+                        setDescriptiveTextHTML(area, pair['japanese']);
+                    }
+                }
+            }
+            if (displayingoptions['tense pair']) {
+                const area = displayarea.appendChild(document.createElement('span'));
+                area.className = 'sidetext';
+                if (this.previous.index !== undefined) {
+                    const inflection = this.dictionary[this.previous.index].inflections[this.previous.inflection];
+                    const pair_tag = inflection.tag.includes('past') ? inflection.tag.replace('past', 'non-past') : inflection.tag.includes('non-past') ? inflection.tag.replace('non-past', 'past') : '';
+                    const pair = this.dictionary[this.previous.index].inflections.find(x => x.tag == pair_tag);
+                    if (pair !== undefined) {
+                        addCharacterClass(area);
+                        setDescriptiveTextHTML(area, pair['japanese']);
+                    }
+                }
+            }
+            if (displayingoptions['transitivity pair']) {
+                const area = displayarea.appendChild(document.createElement('span'));
+                area.className = 'sidetext';
+                if (this.previous.index !== undefined) {
+                    const inflection = this.dictionary[this.previous.index].inflections[this.previous.inflection];
+                    const pair_tag = inflection.tag.includes('transitive') ? inflection.tag.replace('transitive', 'intransitive') : inflection.tag.includes('intransitive') ? inflection.tag.replace('intransitive', 'transitive') : '';
+                    const pair = this.dictionary[this.previous.index].inflections.find(x => x.tag == pair_tag);
+                    if (pair !== undefined) {
+                        addCharacterClass(area);
+                        setDescriptiveTextHTML(area, pair['japanese']);
+                    }
+                }
+            }
         },
         first: function() {
-            this.dictionary = [{last: 0, inflections: [{}], tags: [], bias: 1}, {last: 0, inflections: [{}], tags: [], bias: 1}];
-            this.currenttags = [];
+            const chapterfrom = tabcontent.getElementsByClassName('chapter-from')[0].value;
+            const chapterto = tabcontent.getElementsByClassName('chapter-to')[0].value;
+            const inflectionoptions = getOptions('inflections');
+
+            this.dictionary = [{last: 0, inflections: [{}], bias: 1}, {last: 0, inflections: [{}], bias: 1}];
             this.now = 0;
             this.previous.index = undefined;
             this.previous.inflection = undefined;
@@ -1253,14 +1329,20 @@ const games = {
                 this.dictionary = [];
                 data.forEach((collection, index) => {
                     collection.verbs.forEach(verb => {
+                        if (verb.chapter < chapterfrom || chapterto < verb.chapter)
+                            return;
+
                         var inflections = [];
                         if ('format' in verb) {
                             const verb_format = collection.formats.find(x => x.name == verb.format[0]);
                             verb_format.inflections.forEach(data => {
+                                if (!inflectionoptions[data.tag])
+                                    return;
+
                                 var inflection = inflections.find(x => x.tag == data.tag);
                                 if (!inflection)
                                 {
-                                    inflection = {};
+                                    inflection = {chapter: verb.chapter, class: verb.class};
                                     inflections.push(inflection);
                                 }
                                 Object.keys(data).forEach(x => inflection[x] = data[x]);
@@ -1275,10 +1357,13 @@ const games = {
                         if ('class' in verb) {
                             const verb_class = collection.classes.find(x => x.name == verb.class);
                             verb_class.inflections.forEach(data => {
+                                if (!inflectionoptions[data.tag])
+                                    return;
+
                                 var inflection = inflections.find(x => x.tag == data.tag);
                                 if (!inflection)
                                 {
-                                    inflection = {};
+                                    inflection = {chapter: verb.chapter, class: verb.class};
                                     inflections.push(inflection);
                                 }
                                 Object.keys(data).forEach(x => inflection[x] = data[x]);
@@ -1302,10 +1387,13 @@ const games = {
                         }
                         if ('inflections' in verb) {
                             verb.inflections.forEach(data => {
+                                if (!inflectionoptions[data.tag])
+                                    return;
+
                                 var inflection = inflections.find(x => x.tag == data.tag);
                                 if (!inflection)
                                 {
-                                    inflection = {};
+                                    inflection = {chapter: verb.chapter, class: verb.class};
                                     inflections.push(inflection);
                                 }
                                 Object.keys(data).forEach(x => inflection[x] = data[x]);
@@ -1316,7 +1404,7 @@ const games = {
                 });
                 if (this.dictionary.length < 2) {
                     if (this.dictionary.length == 0) {
-                        this.dictionary = [{last: 0, inflections: [{}], tags: []}, {last: 0, inflections: [{}], tags: []}];
+                        this.dictionary = [{last: 0, inflections: [{}]}, {last: 0, inflections: [{}]}];
                     }
                     else {
                         this.dictionary.push(this.dictionary[0]);
