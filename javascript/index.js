@@ -1298,13 +1298,11 @@ const games = {
             if (displayingoptions['transitivity pair']) {
                 const area = displayarea.appendChild(document.createElement('span'));
                 area.className = 'sidetext';
-                if (this.previous.index !== undefined) {
-                    const inflection = this.dictionary[this.previous.index].inflections[this.previous.inflection];
-                    const pair_tag = inflection.tag.includes('transitive') ? inflection.tag.replace('transitive', 'intransitive') : inflection.tag.includes('intransitive') ? inflection.tag.replace('intransitive', 'transitive') : '';
-                    const pair = this.dictionary[this.previous.index].inflections.find(x => x.tag == pair_tag);
+                if (this.previous.index !== undefined && this.dictionary[this.previous.index].transitivity !== undefined) {
+                    const pair = this.dictionary.find(x => x.english == this.dictionary[this.previous.index].transitivity);
                     if (pair !== undefined) {
                         addCharacterClass(area);
-                        setDescriptiveTextHTML(area, pair['japanese']);
+                        setDescriptiveTextHTML(area, pair.inflections[this.previous.inflection]['japanese']);
                     }
                 }
             }
@@ -1312,6 +1310,7 @@ const games = {
         first: function() {
             const chapterfrom = tabcontent.getElementsByClassName('chapter-from')[0].value;
             const chapterto = tabcontent.getElementsByClassName('chapter-to')[0].value;
+            const subsetoption = getOption('subset');
             const inflectionoptions = getOptions('inflections');
 
             this.dictionary = [{last: 0, inflections: [{}], bias: 1}, {last: 0, inflections: [{}], bias: 1}];
@@ -1330,6 +1329,8 @@ const games = {
                 data.forEach((collection, index) => {
                     collection.verbs.forEach(verb => {
                         if (verb.chapter < chapterfrom || chapterto < verb.chapter)
+                            return;
+                        if (!(subsetoption in verb))
                             return;
 
                         var inflections = [];
@@ -1399,7 +1400,7 @@ const games = {
                                 Object.keys(data).forEach(x => inflection[x] = data[x]);
                             });
                         }
-                        this.dictionary.push({last: 0, english: verb.english, japanese: verb.japanese, inflections: inflections, bias: 1});
+                        this.dictionary.push({last: 0, english: verb.english, japanese: verb.japanese, inflections: inflections, transitivity: verb.transitivity, bias: 1});
                     });
                 });
                 if (this.dictionary.length < 2) {
