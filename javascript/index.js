@@ -1375,7 +1375,7 @@ const games = {
                                     inflection.japanese = verb.japanese + inflection.japanese;
                                 }
                                 else if (typeof verb.japanese === 'string') {
-                                    inflection.japanese.unshift(verb.japanese);
+                                    inflection.japanese = inflection.japanese.slice().unshift(verb.japanese);
                                 }
                                 else if (typeof inflection.japanese === 'string') {
                                     var arr = [inflection.japanese];
